@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:padding="30dp">
+
+        <TextView
+            android:id="@+id/From"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="From "
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/startText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/From"
+            android:gravity="center"
+            android:text="Naboo"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/startText"
+            android:gravity="center"
+            android:text=" to "
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/destinationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/to"
+            android:gravity="center"
+            android:text="Tatoine"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+
+
+        <TextView
+            android:id="@+id/toTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/firstTripText"
+            android:layout_below="@+id/startText"
+            android:text=" - "
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/firstTripText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8.00"
+            android:layout_below="@+id/startText"
+            />
+
+        <TextView
+            android:id="@+id/lastTripText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19.30"
+            android:layout_below="@+id/startText"
+            android:layout_toRightOf="@+id/toTime"
+            />
+
+        <TextView
+            android:id="@+id/priceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30 Baht"
+            android:layout_below="@+id/firstTripText"
+            />
+
+        <TextView
+            android:id="@+id/detailButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
