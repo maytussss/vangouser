@@ -9,41 +9,28 @@
     tools:context=".MainActivity">
 
     <FrameLayout
-        android:layout_width="match_parent"
+        android:layout_width="409dp"
         android:layout_height="70dp"
         android:layout_gravity="top"
         android:background="#2E3548">
+
         <TextView
             android:id="@+id/txtlogo"
-            android:text="@string/logotxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
+            android:text="@string/logotxt"
             android:textColor="#FFFF"
-            android:textStyle="bold"
-            android:textSize="24sp" />
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
         <ImageButton
             android:id="@+id/goticket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="20dp"
-            app:srcCompat="@android:drawable/ic_input_add"
-            />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_gravity="bottom"
-        android:background="#2E3548">
-
-        <ImageButton
-            android:id="@+id/goscan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
             app:srcCompat="@android:drawable/ic_input_add" />
     </FrameLayout>
 
@@ -73,4 +60,187 @@
             android:layout_marginEnd="20dp"
             app:srcCompat="@android:drawable/ic_input_add" />
     </FrameLayout>
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="557dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="85dp"
+        android:background="#AFAFAF">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ebebeb"
+                    android:padding="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginStart="20dp"
+                        android:text="From " />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="20dp"
+                        android:text="detail"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ebebeb"
+                android:padding="5dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20dp"
+                    android:text="station 2" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="20dp"
+                    android:text="detail"
+                    />
+                </LinearLayout>
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ebebeb"
+                android:padding="5dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20dp"
+                    android:text="station 3" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="20dp"
+                    android:text="detail"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ebebeb"
+                android:padding="5dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20dp"
+                    android:text="station 4" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="20dp"
+                    android:text="detail"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ebebeb"
+                android:padding="5dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20dp"
+                    android:text="station 5" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="20dp"
+                    android:text="detail"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ebebeb"
+                android:padding="5dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20dp"
+                    android:text="station 6" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="20dp"
+                    android:text="detail"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ebebeb"
+                android:padding="5dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20dp"
+                    android:text="station 7" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="20dp"
+                    android:text="detail"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ebebeb"
+                android:padding="5dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20dp"
+                    android:text="station 8" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="20dp"
+                    android:text="detail"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:background="#2E3548">
+
+        <ImageButton
+            android:id="@+id/goscan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@android:drawable/ic_input_add" />
+    </FrameLayout>
+
 </FrameLayout>
