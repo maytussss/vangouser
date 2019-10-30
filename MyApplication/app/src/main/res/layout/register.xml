@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF">
+
+    <TextView
+        android:id="@+id/vangoreg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="60dp"
+        android:textStyle="normal"
+        android:layout_marginTop="60dp"
+        android:textColor="#484848"
+        android:text="VANGO" />
+
+    <TextView
+        android:id="@+id/waturnemreg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25dp"
+        android:textStyle="normal"
+        android:layout_marginTop="140dp"
+        android:textColor="#484848"
+        android:text="What's Your Name ?" />
+
+    <EditText
+        android:id="@+id/firstnamefillReg"
+        android:layout_width="160.0dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="200dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="200dp"
+        android:hint="Firstname" />
+
+    <EditText
+        android:id="@+id/lastnamefillReg"
+        android:layout_width="160.0dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="210dp"
+        android:layout_marginRight="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="200dp"
+        android:hint="Lastname" />
+
+    <TextView
+        android:id="@+id/urusernemreg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25dp"
+        android:textStyle="normal"
+        android:layout_marginTop="290dp"
+        android:textColor="#484848"
+        android:text="Your Username" />
+
+    <EditText
+        android:id="@+id/fillusernreg"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="345dp"
+        android:layout_marginRight="40dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/fillpasswreg"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="415dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:hint="Password" />
+
+    <EditText
+        android:id="@+id/fillemailreg"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="485dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:hint="E-mail" />
+
+    <Button
+        android:id="@+id/Creatbtnreg"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="555dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginRight="40dp"
+        android:textColor="#ffff"
+        android:backgroundTint="#99E5C7"
+        android:text="Create"
+        android:textSize="18dp"/>
+
+    <Button
+        android:id="@+id/Backbtnreg"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="555dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="40dp"
+        android:text="Back"
+        android:textColor="#99E5C7"
+        android:backgroundTint="#fff"
+        android:textSize="18dp"/>
+</FrameLayout>

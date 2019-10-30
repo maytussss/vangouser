@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF">
+
+    <TextView
+        android:id="@+id/wheredouwannago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:gravity="center_horizontal"
+        android:text="Where do you want to go?"
+        android:textColor="#54C39F"
+        android:textSize="29sp" />
+
+    <TextView
+        android:id="@+id/fivedots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="220dp"
+        android:text="....."
+        android:textColor="#99E5C7"
+        android:textSize="100sp" />
+
+    <EditText
+        android:id="@+id/UsernfillLogin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="40dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/PasswfillLogin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginRight="40dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/Signinbutton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginRight="40dp"
+        android:backgroundTint="#99E5C7"
+        android:text="Sign In"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/CreateAccountbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="680dp"
+        android:layout_marginRight="40dp"
+        android:backgroundTint="#ffff"
+        android:text="Create An Account"
+        android:textColor="#ff54c39f"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/DonthavAc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="655dp"
+        android:gravity="center_horizontal"
+        android:text="Don't have an account ?"
+        android:textColor="#6C6969"
+        android:textSize="20dp" />
+
+
+</FrameLayout>
