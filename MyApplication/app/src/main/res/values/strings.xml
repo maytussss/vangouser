@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="logotxt">Vango</string>
-    <string name="title_activity_scan_home">ScanHome</string>
+    <string name="place">From : @sdfg To : @dsfgsfg </string>
+    <string name="price">Price : @price Baht </string>
+    <string name="username">Maytus</string>
 </resources>

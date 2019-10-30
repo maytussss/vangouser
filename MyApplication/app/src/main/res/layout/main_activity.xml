@@ -40,6 +40,22 @@
         android:layout_marginTop="85dp"
         android:background="#EBEBEB"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Where do you want to go ?"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="50dp"
+            android:textSize="15dp"
+            />
 
         <ImageView
             android:id="@+id/profilepic"
@@ -81,9 +97,20 @@
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:text="From " />
+                        android:text="@string/place"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginStart="40dp"
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        android:text="@string/price" />
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -92,140 +119,6 @@
                         android:text="detail"
                         />
                 </LinearLayout>
-                <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ebebeb"
-                android:padding="5dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginStart="20dp"
-                    android:text="station 2" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="20dp"
-                    android:text="detail"
-                    />
-                </LinearLayout>
-                <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ebebeb"
-                android:padding="5dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginStart="20dp"
-                    android:text="station 3" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="20dp"
-                    android:text="detail"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ebebeb"
-                android:padding="5dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginStart="20dp"
-                    android:text="station 4" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="20dp"
-                    android:text="detail"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ebebeb"
-                android:padding="5dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginStart="20dp"
-                    android:text="station 5" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="20dp"
-                    android:text="detail"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ebebeb"
-                android:padding="5dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginStart="20dp"
-                    android:text="station 6" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="20dp"
-                    android:text="detail"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ebebeb"
-                android:padding="5dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginStart="20dp"
-                    android:text="station 7" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="20dp"
-                    android:text="detail"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ebebeb"
-                android:padding="5dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginStart="20dp"
-                    android:text="station 8" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="20dp"
-                    android:text="detail"
-                    />
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
