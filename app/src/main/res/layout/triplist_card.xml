@@ -6,7 +6,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:padding="30dp">
+        android:background="#FFFF"
+        android:padding="30dp"
+        >
 
         <TextView
             android:id="@+id/From"
@@ -86,7 +88,14 @@
             android:text="30 Baht"
             android:layout_below="@+id/firstTripText"
             />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/currency"
+            android:text="  UNIC"
+            android:layout_toRightOf="@+id/priceText"
+            android:layout_marginTop="43dp"
+            />
         <TextView
             android:id="@+id/detailButton"
             android:layout_width="wrap_content"
