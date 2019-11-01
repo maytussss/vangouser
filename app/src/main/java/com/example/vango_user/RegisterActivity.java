@@ -30,9 +30,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText usernameText, emailText, passwordText, confirmPasswordText;
     Button registerButton;
+    Button backButton;
     private FirebaseAuth firebaseAuth;
     String email, username, password, confirmPassword;
     int coin;
+    private Button button;
 
     FirebaseFirestore database;
 
@@ -49,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
         passwordText = findViewById(R.id.passwordText);
         confirmPasswordText = findViewById(R.id.confirmPasswordText);
         registerButton = findViewById(R.id.registerButton);
-
+        backButton = findViewById(R.id.backButton);
         firebaseAuth = FirebaseAuth.getInstance();
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -115,5 +117,16 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLoginPg();
+            }
+        });
     }
+    public void openLoginPg() {
+        Intent Intent = new Intent(this,LoginActivity.class);
+        startActivity(Intent);
+    }
+
 }
