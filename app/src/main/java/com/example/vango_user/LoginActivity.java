@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class LoginActivity extends AppCompatActivity {
 
     EditText emailText, passwordText;
+    ImageButton test;
     Button loginButton;
     private FirebaseAuth firebaseAuth;
 
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
+
 
         emailText = findViewById(R.id.emailText);
         passwordText = findViewById(R.id.passwordText);
