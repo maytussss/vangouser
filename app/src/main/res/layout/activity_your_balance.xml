@@ -7,5 +7,31 @@
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".YourBalance">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your balance :"
+            android:textStyle="bold"
+            android:textSize="90px"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/paymentmethodView1" />
+    </RelativeLayout>
 
 </LinearLayout>

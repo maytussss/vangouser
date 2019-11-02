@@ -5,13 +5,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
-=======
+//=======
 import android.widget.TextView;
->>>>>>> dddee1a9144ae106420fa45ce5f60bd6855cde1f
+//>>>>>>> dddee1a9144ae106420fa45ce5f60bd6855cde1f
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setUpRecyclerView();
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
         // Scan Button
         findViewById(R.id.goscan).setOnClickListener(
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
 
-=======
+//=======
         usernameDisplay = findViewById(R.id.usernameDisplay);
         getUser();
     }
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
->>>>>>> dddee1a9144ae106420fa45ce5f60bd6855cde1f
+//>>>>>>> dddee1a9144ae106420fa45ce5f60bd6855cde1f
     }
 
     private void setUpRecyclerView(){

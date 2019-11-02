@@ -12,14 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name=".YourBalance"></activity>
+        <activity android:name=".SuccessBillPayment"></activity>
+        <!-- <<<<<<< HEAD -->
+        <activity android:name=".YourBalance" />
         <activity android:name=".BillPayment" />
         <activity android:name=".ScanHome" />
-=======
-        <activity android:name=".Ticket2Activity"></activity>
+        <activity android:name=".Ticket2Activity" />
         <activity android:name=".TicketActivity" />
->>>>>>> dddee1a9144ae106420fa45ce5f60bd6855cde1f
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">
