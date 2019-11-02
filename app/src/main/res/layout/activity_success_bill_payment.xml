@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#E3E2E2"
     android:padding="30dp"
     tools:context=".SuccessBillPayment">
     <RelativeLayout
@@ -165,7 +166,7 @@
                 android:id="@+id/gomainbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Return to Homepage"
+                android:text="Return to Mainpage"
                 android:textStyle="bold" />
         </LinearLayout>
     </RelativeLayout>

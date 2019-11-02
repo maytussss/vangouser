@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-
 //=======
         usernameDisplay = findViewById(R.id.usernameDisplay);
         getUser();
