@@ -1,14 +1,13 @@
 package com.example.vango_user;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class ScanHome extends AppCompatActivity {
+public class YourBalance extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scan_home);
+        setContentView(R.layout.activity_your_balance);
     }
 }

@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.content.Intent;
+import android.widget.Button;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
@@ -25,6 +28,19 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setUpRecyclerView();
+
+        // Scan Button
+        findViewById(R.id.goscan).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MainActivity.this,ScanHome.class);
+                        startActivity(intent);
+                    }
+                }
+        );
+
+
     }
 
     private void setUpRecyclerView(){
