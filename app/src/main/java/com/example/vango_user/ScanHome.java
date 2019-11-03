@@ -30,7 +30,7 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
     public void onScanned(Barcode barcode) {
 
         // playing barcode reader beep sound
-//        barcodeReader.playBeep();
+//       barcodeReader.playBeep();
         barcodeReader = (BarcodeReader) getSupportFragmentManager().findFragmentById(R.id.barcode_scanner);
 
         if (TextUtils.isEmpty(barcode.displayValue)) {
@@ -39,6 +39,10 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
         else
             {
             // ticket details activity by passing barcode
+
+            String code =  barcode.displayValue;
+            getQR(code);
+
             Intent intent = new Intent(ScanHome.this, BillPayment.class);
             intent.putExtra("code", barcode.displayValue);
             startActivity(intent);
@@ -67,5 +71,9 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
     public void onBackPressed() {
         Intent intent = new Intent(ScanHome.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public static String getQR(String code){
+        return code;
     }
 }
