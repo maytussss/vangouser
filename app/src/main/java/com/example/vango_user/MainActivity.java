@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-//=======
+
         usernameDisplay = findViewById(R.id.usernameDisplay);
         getUser();
     }
@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-//>>>>>>> dddee1a9144ae106420fa45ce5f60bd6855cde1f
     }
 
     private void setUpRecyclerView(){
