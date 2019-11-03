@@ -94,7 +94,6 @@ public class BillPayment extends AppCompatActivity {
             public void onClick(View v){
                 updateCoin();
 
-                startActivity(new Intent(getApplicationContext(), SuccessBillPayment.class));
             }
         });
 
@@ -149,9 +148,15 @@ public class BillPayment extends AppCompatActivity {
                                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                                             if (documentSnapshot.exists()) {
                                                 price = documentSnapshot.getDouble("price");
-                                                coin -= price;
-                                                docRef.update("coin", coin);
-
+                                                if (coin >= price)
+                                                {
+                                                    coin -= price;
+                                                    docRef.update("coin", coin);
+                                                    startActivity(new Intent(getApplicationContext(), SuccessBillPayment.class));
+                                                }
+                                                else{
+                                                    startActivity(new Intent(getApplicationContext(), FailBillPayment.class));
+                                                }
                                             }
                                         }
                                     });
