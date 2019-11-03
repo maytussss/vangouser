@@ -27,12 +27,14 @@ public class SuccessBillPayment extends AppCompatActivity {
         setContentView(R.layout.activity_success_bill_payment);
         getSupportActionBar().hide();
 
-        ImageView billIcon =  (ImageView)this.findViewById(R.id.correcticon);
+        ImageView billIcon =  this.findViewById(R.id.correcticon);
         billIcon.setImageResource(R.drawable.check);
 
-        fromTXT = (TextView)this.findViewById(R.id.from_read_text);
-        toTXT = (TextView)this.findViewById(R.id.to_read_text);
-        priceTXT = (TextView)this.findViewById(R.id.price_read_text);
+        fromTXT = this.findViewById(R.id.from_read_text_s);
+        toTXT = this.findViewById(R.id.to_read_text_s);
+        priceTXT = this.findViewById(R.id.price_read_text_s);
+
+        getTripDetail();
 
         // Button
         // Decline Button
@@ -55,13 +57,14 @@ public class SuccessBillPayment extends AppCompatActivity {
                     }
                 }
         );
-        getTripDetail();
+
 
     }
     public void onBackPressed() {
         Intent intent = new Intent(SuccessBillPayment.this, MainActivity.class);
         startActivity(intent);
     }
+
     private void getTripDetail(){
         DocumentReference docRef = database.collection("trip").document(tripDocId);
         docRef.get()

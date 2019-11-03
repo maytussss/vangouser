@@ -57,6 +57,9 @@ public class YourBalance extends AppCompatActivity {
             uid = user.getUid();
             //usernameDisplay.setText(uid);
         }
+        else {
+            uid = "aU6PtXs2QURfUOD3rdy3HKb6l7X2";
+        }
 
         DocumentReference docRef = database.collection("user").document(uid);
         docRef.get()
@@ -64,8 +67,8 @@ public class YourBalance extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists()) {
-                            String coin = documentSnapshot.getString("coin");
-                            balance_amount.setText(coin);
+                            Double coin = documentSnapshot.getDouble("coin");
+                            balance_amount.setText(String.valueOf(coin));
                         }
                     }
                 });

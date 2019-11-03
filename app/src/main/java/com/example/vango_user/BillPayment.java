@@ -3,12 +3,15 @@ package com.example.vango_user;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -20,6 +23,10 @@ public class BillPayment extends AppCompatActivity {
     TextView fromTXT;
     TextView toTXT ;
     TextView priceTXT;
+    Button acceptbtn;
+    String uid;
+    Double coin;
+    Double price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +34,21 @@ public class BillPayment extends AppCompatActivity {
         setContentView(R.layout.activity_bill_payment);
         getSupportActionBar().hide();
 
-        ImageView billIcon =  (ImageView)this.findViewById(R.id.billicon);
+        ImageView billIcon =  this.findViewById(R.id.billicon);
         billIcon.setImageResource(R.drawable.bill);
 
-        fromTXT = (TextView)this.findViewById(R.id.from_read_text);
-        toTXT = (TextView)this.findViewById(R.id.to_read_text);
-        priceTXT = (TextView)this.findViewById(R.id.price_read_text);
+        fromTXT = this.findViewById(R.id.from_read_text);
+        toTXT = this.findViewById(R.id.to_read_text);
+        priceTXT = this.findViewById(R.id.price_read_text);
+        acceptbtn = findViewById(R.id.acceptbtn);
+
+        getTripDetail();
 
 
-        final String __currentStringCode = getIntent().getStringExtra("code");
+        //-------------COMMENT OUT BECAUSE CODE ERROR------------------------
+
+
+        /*final String __currentStringCode = getIntent().getStringExtra("code");
         final String[] __separatedCurrentStringCode = __currentStringCode.split(",");
         // try-catch text read QR-Code v1 2019/11/03
         try {
@@ -66,6 +79,7 @@ public class BillPayment extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
                         Intent intent = new Intent(BillPayment.this, YourBalance.class);
                         intent.putExtra("code_from",__separatedCurrentStringCode[0]);
                         intent.putExtra("code_to",__separatedCurrentStringCode[1]);
@@ -73,10 +87,20 @@ public class BillPayment extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }
-        );
+        );*/
 
-        getTripDetail();
+        acceptbtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                updateCoin();
+
+                startActivity(new Intent(getApplicationContext(), SuccessBillPayment.class));
+            }
+        });
+
+
     }
+
     public void onBackPressed() {
         Intent intent = new Intent(BillPayment.this, MainActivity.class);
         startActivity(intent);
@@ -95,7 +119,42 @@ public class BillPayment extends AppCompatActivity {
                             fromTXT.setText(start);
                             String destination = documentSnapshot.getString("destination");
                             toTXT.setText(destination);
+                        }
+                    }
+                });
+    }
 
+    public void updateCoin(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            uid = user.getUid();
+            //usernameDisplay.setText(uid);
+        }
+        else {
+            uid = "aU6PtXs2QURfUOD3rdy3HKb6l7X2";
+        }
+
+        final DocumentReference docRef = database.collection("user").document(uid);
+        docRef.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+
+                            coin = documentSnapshot.getDouble("coin");
+                            DocumentReference tripDocRef = database.collection("trip").document(tripDocId);
+                            tripDocRef.get()
+                                    .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                            if (documentSnapshot.exists()) {
+                                                price = documentSnapshot.getDouble("price");
+                                                coin -= price;
+                                                docRef.update("coin", coin);
+
+                                            }
+                                        }
+                                    });
                         }
                     }
                 });
