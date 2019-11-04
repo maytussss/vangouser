@@ -6,8 +6,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#E3E2E2"
-    android:padding="30dp"
     tools:context=".SuccessBillPayment">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="top"
+        android:background="#2E3548"
+        android:padding="5dp">
+        <TextView
+            android:id="@+id/txtlogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="PAYMENT"
+            android:textColor="#FFFF"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -23,6 +39,7 @@
                 android:layout_height ="wrap_content"
                 android:contentDescription="Correct"
                 android:id="@+id/correcticon"
+                android:src="@drawable/check"
                 />
         </LinearLayout>
     </RelativeLayout>
@@ -146,29 +163,28 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_centerInParent="true"
             >
             <Button
-                android:text="Ticket"
+                android:text="See Ticket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/goticketbtn"
                 android:textStyle="bold"
                 />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            >
-
-            <Button
-                android:id="@+id/gomainbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Return to Mainpage"
-                android:textStyle="bold" />
-        </LinearLayout>
     </RelativeLayout>
-
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="90dp"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#2E3548">
+        </FrameLayout>
+    </RelativeLayout>
 </LinearLayout>
