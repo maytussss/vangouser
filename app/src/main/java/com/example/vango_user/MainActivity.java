@@ -10,7 +10,11 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 //=======
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.content.Intent;
 //>>>>>>> dddee1a9144ae106420fa45ce5f60bd6855cde1f
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -23,6 +27,16 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import java.util.ArrayList;
+
+//logout expand
+import com.journaldev.expandablelistview.CustomExpandableListAdapter;
+import com.journaldev.expandablelistview.ExpandableListDataPump;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
@@ -32,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
     TextView usernameDisplay;
     String uid;
     final String KEY_USERNAME = "name";
+
+    ExpandableListView expandableListView;
+    ExpandableListAdapter expandableListAdapter;
+    List<String> expandableListTitle;
+    HashMap<String, List<String>> expandableListDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +75,68 @@ public class MainActivity extends AppCompatActivity {
 
         usernameDisplay = findViewById(R.id.usernameDisplay);
         getUser();
+//<<<<<<<<<<<<<logout expand
+        expandableListView = (ExpandableListView)findViewById(R.id.expandableListView);
+        expandableListDetail = ExpandableListDataPump.getData();
+        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+        expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
+        expandableListView.setAdapter(expandableListAdapter);
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                Toast.makeText(getApplicationContext(),
+                        expandableListTitle.get(groupPosition) + " List Expanded.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                Toast.makeText(getApplicationContext(),
+                        expandableListTitle.get(groupPosition) + " List Collapsed.",
+                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+
+//                Toast.makeText(
+//                        getApplicationContext(),
+//                        expandableListTitle.get(groupPosition)
+//                                + " -> "
+//                                + expandableListDetail.get(
+//                                expandableListTitle.get(groupPosition)).get(
+//                                childPosition), Toast.LENGTH_SHORT
+//                ).show();
+
+                if((expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition)) == "your balance")
+                {
+                    Intent intent = new Intent(MainActivity.this,YourBalance.class);
+                    startActivity(intent);
+                }
+                else if((expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition)) == "logout")
+                {
+                    Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(
+                            getApplicationContext(),"Error.", Toast.LENGTH_SHORT).show();
+                }
+
+                return false;
+            }
+        });
     }
+//<<<<<<<<<<<end logout expand
 
     private void getUser(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
