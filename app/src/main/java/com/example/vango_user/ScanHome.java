@@ -35,6 +35,7 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
 //       barcodeReader.playBeep();
         barcodeReader = (BarcodeReader) getSupportFragmentManager().findFragmentById(R.id.barcode_scanner);
 
+        // Check detected text is empty?
         if (TextUtils.isEmpty(barcode.displayValue)) {
             Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
         }

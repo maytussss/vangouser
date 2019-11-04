@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".TicketExist"></activity>
-        <activity android:name=".FailBillPayment" />
+        <activity android:name=".FailBillPayment" >
+        </activity>
         <activity android:name=".SuccessBillPayment" /> <!-- <<<<<<< HEAD -->
         <activity android:name=".YourBalance" />
         <activity android:name=".ScanHome" />
