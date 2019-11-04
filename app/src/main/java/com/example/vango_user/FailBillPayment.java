@@ -23,6 +23,7 @@ public class FailBillPayment extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int id) {
                 Intent intent = new Intent(FailBillPayment.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         builder.show();
@@ -30,6 +31,7 @@ public class FailBillPayment extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(FailBillPayment.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }
