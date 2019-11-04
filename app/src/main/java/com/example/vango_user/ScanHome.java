@@ -17,6 +17,8 @@ import info.androidhive.barcode.BarcodeReader;
 
 public class ScanHome extends AppCompatActivity implements BarcodeReader.BarcodeReaderListener{
 
+    // PLEASE ADD: if the value already exist (aka. value != null), just direct it to TicketExist class
+
     BarcodeReader barcodeReader;
 
     @Override
@@ -77,3 +79,4 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
         return code;
     }
 }
+
