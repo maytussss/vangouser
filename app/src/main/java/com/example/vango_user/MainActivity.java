@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 //<<<<<<< HEAD
 import android.view.View;
@@ -38,9 +39,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    SharedPreferences sp;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     private CollectionReference tripRef = database.collection("trip");
+
+
 
     private tripAdapter adapter;
     TextView usernameDisplay;
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sp = getSharedPreferences("login",MODE_PRIVATE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
@@ -123,8 +127,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if((expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition)) == "logout")
                 {
+                    FirebaseAuth.getInstance().signOut();
+                    sp.edit().putBoolean("logged",false).apply();
                     Intent intent = new Intent(MainActivity.this,LoginActivity.class);
                     startActivity(intent);
+                    finish();
                 }
                 else
                 {
