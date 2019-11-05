@@ -48,28 +48,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Scan QR Code"
-            android:textSize="20dp"
-            android:layout_marginTop="140dp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignTop="@+id/barcode_scanner"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Scan QR Code for Booking Van."
-            android:textSize="20dp"
-            android:layout_marginTop="420dp"
-            android:layout_centerHorizontal="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Focus on QR Code."
-            android:textSize="20dp"
-            android:layout_marginTop="450dp"
-            android:layout_centerHorizontal="true"/>
         <fragment
             android:id="@+id/barcode_scanner"
             android:name="info.androidhive.barcode.BarcodeReader"
@@ -81,7 +59,7 @@
 
         <info.androidhive.barcode.ScannerOverlay
             android:layout_width="match_parent"
-            android:layout_height="570dp"
+            android:layout_height="match_parent"
             android:background="#44000000"
             app:line_color="#FF0000"
             app:line_speed="6"
@@ -91,12 +69,6 @@
 
         </info.androidhive.barcode.ScannerOverlay>
     </RelativeLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:background="#2E3548"
-            android:padding="5dp"/>
 
     </LinearLayout>
 </LinearLayout>
