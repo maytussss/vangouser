@@ -1,7 +1,9 @@
 package com.example.vango_user;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseArray;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,6 +25,7 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
 
     BarcodeReader barcodeReader;
     ImageButton __back;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,8 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
             // ticket details activity by passing barcode
 
             String code =  barcode.displayValue;
-            getQR(code);
+            sp = getSharedPreferences("barcode",MODE_PRIVATE);
+            sp.edit().putString("barcode",code).apply();
 
             Intent intent = new Intent(ScanHome.this, BillPayment.class);
             intent.putExtra("code", barcode.displayValue);
@@ -87,8 +91,5 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
         startActivity(intent);
     }
 
-    public static String getQR(String code){
-        return code;
-    }
 }
 

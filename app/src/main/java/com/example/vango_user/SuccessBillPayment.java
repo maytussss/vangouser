@@ -1,6 +1,7 @@
 package com.example.vango_user;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +17,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class SuccessBillPayment extends AppCompatActivity {
 
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
+    SharedPreferences sp;
+    //String tripDocId = sp.getString("barcode", "mcoD1l1Naa2jp0g5vj7h");
     String tripDocId = "mcoD1l1Naa2jp0g5vj7h";
     TextView fromTXT;
     TextView toTXT ;
@@ -41,6 +44,7 @@ public class SuccessBillPayment extends AppCompatActivity {
                     public void onClick(View view) {
                         Intent intent = new Intent(SuccessBillPayment.this, TicketActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                 }
         );

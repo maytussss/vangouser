@@ -1,6 +1,7 @@
 package com.example.vango_user;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class BillPayment extends AppCompatActivity {
 
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
+    SharedPreferences sp;
+    //String tripDocId = sp.getString("barcode", "mcoD1l1Naa2jp0g5vj7h");
     String tripDocId = "mcoD1l1Naa2jp0g5vj7h";
     TextView fromTXT;
     TextView toTXT ;
@@ -150,9 +153,13 @@ public class BillPayment extends AppCompatActivity {
                                                     coin -= price;
                                                     docRef.update("coin", coin);
                                                     startActivity(new Intent(getApplicationContext(), SuccessBillPayment.class));
+                                                    finish();
                                                 }
                                                 else{
+                                                    sp = getSharedPreferences("barcode",MODE_PRIVATE);
+                                                    sp.edit().putString("barcode","").apply();
                                                     startActivity(new Intent(getApplicationContext(), FailBillPayment.class));
+                                                    finish();
                                                 }
                                             }
                                         }

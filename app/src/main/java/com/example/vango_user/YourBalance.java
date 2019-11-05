@@ -37,7 +37,7 @@ public class YourBalance extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                            Intent intent = new Intent(YourBalance.this, SuccessBillPayment.class);
+                            Intent intent = new Intent(YourBalance.this, BillPayment.class);
                             intent.putExtra("code_from",code_from);
                             intent.putExtra("code_to",code_to);
                             intent.putExtra("code_price",code_price);
