@@ -34,9 +34,6 @@ public class BillPayment extends AppCompatActivity {
         setContentView(R.layout.activity_bill_payment);
         getSupportActionBar().hide();
 
-        ImageView billIcon =  this.findViewById(R.id.billicon);
-        billIcon.setImageResource(R.drawable.bill);
-
         fromTXT = this.findViewById(R.id.from_read_text);
         toTXT = this.findViewById(R.id.to_read_text);
         priceTXT = this.findViewById(R.id.price_read_text);
@@ -60,7 +57,7 @@ public class BillPayment extends AppCompatActivity {
         {
             Intent intent = new Intent(BillPayment.this,ScanHome.class);
             startActivity(intent);
-        }
+        }*/
 
         // Button
         // Decline Button
@@ -74,7 +71,7 @@ public class BillPayment extends AppCompatActivity {
                 }
         );
 
-        // Accept Button
+        /*// Accept Button
         findViewById(R.id.acceptbtn).setOnClickListener(
                 new View.OnClickListener() {
                     @Override

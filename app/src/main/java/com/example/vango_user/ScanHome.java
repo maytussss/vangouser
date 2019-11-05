@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,7 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
     // PLEASE ADD: if the value already exist (aka. value != null), just direct it to TicketExist class
 
     BarcodeReader barcodeReader;
+    ImageButton __back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,14 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
         setContentView(R.layout.activity_scan_home);
         getSupportActionBar().hide();
 
+        __back = (ImageButton)findViewById(R.id.back_btn_title_bar);
+        __back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent b1 = new Intent(ScanHome.this,MainActivity.class);
+                startActivity(b1);
+            }
+        });
     }
     @Override
     public void onScanned(Barcode barcode) {
