@@ -95,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             Map<String, Object> userMap = new HashMap<>();
                                             userMap.put("name", username);
                                             userMap.put("email", email);
-                                            userMap.put("coin", 0);
+                                            userMap.put("coin", 1000);
 
                                             // Add a new document with a generated ID
                                             database.collection("user").document(user.getUid()).set(userMap)

@@ -12,17 +12,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Ticket2Activity"></activity>
-        <activity android:name=".TicketActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".TicketExist" />
+        <activity android:name=".FailBillPayment" />
+        <activity android:name=".SuccessBillPayment" /> <!-- <<<<<<< HEAD -->
+        <activity android:name=".YourBalance" />
+        <activity android:name=".ScanHome" />
+        <activity android:name=".BillPayment" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".splahPg">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Ticket2Activity" />
+        <activity android:name=".TicketActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".Loading" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

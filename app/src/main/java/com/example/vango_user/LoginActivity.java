@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -24,12 +25,18 @@ public class LoginActivity extends AppCompatActivity {
     ImageButton test;
     Button loginButton;
     private FirebaseAuth firebaseAuth;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
+
+        sp = getSharedPreferences("login",MODE_PRIVATE);
+        if(sp.getBoolean("logged",false)){
+            goToMainActivity();
+        }
 
 
         emailText = findViewById(R.id.emailText);
@@ -62,7 +69,9 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    sp.edit().putBoolean("logged",true).apply();
                                     Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+                                    finish();
                                 } else {
                                     Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
                                 }
@@ -71,9 +80,17 @@ public class LoginActivity extends AppCompatActivity {
                         });
             }
         });
+
     }
 
     public void btn_gotoRegister(View view) {
         startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
     }
+
+    public void goToMainActivity(){
+        Intent i = new Intent(this,MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
 }
