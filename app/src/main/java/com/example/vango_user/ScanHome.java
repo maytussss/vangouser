@@ -21,50 +21,33 @@ import info.androidhive.barcode.BarcodeReader;
 
 public class ScanHome extends AppCompatActivity implements BarcodeReader.BarcodeReaderListener{
 
-    // PLEASE ADD: if the value already exist (aka. value != null), just direct it to TicketExist class
-
     BarcodeReader barcodeReader;
-    ImageButton __back;
-    SharedPreferences sp;
 
+    //ImageButton __back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_home);
         getSupportActionBar().hide();
 
-        __back = (ImageButton)findViewById(R.id.back_btn_title_bar);
+        barcodeReader = (BarcodeReader) getSupportFragmentManager().findFragmentById(R.id.barcode_scanner);
+
+        /*__back = (ImageButton)findViewById(R.id.back_btn_title_bar);
         __back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent b1 = new Intent(ScanHome.this,MainActivity.class);
                 startActivity(b1);
             }
-        });
+        });*/
     }
     @Override
     public void onScanned(Barcode barcode) {
 
-        // playing barcode reader beep sound
-//       barcodeReader.playBeep();
-        barcodeReader = (BarcodeReader) getSupportFragmentManager().findFragmentById(R.id.barcode_scanner);
-
-        // Check detected text is empty?
-        if (TextUtils.isEmpty(barcode.displayValue)) {
-            Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
-        }
-        else
-            {
-            // ticket details activity by passing barcode
-
-            String code =  barcode.displayValue;
-            sp = getSharedPreferences("barcode",MODE_PRIVATE);
-            sp.edit().putString("barcode",code).apply();
-
-            Intent intent = new Intent(ScanHome.this, BillPayment.class);
-            intent.putExtra("code", barcode.displayValue);
-            startActivity(intent);
-        }
+        String code =  barcode.displayValue;
+        Intent intent = new Intent(ScanHome.this, BillPayment.class);
+        intent.putExtra("code", code);
+        startActivity(intent);
     }
 
     @Override
