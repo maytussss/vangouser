@@ -3,9 +3,11 @@ package com.example.vango_user;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +21,7 @@ public class SuccessBillPayment extends AppCompatActivity {
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     SharedPreferences sp;
     //String tripDocId = sp.getString("barcode", "mcoD1l1Naa2jp0g5vj7h");
-    String tripDocId = "mcoD1l1Naa2jp0g5vj7h";
+    String tripDocId;
     TextView fromTXT;
     TextView toTXT ;
     TextView priceTXT;
@@ -34,7 +36,16 @@ public class SuccessBillPayment extends AppCompatActivity {
         toTXT = this.findViewById(R.id.to_read_text_s);
         priceTXT = this.findViewById(R.id.price_read_text_s);
 
-        getTripDetail();
+        tripDocId =  getIntent().getStringExtra("code");
+
+        if (TextUtils.isEmpty(tripDocId)) {
+            Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
+            finish();
+        }
+        else
+        {
+            getTripDetail();
+        }
 
         // Button
         // See Ticket Button
@@ -70,7 +81,6 @@ public class SuccessBillPayment extends AppCompatActivity {
                             fromTXT.setText(start);
                             String destination = documentSnapshot.getString("destination");
                             toTXT.setText(destination);
-
                         }
                     }
                 });

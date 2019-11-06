@@ -18,11 +18,10 @@ import info.androidhive.barcode.BarcodeReader;
 
 public class ScanHome extends AppCompatActivity implements BarcodeReader.BarcodeReaderListener{
 
-    // PLEASE ADD: if the value already exist (aka. value != null), just direct it to TicketExist class
-
     BarcodeReader barcodeReader;
     SharedPreferences sp;
 
+    //ImageButton __back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +38,7 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
                     }
                 }
         );
+        barcodeReader = (BarcodeReader) getSupportFragmentManager().findFragmentById(R.id.barcode_scanner);
     }
     @Override
     public void onScanned(Barcode barcode) {
@@ -62,6 +62,10 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
             startActivity(intent);
             finish();
         }
+        String code =  barcode.displayValue;
+        Intent intent = new Intent(ScanHome.this, BillPayment.class);
+        intent.putExtra("code", code);
+        startActivity(intent);
     }
 
     @Override
