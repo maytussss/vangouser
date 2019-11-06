@@ -180,7 +180,8 @@ public class BillPayment extends AppCompatActivity {
                     }
                 });
 
-
+        DocumentReference userRef = database.collection("user").document(uid);
+        userRef.update("ticket", true);
     }
 }
 
