@@ -35,54 +35,58 @@
                 android:layout_gravity="center_vertical"
                 android:text="SCAN"
                 android:textColor="#FFFF"
-                android:textSize="36sp" />
+                android:textSize="30sp" />
         </LinearLayout>
     </FrameLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         >
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <fragment
-                android:id="@+id/barcode_scanner"
-                android:name="info.androidhive.barcode.BarcodeReader"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_centerInParent="true"
-                app:auto_focus="true"
-                app:use_flash="false" />
 
-            <info.androidhive.barcode.ScannerOverlay
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#44000000"
-                app:line_color="#FF0000"
-                app:line_speed="6"
-                app:line_width="4"
-                app:square_height="300"
-                app:square_width="300" >
-
-            </info.androidhive.barcode.ScannerOverlay>
-            <FrameLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            >
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_gravity="top"
-                android:background="#80000000"
-                android:padding="10dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Place barcode/ QR code in the scanning and tap on it to focus."
-                        android:textColor="#FFF"
-                        android:textSize="18sp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        />
-            </FrameLayout>
+                android:layout_height="wrap_content"
+                android:text="Scan QR Code"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+            <RelativeLayout
+                android:layout_width="270dp"
+                android:layout_height="270dp"
+                android:background="@drawable/qrgreenflame"
+                android:layout_gravity="center"
+                android:layout_marginVertical="10dp"
+                >
+                <fragment
+                    android:id="@+id/barcode_scanner"
+                    android:name="info.androidhive.barcode.BarcodeReader"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="10dp"
+                    android:layout_centerInParent="true"
+                    app:auto_focus="true"
+                    app:use_flash="false" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan QR Code for Booking Van."
+                android:layout_gravity="center"
+                android:layout_marginVertical="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
 
         </RelativeLayout>
-        </LinearLayout>
 </LinearLayout>

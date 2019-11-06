@@ -34,178 +34,182 @@
             android:orientation="vertical"
             android:layout_centerInParent="true"
             >
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#E3E2E2"
+                android:background="#FFF"
                 android:orientation="vertical"
-                android:padding="30dp"
-                >
+                android:padding="30dp">
+
                 <TextView
+                    android:id="@+id/UserName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Username"
-                    android:id="@+id/UserName"
-                    android:textSize="18sp"
-                    >
+                    android:textSize="18sp">
 
                 </TextView>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#E3E2E2"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Your balance:"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
+
                     <TextView
+                        android:id="@+id/BalanceAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="5dp"
                         android:text="0.00"
-                        android:id="@+id/BalanceAmount"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="5dp"
                         android:text="Baht"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#E3E2E2"
-                android:orientation="vertical"
                 android:layout_gravity="center"
-                android:padding="10dp"
                 android:layout_marginVertical="50dp"
-                >
+                android:background="#FFF"
+                android:orientation="vertical"
+                android:padding="10dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    >
+                    android:layout_marginVertical="10dp">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerHorizontal="true" >
+                        android:layout_centerHorizontal="true"
+                        android:orientation="vertical">
+
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height ="wrap_content"
-                            android:layout_gravity="center"
                             android:id="@+id/billicon"
-                            android:src="@drawable/bill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_marginVertical="10dp"
-                            />
+                            android:src="@drawable/bill" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="Summary"
-                            android:textSize="20sp"
                             android:layout_marginVertical="5dp"
-                            />
+                            android:text="Summary"
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:orientation="horizontal"
+                    android:layout_marginVertical="10dp"
                     android:background="#ADADAD"
-                    android:layout_marginVertical="10dp"
-                    >
-                </RelativeLayout>
+                    android:orientation="horizontal"></RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginVertical="10dp"
-                    >
+                    android:orientation="horizontal">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="40dp"
-                        android:layout_alignParentStart="true">
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="40dp">
+
                         <TextView
-                            android:text="From :"
-                            android:textSize="18sp"
-                            android:layout_width="wrap_content"
                             android:id="@+id/from_static_from_text"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center"/>
+                            android:layout_gravity="center"
+                            android:text="From :"
+                            android:textSize="18sp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="40dp"
                         android:layout_alignParentEnd="true"
-                        >
+                        android:layout_marginEnd="40dp">
+
                         <TextView
-                            android:text="RX_FROM_TXT"
-                            android:textSize="18sp"
-                            android:layout_width="wrap_content"
                             android:id="@+id/from_read_text"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            />
+                            android:text="RX_FROM_TXT"
+                            android:textSize="18sp" />
                     </LinearLayout>
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginVertical="10dp"
-                    >
+                    android:orientation="horizontal">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="40dp"
-                        android:layout_alignParentStart="true">
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="40dp">
+
                         <TextView
-                            android:text="To :"
-                            android:textSize="18sp"
-                            android:layout_width="wrap_content"
                             android:id="@+id/from_static_to_text"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center"/>
+                            android:layout_gravity="center"
+                            android:text="To :"
+                            android:textSize="18sp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="40dp"
                         android:layout_alignParentEnd="true"
-                        >
+                        android:layout_marginEnd="40dp">
+
                         <TextView
-                            android:text="RX_TO_TXT"
-                            android:textSize="18sp"
-                            android:layout_width="wrap_content"
                             android:id="@+id/to_read_text"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            />
+                            android:text="RX_TO_TXT"
+                            android:textSize="18sp" />
                     </LinearLayout>
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginVertical="10dp"
-                    >
+                    android:orientation="horizontal">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="40dp"
-                        android:layout_alignParentStart="true">
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="40dp">
 
                         <TextView
                             android:id="@+id/from_static_total_price_text"
@@ -215,69 +219,67 @@
                             android:text="Total Price :"
                             android:textSize="18sp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="40dp"
                         android:layout_alignParentEnd="true"
-                        >
+                        android:layout_marginEnd="40dp">
+
                         <TextView
-                            android:text="RX_PRICE_TXT"
-                            android:textSize="18sp"
-                            android:layout_width="wrap_content"
                             android:id="@+id/price_read_text"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            />
+                            android:text="RX_PRICE_TXT"
+                            android:textSize="18sp" />
                     </LinearLayout>
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:orientation="horizontal"
-                    android:background="#ADADAD"
                     android:layout_marginVertical="10dp"
-                    >
-                </RelativeLayout>
+                    android:background="#ADADAD"
+                    android:orientation="horizontal"></RelativeLayout>
+
                 <RelativeLayout
+                    android:id="@+id/btn_tab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginVertical="20dp"
-                    android:id="@+id/btn_tab"
-                    >
+                    android:orientation="horizontal">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="50dp"
                         android:layout_alignParentStart="true"
-                        >
+                        android:layout_marginStart="50dp">
+
                         <Button
-                            android:text="Decline"
+                            android:id="@+id/declinebtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/cancel_red_btn"
+                            android:text="Decline"
                             android:textColor="#FFF"
-                            android:textSize="20sp"
-                            android:id="@+id/declinebtn"
-                            />
+                            android:textSize="20sp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="50dp"
                         android:layout_alignParentEnd="true"
-                        >
+                        android:layout_marginEnd="50dp">
 
                         <Button
                             android:id="@+id/acceptbtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/accept_green_btn"
-                            android:textColor="#FFF"
-                            android:textSize="20sp"
                             android:text="Accept"
-                            />
+                            android:textColor="#FFF"
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                 </RelativeLayout>
