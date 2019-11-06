@@ -16,9 +16,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.ServerTimestamp;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class BillPayment extends AppCompatActivity {
 
@@ -134,6 +140,8 @@ public class BillPayment extends AppCompatActivity {
                                                     coin -= price;
                                                     docRef.update("coin", coin);
 
+                                                    queue(tripDocId, uid);
+
                                                     SharedPreferences ticket = getSharedPreferences("ticket",MODE_PRIVATE);
                                                     ticket.edit().putBoolean("ticket",true).apply();
 
@@ -156,6 +164,23 @@ public class BillPayment extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    public void queue(String tripDocId, String uid) {
+        DocumentReference docRef = database.collection("trip").document(tripDocId).collection("queue").document(uid);
+        Map<String, Object> userTicket = new HashMap<>();
+        userTicket.put("timestamp", FieldValue.serverTimestamp());
+        userTicket.put("status", "");
+
+        docRef.set(userTicket)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(BillPayment.this, "Registration success", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
     }
 }
 
