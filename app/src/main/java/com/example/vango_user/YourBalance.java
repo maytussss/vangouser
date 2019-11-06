@@ -29,11 +29,6 @@ public class YourBalance extends AppCompatActivity {
 
         balance_amount = findViewById(R.id.balance_amount);
         getUser();
-
-        final String code_from = getIntent().getStringExtra("code_from");
-        final String code_to = getIntent().getStringExtra("code_to");
-        final String code_price = getIntent().getStringExtra("code_price");
-
         findViewById(R.id.backbt3).setOnClickListener(
                 new View.OnClickListener() {
                     @Override

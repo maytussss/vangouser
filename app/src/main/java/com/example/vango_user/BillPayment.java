@@ -48,10 +48,12 @@ public class BillPayment extends AppCompatActivity {
         acceptbtn = findViewById(R.id.acceptbtn);
 
         tripDocId =  getIntent().getStringExtra("code");
-        // Button
-        // Decline Button
+
         if (TextUtils.isEmpty(tripDocId)) {
             Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(BillPayment.this, MainActivity.class);
+            startActivity(intent);
             finish();
         }
         else

@@ -20,8 +20,6 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
 
     BarcodeReader barcodeReader;
     SharedPreferences sp;
-
-    //ImageButton __back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +50,6 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
         else
             {
             // ticket details activity by passing barcode
-
             String code =  barcode.displayValue;
             sp = getSharedPreferences("barcode",MODE_PRIVATE);
             sp.edit().putString("barcode",code).apply();
@@ -62,10 +59,6 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
             startActivity(intent);
             finish();
         }
-        String code =  barcode.displayValue;
-        Intent intent = new Intent(ScanHome.this, BillPayment.class);
-        intent.putExtra("code", code);
-        startActivity(intent);
     }
 
     @Override
