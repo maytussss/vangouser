@@ -44,24 +44,6 @@ public class BillPayment extends AppCompatActivity {
 
         getTripDetail();
 
-
-        //-------------COMMENT OUT BECAUSE CODE ERROR------------------------
-
-
-        /*final String __currentStringCode = getIntent().getStringExtra("code");
-        final String[] __separatedCurrentStringCode = __currentStringCode.split(",");
-        // try-catch text read QR-Code v1 2019/11/03
-        try {
-            fromTXT.setText(__separatedCurrentStringCode[0]);
-            toTXT.setText(__separatedCurrentStringCode[1]);
-            priceTXT.setText(__separatedCurrentStringCode[2]);
-        }
-        catch(Exception e)
-        {
-            Intent intent = new Intent(BillPayment.this,ScanHome.class);
-            startActivity(intent);
-        }*/
-
         // Button
         // Decline Button
         findViewById(R.id.declinebtn).setOnClickListener(
@@ -70,25 +52,11 @@ public class BillPayment extends AppCompatActivity {
                     public void onClick(View view) {
                         Intent intent = new Intent(BillPayment.this, MainActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                 }
         );
-
-        /*// Accept Button
-        findViewById(R.id.acceptbtn).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Intent intent = new Intent(BillPayment.this, YourBalance.class);
-                        intent.putExtra("code_from",__separatedCurrentStringCode[0]);
-                        intent.putExtra("code_to",__separatedCurrentStringCode[1]);
-                        intent.putExtra("code_price",__separatedCurrentStringCode[2]);
-                        startActivity(intent);
-                    }
-                }
-        );*/
-
+        // Accept Button
         acceptbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -96,13 +64,12 @@ public class BillPayment extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     public void onBackPressed() {
         Intent intent = new Intent(BillPayment.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void getTripDetail(){

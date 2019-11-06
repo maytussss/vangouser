@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#E3E2E2"
-    tools:context=".SuccessBillPayment">
+    android:orientation="vertical"
+    tools:context=".BillPayment">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_gravity="top"
         android:background="#2E3548"
         android:padding="5dp">
@@ -20,158 +20,243 @@
             android:layout_gravity="center"
             android:text="PAYMENT"
             android:textColor="#FFFF"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textSize="30sp"/>
 
     </FrameLayout>
     <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bbbb"
         >
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true" >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height ="wrap_content"
-                android:contentDescription="Correct"
-                android:id="@+id/correcticon"
-                android:src="@drawable/check"
-                />
-        </LinearLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="100dp"
-        >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_alignParentLeft="true">
-            <TextView
-                android:text="From :"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="wrap_content"
-                android:id="@+id/from_static_from_text"
-                android:textStyle="bold"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
-            android:layout_alignParentRight="true"
-            >
-            <TextView
-                android:text="RX_FROM_TXT"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="wrap_content"
-                android:id="@+id/from_read_text_s"
-                android:textStyle="bold"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"
-                />
-        </LinearLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_alignParentLeft="true">
-            <TextView
-                android:text="To :"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="wrap_content"
-                android:id="@+id/from_static_to_text"
-                android:textStyle="bold"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
-            android:layout_alignParentRight="true"
-            >
-            <TextView
-                android:text="RX_TO_TXT"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="wrap_content"
-                android:id="@+id/to_read_text_s"
-                android:textStyle="bold"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"
-                />
-        </LinearLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_alignParentLeft="true">
-            <TextView
-                android:text="Total Price :"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="wrap_content"
-                android:id="@+id/from_static_price_text"
-                android:textStyle="bold"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
-            android:layout_alignParentRight="true"
-            >
-            <TextView
-                android:text="RX_PRICE_TXT"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="wrap_content"
-                android:id="@+id/price_read_text_s"
-                android:textStyle="bold"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"
-                />
-        </LinearLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="50dp"
-        >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_centerInParent="true"
             >
-            <Button
-                android:text="See Ticket"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/goticketbtn"
-                android:textStyle="bold"
-                />
+                android:background="#E3E2E2"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:layout_marginVertical="50dp"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerHorizontal="true" >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height ="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/check"
+                            android:layout_marginVertical="10dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Payment Success"
+                            android:textSize="20sp"
+                            android:textColor="#00B602"
+                            android:layout_marginVertical="5dp"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:orientation="horizontal"
+                    android:background="#ADADAD"
+                    android:layout_marginVertical="10dp"
+                    >
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="10dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_alignParentStart="true">
+                        <TextView
+                            android:text="From :"
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/from_static_from_text"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:layout_alignParentEnd="true"
+                        >
+                        <TextView
+                            android:text="RX_FROM_TXT"
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/from_read_text_s"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            />
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="10dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_alignParentStart="true">
+                        <TextView
+                            android:text="To :"
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/from_static_to_text"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:layout_alignParentEnd="true"
+                        >
+                        <TextView
+                            android:text="RX_TO_TXT"
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/to_read_text_s"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            />
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="10dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_alignParentStart="true">
+
+                        <TextView
+                            android:id="@+id/from_static_total_price_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Total Price :"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:layout_alignParentEnd="true"
+                        >
+                        <TextView
+                            android:text="RX_PRICE_TXT"
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/price_read_text_s"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            />
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:orientation="horizontal"
+                    android:background="#ADADAD"
+                    android:layout_marginVertical="10dp"
+                    >
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="10dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_alignParentStart="true">
+
+                        <TextView
+                            android:id="@+id/from_static_balance_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Balance :"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:layout_alignParentEnd="true"
+                        >
+                        <TextView
+                            android:text="RX_BALANCE_TXT"
+                            android:id="@+id/balance_read_text_s"
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            />
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="20dp"
+                    android:id="@+id/btn_tab"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        >
+
+                        <Button
+                            android:id="@+id/goticketbtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/accept_green_btn"
+                            android:textColor="#FFF"
+                            android:textSize="20sp"
+                            android:text="See Ticket"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

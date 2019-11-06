@@ -8,67 +8,82 @@
     tools:context=".ScanHome">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_gravity="top"
         android:background="#2E3548"
-        android:padding="10dp">
+        android:padding="5dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             >
-        <ImageButton
-            android:id="@+id/back_btn_title_bar"
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/iconbacktitlebar"
-            android:background="#2E3548"
-            />
 
-        <TextView
-            android:id="@+id/text_scan"
-            android:layout_marginStart="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="SCAN"
-            android:textColor="#FFFF"
-            android:textSize="40sp"
-            android:textStyle="bold" />
+            <ImageButton
+                android:id="@+id/backbt3"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:background="?attr/actionModeCloseDrawable"
+                android:backgroundTint="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:tint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/text_scan"
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="SCAN"
+                android:textColor="#FFFF"
+                android:textSize="36sp" />
         </LinearLayout>
     </FrameLayout>
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-        <fragment
-            android:id="@+id/barcode_scanner"
-            android:name="info.androidhive.barcode.BarcodeReader"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_centerInParent="true"
-            app:auto_focus="true"
-            app:use_flash="false" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <fragment
+                android:id="@+id/barcode_scanner"
+                android:name="info.androidhive.barcode.BarcodeReader"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerInParent="true"
+                app:auto_focus="true"
+                app:use_flash="false" />
 
-        <info.androidhive.barcode.ScannerOverlay
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#44000000"
-            app:line_color="#FF0000"
-            app:line_speed="6"
-            app:line_width="4"
-            app:square_height="200"
-            app:square_width="200" >
+            <info.androidhive.barcode.ScannerOverlay
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#44000000"
+                app:line_color="#FF0000"
+                app:line_speed="6"
+                app:line_width="4"
+                app:square_height="300"
+                app:square_width="300" >
 
-        </info.androidhive.barcode.ScannerOverlay>
-    </RelativeLayout>
+            </info.androidhive.barcode.ScannerOverlay>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="top"
+                android:background="#80000000"
+                android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Place barcode/ QR code in the scanning and tap on it to focus."
+                        android:textColor="#FFF"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        />
+            </FrameLayout>
+
+        </RelativeLayout>
 
     </LinearLayout>
 </LinearLayout>

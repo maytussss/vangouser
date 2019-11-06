@@ -38,4 +38,5 @@ dependencies {
     implementation 'me.dm7.barcodescanner:zxing:1.9.8'
     implementation 'com.google.android.gms:play-services-vision:19.0.0'
     implementation 'info.androidhive:barcode-reader:1.1.5'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

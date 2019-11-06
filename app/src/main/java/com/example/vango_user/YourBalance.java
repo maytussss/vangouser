@@ -34,6 +34,17 @@ public class YourBalance extends AppCompatActivity {
         final String code_to = getIntent().getStringExtra("code_to");
         final String code_price = getIntent().getStringExtra("code_price");
 
+        findViewById(R.id.backbt3).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(YourBalance.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+        );
+
         findViewById(R.id.balance_amount).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -47,6 +58,7 @@ public class YourBalance extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(YourBalance.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void getUser(){

@@ -37,7 +37,7 @@ public class SuccessBillPayment extends AppCompatActivity {
         getTripDetail();
 
         // Button
-        // Decline Button
+        // See Ticket Button
         findViewById(R.id.goticketbtn).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -54,6 +54,7 @@ public class SuccessBillPayment extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(SuccessBillPayment.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void getTripDetail(){
