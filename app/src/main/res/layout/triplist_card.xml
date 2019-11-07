@@ -2,7 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
         android:layout_weight="0.5"
         android:background="#FFFF"
         android:layout_marginTop="10dp"
-        android:paddingBottom="15dp">
+        android:paddingBottom="12dp">
 
         <ImageView
             android:layout_width="150px"

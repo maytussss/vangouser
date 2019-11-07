@@ -46,13 +46,14 @@ public class MainActivity extends AppCompatActivity {
         sp = getSharedPreferences("login",MODE_PRIVATE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //getSupportActionBar().hide();
 
         setUpRecyclerView();
 
         usernameDisplay = findViewById(R.id.usernameDisplay);
+
         Toolbar x = findViewById(R.id.menubar);
-        //setSupportActionBar(x);
+        setSupportActionBar(x);
+
         getUser();
 
 //<<<<<<< HEAD
@@ -181,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.yourblance_id:
                 Intent intent = new Intent(MainActivity.this,YourBalance.class);
                 startActivity(intent);
-                Toast.makeText(this,"balance click",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"balance click",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.logout_id:
                 FirebaseAuth.getInstance().signOut();

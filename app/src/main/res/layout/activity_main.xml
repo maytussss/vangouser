@@ -29,11 +29,11 @@
 
         <ImageButton
             android:id="@+id/goticket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300px"
+            android:layout_height="80px"
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="20dp"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            app:srcCompat="@drawable/ticket" />
     </FrameLayout>
 
     <LinearLayout
@@ -56,24 +56,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Username"
-                android:textSize="8pt"
+                android:textSize="9pt"
                 android:layout_marginStart="30dp"
                 android:paddingBottom="5dp"
                 android:textColor="#484848"
+                android:textStyle="bold"
                 android:layout_above="@+id/menubar"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Where do you want to go?"
-                android:textSize="9pt"
+                android:textSize="10pt"
                 android:layout_marginStart="30dp"
                 android:textColor="#484848"
-                android:paddingRight="60dp"
+                android:paddingRight="30dp"
                 android:layout_above="@+id/menubar"/>
         </LinearLayout>
         <androidx.appcompat.widget.Toolbar
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:background="#ebebeb"
             android:layout_gravity="end"
             android:id="@+id/menubar"
@@ -83,7 +84,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tripRecycler"
         android:layout_width="match_parent"
-        android:layout_height="460dp"
+        android:layout_height="450dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
@@ -95,10 +96,10 @@
 
         <ImageButton
             android:id="@+id/goscan"
-            android:layout_width="wrap_content"
-            android:layout_height="42dp"
+            android:layout_width="170px"
+            android:layout_height="170px"
             android:layout_gravity="center"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            app:srcCompat="@drawable/scanbtn" />
     </FrameLayout>
 
 

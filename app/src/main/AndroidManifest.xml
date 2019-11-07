@@ -30,7 +30,8 @@
         <activity android:name=".Ticket2Activity" />
         <activity android:name=".TicketActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>
