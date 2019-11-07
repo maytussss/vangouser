@@ -70,8 +70,65 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(MainActivity.this,ScanHome.class);
-                        startActivity(intent);
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        if (user != null) {
+                            uid = user.getUid();
+                            //usernameDisplay.setText(uid);
+                        }
+
+                        DocumentReference docRef = database.collection("user").document(uid);
+                        docRef.get()
+                                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                        if (documentSnapshot.exists()) {
+                                            Boolean ticket = documentSnapshot.getBoolean("ticket");
+                                            if(ticket){
+                                                Intent intent = new Intent(MainActivity.this,TicketExist.class);
+                                                startActivity(intent);
+                                            }
+                                            else{
+                                                Intent intent = new Intent(MainActivity.this,ScanHome.class);
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    }
+                                });
+                    }
+                }
+        );
+
+
+        findViewById(R.id.goticket).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        if (user != null) {
+                            uid = user.getUid();
+                            //usernameDisplay.setText(uid);
+                        }
+
+                        DocumentReference docRef = database.collection("user").document(uid);
+                        docRef.get()
+                                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                        if (documentSnapshot.exists()) {
+                                            Boolean ticket = documentSnapshot.getBoolean("ticket");
+                                            if(ticket){
+                                                Intent intent = new Intent(MainActivity.this,TicketActivity.class);
+                                                startActivity(intent);
+                                            }
+                                            else{
+                                                Intent intent = new Intent(MainActivity.this,Ticket2Activity.class);
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    }
+                                });
                     }
                 }
         );

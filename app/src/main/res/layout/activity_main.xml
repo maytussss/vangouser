@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#B9ADADAD"
     android:orientation="vertical"
-    tools:context=".MainActivitiy">
+    tools:context=".MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -81,7 +81,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tripRecycler"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
+        android:layout_height="500dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
@@ -94,7 +94,7 @@
         <ImageButton
             android:id="@+id/goscan"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:layout_gravity="center"
             app:srcCompat="@android:drawable/ic_input_add" />
     </FrameLayout>

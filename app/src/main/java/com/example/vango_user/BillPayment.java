@@ -37,6 +37,8 @@ public class BillPayment extends AppCompatActivity {
     TextView fromTXT;
     TextView toTXT ;
     TextView priceTXT;
+    TextView Username;
+    TextView BalanceAmount;
     Button acceptbtn;
     String uid;
     Double coin;
@@ -52,6 +54,9 @@ public class BillPayment extends AppCompatActivity {
         toTXT = this.findViewById(R.id.to_read_text);
         priceTXT = this.findViewById(R.id.price_read_text);
         acceptbtn = findViewById(R.id.acceptbtn);
+        Username = this.findViewById(R.id.UserName);
+        BalanceAmount = this.findViewById(R.id.BalanceAmount);
+
 
         tripDocId =  getIntent().getStringExtra("code");
 
@@ -65,6 +70,7 @@ public class BillPayment extends AppCompatActivity {
         else
         {
             getTripDetail();
+            getUserDetail();
         }
         findViewById(R.id.declinebtn).setOnClickListener(
                 new View.OnClickListener() {
@@ -110,6 +116,31 @@ public class BillPayment extends AppCompatActivity {
                 });
     }
 
+    private void getUserDetail(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            uid = user.getUid();
+            //usernameDisplay.setText(uid);
+        }
+        else {
+            uid = "aU6PtXs2QURfUOD3rdy3HKb6l7X2";
+        }
+
+        DocumentReference docRef = database.collection("user").document(uid);
+        docRef.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            Double coin = documentSnapshot.getDouble("coin");
+                            String name = documentSnapshot.getString("name");
+                            BalanceAmount.setText(String.valueOf(coin));
+                            Username.setText(name);
+                        }
+                    }
+                });
+    }
+
     public void updateCoin(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -142,19 +173,18 @@ public class BillPayment extends AppCompatActivity {
 
                                                     queue(tripDocId, uid);
 
-                                                    SharedPreferences ticket = getSharedPreferences("ticket",MODE_PRIVATE);
-                                                    ticket.edit().putBoolean("ticket",true).apply();
+                                                    SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
+                                                    SharedPreferences.Editor editor = ticketPref.edit();
+                                                    editor.putString("ticket",tripDocId);
+                                                    editor.apply();
 
-                                                    Intent intent = new Intent(getApplicationContext(), SuccessBillPayment.class);
+                                                    /*Intent intent = new Intent(getApplicationContext(), SuccessBillPayment.class);
                                                     intent.putExtra("code", tripDocId);
-                                                    startActivity(intent);
+                                                    startActivity(intent);*/
+
                                                     finish();
                                                 }
                                                 else{
-                                                    /*String code =  "";
-                                                    SharedPreferences saveBarcode = getSharedPreferences("saveBarcode",MODE_PRIVATE);
-                                                    SharedPreferences.Editor edit = saveBarcode.edit();
-                                                    edit.putString("barcode",code).apply();*/
                                                     startActivity(new Intent(getApplicationContext(), FailBillPayment.class));
                                                     finish();
                                                 }
@@ -176,7 +206,7 @@ public class BillPayment extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(BillPayment.this, "Registration success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BillPayment.this, "Payment success", Toast.LENGTH_SHORT).show();
                     }
                 });
 

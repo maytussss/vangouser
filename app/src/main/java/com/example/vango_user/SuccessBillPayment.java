@@ -41,7 +41,10 @@ public class SuccessBillPayment extends AppCompatActivity {
         priceTXT = this.findViewById(R.id.price_read_text_s);
         balance_read_text_s = this.findViewById(R.id.balance_read_text_s);
 
-        tripDocId =  getIntent().getStringExtra("code");
+        SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
+        tripDocId = ticketPref.getString("ticket","");
+
+        //tripDocId =  getIntent().getStringExtra("code");
 
         if (TextUtils.isEmpty(tripDocId)) {
             Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
