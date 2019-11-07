@@ -44,7 +44,9 @@ class SetPath: UIViewController
                     }
                     else
                     {
+                        let docID = ref?.documentID
                         print("add")
+                        ref?.setData(["docID":docID],merge: true)
                     }
                 
             }

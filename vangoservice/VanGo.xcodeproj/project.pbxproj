@@ -25,6 +25,7 @@
 		F66A824623660E73002B1F99 /* VanGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A824523660E73002B1F99 /* VanGoUITests.swift */; };
 		F6765BD22367355900A85720 /* SetPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6765BD12367355900A85720 /* SetPath.swift */; };
 		F6765BD4236745AA00A85720 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6765BD3236745AA00A85720 /* const.swift */; };
+		F6871378237480A400D4D01B /* PathDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6871377237480A300D4D01B /* PathDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		F66A824723660E73002B1F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6765BD12367355900A85720 /* SetPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPath.swift; sourceTree = "<group>"; };
 		F6765BD3236745AA00A85720 /* const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = const.swift; sourceTree = "<group>"; };
+		F6871377237480A300D4D01B /* PathDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				F63040FB236D6B2900A7C0D5 /* Main Path.swift */,
 				F63040FD236D739900A7C0D5 /* PathCell.swift */,
 				F63040FF236D748D00A7C0D5 /* pathData.swift */,
+				F6871377237480A300D4D01B /* PathDetail.swift */,
 			);
 			path = VanGo;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				F6765BD22367355900A85720 /* SetPath.swift in Sources */,
 				F624F82E236769E400E04159 /* userData.swift in Sources */,
 				F63040FC236D6B2900A7C0D5 /* Main Path.swift in Sources */,
+				F6871378237480A400D4D01B /* PathDetail.swift in Sources */,
 				F63040FE236D739900A7C0D5 /* PathCell.swift in Sources */,
 				F66A822B23660E72002B1F99 /* VanGo.xcdatamodeld in Sources */,
 				F6304100236D748D00A7C0D5 /* pathData.swift in Sources */,

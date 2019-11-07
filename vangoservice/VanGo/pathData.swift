@@ -17,13 +17,15 @@ struct Path {
     var ID:String
     var start:String
     var stop:String
+    var docID:String
     
     var dictationary:[String:Any]
     {
         return[
             "ID":ID,
             "start":start,
-            "stop":stop
+            "stop":stop,
+            "docID":docID
         ]
     }
 }
@@ -33,11 +35,13 @@ extension Path : DocumentSerializable{
     {
         guard let ID = dictationary["ID"]as? String,
               let start = dictationary["start"]as? String,
-            let stop = dictationary["stop"] as? String
+            let stop = dictationary["stop"] as? String,
+            let docID = dictationary["docID"] as? String
+            
             else
         {return nil}
         
-        self.init(ID:ID,start:start,stop:stop)
+        self.init(ID:ID,start:start,stop:stop,docID:docID)
          
     }
 }
