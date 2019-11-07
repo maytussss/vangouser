@@ -51,6 +51,15 @@ public class TicketActivity extends AppCompatActivity {
 
         textView3 = this.findViewById(R.id.textView3);
         imageView = this.findViewById(R.id.imageView);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            uid = user.getUid();
+        }
+        else {
+            uid = "aU6PtXs2QURfUOD3rdy3HKb6l7X2";
+        }
+        
         genQR();
         countQueue();
 
@@ -79,15 +88,6 @@ public class TicketActivity extends AppCompatActivity {
     }
 
     public void countQueue(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (user != null) {
-            uid = user.getUid();
-        }
-        else {
-            uid = "aU6PtXs2QURfUOD3rdy3HKb6l7X2";
-        }
-
         SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
         tripDocId = ticketPref.getString("ticket","");
 
@@ -126,7 +126,7 @@ public class TicketActivity extends AppCompatActivity {
     public void genQR(){
         SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
         tripDocId = ticketPref.getString("ticket","");
-        String text= tripDocId;
+        String text= tripDocId + " " + uid;
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
             BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,200,200);
