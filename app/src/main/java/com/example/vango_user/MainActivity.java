@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     private CollectionReference tripRef = database.collection("trip");
 
-    Toolbar detailbar;
-
     private tripAdapter adapter;
     TextView usernameDisplay;
     String uid;
@@ -53,10 +51,8 @@ public class MainActivity extends AppCompatActivity {
         setUpRecyclerView();
 
         usernameDisplay = findViewById(R.id.usernameDisplay);
-
-        detailbar = (Toolbar) findViewById(R.id.detailbar);
-        //setSupportActionBar(detailbar);
-
+        Toolbar x = findViewById(R.id.menubar);
+        //setSupportActionBar(x);
         getUser();
 
 //<<<<<<< HEAD

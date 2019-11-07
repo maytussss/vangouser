@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_toRightOf="@+id/priceText"
-            android:text="  UNIC" />
+            android:text="  UNICOIN" />
 
         <TextView
             android:id="@+id/detailButton"
