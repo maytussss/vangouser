@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -51,6 +52,15 @@ public class TicketActivity extends AppCompatActivity {
 
         textView3 = this.findViewById(R.id.textView3);
         imageView = this.findViewById(R.id.imageView);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            uid = user.getUid();
+        }
+        else {
+            uid = "aU6PtXs2QURfUOD3rdy3HKb6l7X2";
+        }
+
         genQR();
         countQueue();
 
@@ -79,62 +89,65 @@ public class TicketActivity extends AppCompatActivity {
     }
 
     public void countQueue(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (user != null) {
-            uid = user.getUid();
-        }
-        else {
-            uid = "aU6PtXs2QURfUOD3rdy3HKb6l7X2";
-        }
-
-        SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
-        tripDocId = ticketPref.getString("ticket","");
-
-        /*DocumentReference URef = database.collection("trip").document(tripDocId).collection("queue").document(uid);
-        URef.get()
-            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    if (documentSnapshot.exists()) {
-                        Timestamp time = documentSnapshot.getTimestamp("time");
-                    }
-                }
-            });*/
-
-        CollectionReference Ref = database.collection("trip").document(tripDocId).collection("queue");
-        Ref
-            .orderBy("timestamp",Query.Direction.ASCENDING)
-            .get()
-            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            if(uid.equals(document.getId())){
-                                break;
-                            } else{
-                                count++;
+        DocumentReference docRef = database.collection("user").document(uid);
+        docRef.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            String tripDocId = documentSnapshot.getString("ticket");
+                            if (!tripDocId.isEmpty()) {
+                                CollectionReference Ref = database.collection("trip").document(tripDocId).collection("queue");
+                                Ref
+                                        .orderBy("timestamp",Query.Direction.ASCENDING)
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                                        if(uid.equals(document.getId())){
+                                                            break;
+                                                        } else{
+                                                            count++;
+                                                        }
+                                                    }
+                                                    textView3.setText(String.valueOf(count));
+                                                }
+                                            }
+                                        });
                             }
                         }
-                        textView3.setText(String.valueOf(count));
                     }
-                }
-            });
+                });
+
+
     }
 
     public void genQR(){
-        SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
-        tripDocId = ticketPref.getString("ticket","");
-        String text= tripDocId;
-        MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-        try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,200,200);
-            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-            imageView.setImageBitmap(bitmap);
-        } catch (WriterException e) {
-            e.printStackTrace();
-        }
+        DocumentReference docRef = database.collection("user").document(uid);
+        docRef.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            String tripDocId = documentSnapshot.getString("ticket");
+                            if(!tripDocId.isEmpty()){
+                                String text= tripDocId + " " + uid;
+                                MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+                                try {
+                                    BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,200,200);
+                                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                                    imageView.setImageBitmap(bitmap);
+                                } catch (WriterException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                });
+
+
     }
 }

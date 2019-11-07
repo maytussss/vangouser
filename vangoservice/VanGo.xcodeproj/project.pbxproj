@@ -1,0 +1,790 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		083D57B0092ECA0A9872D481 /* Pods_VanGo_VanGoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDCF05EC0CB2761ED309329 /* Pods_VanGo_VanGoUITests.framework */; };
+		B880E437F6D1101862459EA1 /* Pods_VanGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65941341CB04ED35706DA156 /* Pods_VanGo.framework */; };
+		E953265232052EDBE3780085 /* Pods_VanGoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8034C2ED4E0836A378900AC4 /* Pods_VanGoTests.framework */; };
+		F624F82E236769E400E04159 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F624F82D236769E400E04159 /* userData.swift */; };
+		F63040FA236D587800A7C0D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F63040F9236D587800A7C0D5 /* GoogleService-Info.plist */; };
+		F63040FC236D6B2900A7C0D5 /* Main Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63040FB236D6B2900A7C0D5 /* Main Path.swift */; };
+		F63040FE236D739900A7C0D5 /* PathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63040FD236D739900A7C0D5 /* PathCell.swift */; };
+		F6304100236D748D00A7C0D5 /* pathData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63040FF236D748D00A7C0D5 /* pathData.swift */; };
+		F66A822123660E72002B1F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A822023660E72002B1F99 /* AppDelegate.swift */; };
+		F66A822323660E72002B1F99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A822223660E72002B1F99 /* SceneDelegate.swift */; };
+		F66A822823660E72002B1F99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66A822623660E72002B1F99 /* Main.storyboard */; };
+		F66A822B23660E72002B1F99 /* VanGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F66A822923660E72002B1F99 /* VanGo.xcdatamodeld */; };
+		F66A822D23660E73002B1F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F66A822C23660E73002B1F99 /* Assets.xcassets */; };
+		F66A823023660E73002B1F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66A822E23660E73002B1F99 /* LaunchScreen.storyboard */; };
+		F66A823B23660E73002B1F99 /* VanGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A823A23660E73002B1F99 /* VanGoTests.swift */; };
+		F66A824623660E73002B1F99 /* VanGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A824523660E73002B1F99 /* VanGoUITests.swift */; };
+		F6765BD22367355900A85720 /* SetPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6765BD12367355900A85720 /* SetPath.swift */; };
+		F6765BD4236745AA00A85720 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6765BD3236745AA00A85720 /* const.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F66A823723660E73002B1F99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F66A821523660E72002B1F99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F66A821C23660E72002B1F99;
+			remoteInfo = VanGo;
+		};
+		F66A824223660E73002B1F99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F66A821523660E72002B1F99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F66A821C23660E72002B1F99;
+			remoteInfo = VanGo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		059E888BEAD9BB8027FB8451 /* Pods-VanGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGoTests.debug.xcconfig"; path = "Target Support Files/Pods-VanGoTests/Pods-VanGoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		08903BA59B3FC817B546299D /* Pods-VanGo-VanGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGo-VanGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-VanGo-VanGoUITests/Pods-VanGo-VanGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		37BA4A6B996DE48C52A37451 /* Pods-VanGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGoTests.release.xcconfig"; path = "Target Support Files/Pods-VanGoTests/Pods-VanGoTests.release.xcconfig"; sourceTree = "<group>"; };
+		3A4A22325EC9FA5786E6CC16 /* Pods-VanGo-VanGoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGo-VanGoUITests.release.xcconfig"; path = "Target Support Files/Pods-VanGo-VanGoUITests/Pods-VanGo-VanGoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		65941341CB04ED35706DA156 /* Pods_VanGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8034C2ED4E0836A378900AC4 /* Pods_VanGoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanGoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B247A4097340211C217F11 /* Pods-VanGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGo.debug.xcconfig"; path = "Target Support Files/Pods-VanGo/Pods-VanGo.debug.xcconfig"; sourceTree = "<group>"; };
+		CCDCF05EC0CB2761ED309329 /* Pods_VanGo_VanGoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanGo_VanGoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF209B288DF0ACCAB27F6B0E /* Pods-VanGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGo.release.xcconfig"; path = "Target Support Files/Pods-VanGo/Pods-VanGo.release.xcconfig"; sourceTree = "<group>"; };
+		F624F82D236769E400E04159 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
+		F63040F9236D587800A7C0D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F63040FB236D6B2900A7C0D5 /* Main Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Main Path.swift"; sourceTree = "<group>"; };
+		F63040FD236D739900A7C0D5 /* PathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathCell.swift; sourceTree = "<group>"; };
+		F63040FF236D748D00A7C0D5 /* pathData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pathData.swift; sourceTree = "<group>"; };
+		F66A821D23660E72002B1F99 /* VanGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VanGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F66A822023660E72002B1F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F66A822223660E72002B1F99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F66A822723660E72002B1F99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F66A822A23660E72002B1F99 /* VanGo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VanGo.xcdatamodel; sourceTree = "<group>"; };
+		F66A822C23660E73002B1F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F66A822F23660E73002B1F99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F66A823123660E73002B1F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F66A823623660E73002B1F99 /* VanGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VanGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F66A823A23660E73002B1F99 /* VanGoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanGoTests.swift; sourceTree = "<group>"; };
+		F66A823C23660E73002B1F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F66A824123660E73002B1F99 /* VanGoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VanGoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F66A824523660E73002B1F99 /* VanGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanGoUITests.swift; sourceTree = "<group>"; };
+		F66A824723660E73002B1F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6765BD12367355900A85720 /* SetPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPath.swift; sourceTree = "<group>"; };
+		F6765BD3236745AA00A85720 /* const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = const.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F66A821A23660E72002B1F99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B880E437F6D1101862459EA1 /* Pods_VanGo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F66A823323660E73002B1F99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E953265232052EDBE3780085 /* Pods_VanGoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F66A823E23660E73002B1F99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				083D57B0092ECA0A9872D481 /* Pods_VanGo_VanGoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5810A7FB98A3631443342413 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65941341CB04ED35706DA156 /* Pods_VanGo.framework */,
+				CCDCF05EC0CB2761ED309329 /* Pods_VanGo_VanGoUITests.framework */,
+				8034C2ED4E0836A378900AC4 /* Pods_VanGoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9092A9EAECED84B008EC482B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2B247A4097340211C217F11 /* Pods-VanGo.debug.xcconfig */,
+				CF209B288DF0ACCAB27F6B0E /* Pods-VanGo.release.xcconfig */,
+				08903BA59B3FC817B546299D /* Pods-VanGo-VanGoUITests.debug.xcconfig */,
+				3A4A22325EC9FA5786E6CC16 /* Pods-VanGo-VanGoUITests.release.xcconfig */,
+				059E888BEAD9BB8027FB8451 /* Pods-VanGoTests.debug.xcconfig */,
+				37BA4A6B996DE48C52A37451 /* Pods-VanGoTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F66A821423660E72002B1F99 = {
+			isa = PBXGroup;
+			children = (
+				F66A821F23660E72002B1F99 /* VanGo */,
+				F66A823923660E73002B1F99 /* VanGoTests */,
+				F66A824423660E73002B1F99 /* VanGoUITests */,
+				F66A821E23660E72002B1F99 /* Products */,
+				9092A9EAECED84B008EC482B /* Pods */,
+				5810A7FB98A3631443342413 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F66A821E23660E72002B1F99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F66A821D23660E72002B1F99 /* VanGo.app */,
+				F66A823623660E73002B1F99 /* VanGoTests.xctest */,
+				F66A824123660E73002B1F99 /* VanGoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F66A821F23660E72002B1F99 /* VanGo */ = {
+			isa = PBXGroup;
+			children = (
+				F66A822023660E72002B1F99 /* AppDelegate.swift */,
+				F66A822223660E72002B1F99 /* SceneDelegate.swift */,
+				F66A822623660E72002B1F99 /* Main.storyboard */,
+				F66A822C23660E73002B1F99 /* Assets.xcassets */,
+				F66A822E23660E73002B1F99 /* LaunchScreen.storyboard */,
+				F66A823123660E73002B1F99 /* Info.plist */,
+				F66A822923660E72002B1F99 /* VanGo.xcdatamodeld */,
+				F6765BD12367355900A85720 /* SetPath.swift */,
+				F6765BD3236745AA00A85720 /* const.swift */,
+				F624F82D236769E400E04159 /* userData.swift */,
+				F63040F9236D587800A7C0D5 /* GoogleService-Info.plist */,
+				F63040FB236D6B2900A7C0D5 /* Main Path.swift */,
+				F63040FD236D739900A7C0D5 /* PathCell.swift */,
+				F63040FF236D748D00A7C0D5 /* pathData.swift */,
+			);
+			path = VanGo;
+			sourceTree = "<group>";
+		};
+		F66A823923660E73002B1F99 /* VanGoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F66A823A23660E73002B1F99 /* VanGoTests.swift */,
+				F66A823C23660E73002B1F99 /* Info.plist */,
+			);
+			path = VanGoTests;
+			sourceTree = "<group>";
+		};
+		F66A824423660E73002B1F99 /* VanGoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F66A824523660E73002B1F99 /* VanGoUITests.swift */,
+				F66A824723660E73002B1F99 /* Info.plist */,
+			);
+			path = VanGoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F66A821C23660E72002B1F99 /* VanGo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F66A824A23660E73002B1F99 /* Build configuration list for PBXNativeTarget "VanGo" */;
+			buildPhases = (
+				AB393C81AE97092F615FDD04 /* [CP] Check Pods Manifest.lock */,
+				F66A821923660E72002B1F99 /* Sources */,
+				F66A821A23660E72002B1F99 /* Frameworks */,
+				F66A821B23660E72002B1F99 /* Resources */,
+				4CB0E32AA48692B703EC064F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VanGo;
+			productName = VanGo;
+			productReference = F66A821D23660E72002B1F99 /* VanGo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F66A823523660E73002B1F99 /* VanGoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F66A824D23660E73002B1F99 /* Build configuration list for PBXNativeTarget "VanGoTests" */;
+			buildPhases = (
+				2DAAC3F030A1FF1E2132E0D8 /* [CP] Check Pods Manifest.lock */,
+				F66A823223660E73002B1F99 /* Sources */,
+				F66A823323660E73002B1F99 /* Frameworks */,
+				F66A823423660E73002B1F99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F66A823823660E73002B1F99 /* PBXTargetDependency */,
+			);
+			name = VanGoTests;
+			productName = VanGoTests;
+			productReference = F66A823623660E73002B1F99 /* VanGoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F66A824023660E73002B1F99 /* VanGoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F66A825023660E73002B1F99 /* Build configuration list for PBXNativeTarget "VanGoUITests" */;
+			buildPhases = (
+				B4144BF3097AB4B75ECAE2EE /* [CP] Check Pods Manifest.lock */,
+				F66A823D23660E73002B1F99 /* Sources */,
+				F66A823E23660E73002B1F99 /* Frameworks */,
+				F66A823F23660E73002B1F99 /* Resources */,
+				AFBE5830AF2DD57A464ACD6E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F66A824323660E73002B1F99 /* PBXTargetDependency */,
+			);
+			name = VanGoUITests;
+			productName = VanGoUITests;
+			productReference = F66A824123660E73002B1F99 /* VanGoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F66A821523660E72002B1F99 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "sanpoom punapanont";
+				TargetAttributes = {
+					F66A821C23660E72002B1F99 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					F66A823523660E73002B1F99 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = F66A821C23660E72002B1F99;
+					};
+					F66A824023660E73002B1F99 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = F66A821C23660E72002B1F99;
+					};
+				};
+			};
+			buildConfigurationList = F66A821823660E72002B1F99 /* Build configuration list for PBXProject "VanGo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F66A821423660E72002B1F99;
+			productRefGroup = F66A821E23660E72002B1F99 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F66A821C23660E72002B1F99 /* VanGo */,
+				F66A823523660E73002B1F99 /* VanGoTests */,
+				F66A824023660E73002B1F99 /* VanGoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F66A821B23660E72002B1F99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F66A823023660E73002B1F99 /* LaunchScreen.storyboard in Resources */,
+				F63040FA236D587800A7C0D5 /* GoogleService-Info.plist in Resources */,
+				F66A822D23660E73002B1F99 /* Assets.xcassets in Resources */,
+				F66A822823660E72002B1F99 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F66A823423660E73002B1F99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F66A823F23660E73002B1F99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2DAAC3F030A1FF1E2132E0D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VanGoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CB0E32AA48692B703EC064F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VanGo/Pods-VanGo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VanGo/Pods-VanGo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VanGo/Pods-VanGo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB393C81AE97092F615FDD04 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VanGo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFBE5830AF2DD57A464ACD6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VanGo-VanGoUITests/Pods-VanGo-VanGoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VanGo-VanGoUITests/Pods-VanGo-VanGoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VanGo-VanGoUITests/Pods-VanGo-VanGoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4144BF3097AB4B75ECAE2EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VanGo-VanGoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F66A821923660E72002B1F99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6765BD22367355900A85720 /* SetPath.swift in Sources */,
+				F624F82E236769E400E04159 /* userData.swift in Sources */,
+				F63040FC236D6B2900A7C0D5 /* Main Path.swift in Sources */,
+				F63040FE236D739900A7C0D5 /* PathCell.swift in Sources */,
+				F66A822B23660E72002B1F99 /* VanGo.xcdatamodeld in Sources */,
+				F6304100236D748D00A7C0D5 /* pathData.swift in Sources */,
+				F6765BD4236745AA00A85720 /* const.swift in Sources */,
+				F66A822123660E72002B1F99 /* AppDelegate.swift in Sources */,
+				F66A822323660E72002B1F99 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F66A823223660E73002B1F99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F66A823B23660E73002B1F99 /* VanGoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F66A823D23660E73002B1F99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F66A824623660E73002B1F99 /* VanGoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F66A823823660E73002B1F99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F66A821C23660E72002B1F99 /* VanGo */;
+			targetProxy = F66A823723660E73002B1F99 /* PBXContainerItemProxy */;
+		};
+		F66A824323660E73002B1F99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F66A821C23660E72002B1F99 /* VanGo */;
+			targetProxy = F66A824223660E73002B1F99 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F66A822623660E72002B1F99 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F66A822723660E72002B1F99 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F66A822E23660E73002B1F99 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F66A822F23660E73002B1F99 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F66A824823660E73002B1F99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F66A824923660E73002B1F99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F66A824B23660E73002B1F99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2B247A4097340211C217F11 /* Pods-VanGo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZXMLKBFPT8;
+				INFOPLIST_FILE = VanGo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vangosingup;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F66A824C23660E73002B1F99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF209B288DF0ACCAB27F6B0E /* Pods-VanGo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZXMLKBFPT8;
+				INFOPLIST_FILE = VanGo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vangosingup;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F66A824E23660E73002B1F99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 059E888BEAD9BB8027FB8451 /* Pods-VanGoTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZXMLKBFPT8;
+				INFOPLIST_FILE = VanGoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Group6.VanGoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VanGo.app/VanGo";
+			};
+			name = Debug;
+		};
+		F66A824F23660E73002B1F99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37BA4A6B996DE48C52A37451 /* Pods-VanGoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZXMLKBFPT8;
+				INFOPLIST_FILE = VanGoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Group6.VanGoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VanGo.app/VanGo";
+			};
+			name = Release;
+		};
+		F66A825123660E73002B1F99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08903BA59B3FC817B546299D /* Pods-VanGo-VanGoUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZXMLKBFPT8;
+				INFOPLIST_FILE = VanGoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Group6.VanGoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VanGo;
+			};
+			name = Debug;
+		};
+		F66A825223660E73002B1F99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A4A22325EC9FA5786E6CC16 /* Pods-VanGo-VanGoUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZXMLKBFPT8;
+				INFOPLIST_FILE = VanGoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Group6.VanGoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VanGo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F66A821823660E72002B1F99 /* Build configuration list for PBXProject "VanGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F66A824823660E73002B1F99 /* Debug */,
+				F66A824923660E73002B1F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F66A824A23660E73002B1F99 /* Build configuration list for PBXNativeTarget "VanGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F66A824B23660E73002B1F99 /* Debug */,
+				F66A824C23660E73002B1F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F66A824D23660E73002B1F99 /* Build configuration list for PBXNativeTarget "VanGoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F66A824E23660E73002B1F99 /* Debug */,
+				F66A824F23660E73002B1F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F66A825023660E73002B1F99 /* Build configuration list for PBXNativeTarget "VanGoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F66A825123660E73002B1F99 /* Debug */,
+				F66A825223660E73002B1F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F66A822923660E72002B1F99 /* VanGo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F66A822A23660E72002B1F99 /* VanGo.xcdatamodel */,
+			);
+			currentVersion = F66A822A23660E72002B1F99 /* VanGo.xcdatamodel */;
+			path = VanGo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F66A821523660E72002B1F99 /* Project object */;
+}

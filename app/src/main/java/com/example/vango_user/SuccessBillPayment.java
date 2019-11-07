@@ -21,7 +21,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class SuccessBillPayment extends AppCompatActivity {
 
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
-    SharedPreferences sp;
     String uid;
     //String tripDocId = sp.getString("barcode", "mcoD1l1Naa2jp0g5vj7h");
     String tripDocId;
@@ -41,21 +40,33 @@ public class SuccessBillPayment extends AppCompatActivity {
         priceTXT = this.findViewById(R.id.price_read_text_s);
         balance_read_text_s = this.findViewById(R.id.balance_read_text_s);
 
-        SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
-        tripDocId = ticketPref.getString("ticket","");
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            uid = user.getUid();
+        }
+
+        DocumentReference docRef = database.collection("user").document(uid);
+        docRef.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            String tripDocId = documentSnapshot.getString("ticket");
+                            if (TextUtils.isEmpty(tripDocId)) {
+                                Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
+                                finish();
+                            }
+                            else
+                            {
+                                getTripDetail();
+                                getBalance();
+                            }
+
+                        }
+                    }
+                });
 
         //tripDocId =  getIntent().getStringExtra("code");
-
-        if (TextUtils.isEmpty(tripDocId)) {
-            Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
-            finish();
-        }
-        else
-        {
-            getTripDetail();
-            getBalance();
-        }
-
         // Button
         // See Ticket Button
         findViewById(R.id.goticketbtn).setOnClickListener(
@@ -78,21 +89,35 @@ public class SuccessBillPayment extends AppCompatActivity {
     }
 
     private void getTripDetail(){
-        DocumentReference docRef = database.collection("trip").document(tripDocId);
+        DocumentReference docRef = database.collection("user").document(uid);
         docRef.get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists()) {
-                            String price = String.valueOf(documentSnapshot.get("price"));
-                            priceTXT.setText(price);
-                            String start = documentSnapshot.getString("start");
-                            fromTXT.setText(start);
-                            String destination = documentSnapshot.getString("destination");
-                            toTXT.setText(destination);
+                            String tripDocId = documentSnapshot.getString("ticket");
+                            if (!TextUtils.isEmpty(tripDocId)) {
+                                DocumentReference docRef = database.collection("trip").document(tripDocId);
+                                docRef.get()
+                                        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                if (documentSnapshot.exists()) {
+                                                    String price = String.valueOf(documentSnapshot.get("price"));
+                                                    priceTXT.setText(price);
+                                                    String start = documentSnapshot.getString("start");
+                                                    fromTXT.setText(start);
+                                                    String destination = documentSnapshot.getString("destination");
+                                                    toTXT.setText(destination);
+                                                }
+                                            }
+                                        });
+                            }
                         }
                     }
                 });
+
+
     }
 
     private void getBalance(){
