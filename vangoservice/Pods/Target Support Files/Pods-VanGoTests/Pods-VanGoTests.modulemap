@@ -1,0 +1,6 @@
+framework module Pods_VanGoTests {
+  umbrella header "Pods-VanGoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
