@@ -1,0 +1,6 @@
+framework module Pods_VanGo_VanGoUITests {
+  umbrella header "Pods-VanGo-VanGoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
