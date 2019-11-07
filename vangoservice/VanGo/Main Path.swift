@@ -9,17 +9,25 @@
 import UIKit
 import FirebaseFirestore
 import Firebase
-
+public var myIndex = 0
+var array = [String]()
+var stopArray = [String]()
 class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource
 {
     public var PathDataArray = [Path]()
     public var db:Firestore!
     public var IDcollec = ""
+    public var docIDButt = ""
 
 
 
     @IBOutlet weak var pathTable: UITableView!
     
+    @IBAction func Go(_ sender: Any)
+    {
+        print(docIDButt)
+    }
+
     
     override func viewDidLoad()
     {
@@ -30,15 +38,27 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
         db =  Firestore.firestore()
         loadData()
         checkForUpdate()
+        array = []
+        stopArray = []
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         
         //db =  Firestore.firestore()
         loadData()
         checkForUpdate()
+        array = []
+        stopArray = []
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        myIndex = indexPath.row
+        performSegue(withIdentifier: "segue", sender: self)
+    }
+    
     
     func loadData()
     {
@@ -79,7 +99,10 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
         _ = PathDataArray[indexPath.row]
         let  cell = tableView.dequeueReusableCell(withIdentifier: "showPath", for : indexPath)
         let path = PathDataArray[indexPath.row]
+        array.append(path.start)
+        stopArray.append(path.stop)
         cell.textLabel?.text = "\(path.start)   =>  \(path.stop)"
+        docIDButt = path.docID
         print(indexPath)
         return cell
         

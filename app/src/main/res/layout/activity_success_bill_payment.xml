@@ -79,7 +79,7 @@
                     android:layout_height="2dp"
                     android:layout_marginVertical="10dp"
                     android:background="#ADADAD"
-                    android:orientation="horizontal"></RelativeLayout>
+                    android:orientation="horizontal"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
