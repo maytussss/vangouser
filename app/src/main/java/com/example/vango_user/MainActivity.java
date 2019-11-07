@@ -1,18 +1,19 @@
 package com.example.vango_user;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 //<<<<<<< HEAD
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 //=======
-import android.widget.ExpandableListView;
-import android.widget.ExpandableListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,22 +30,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-import java.util.ArrayList;
-
-//logout expand
-import com.journaldev.expandablelistview.CustomExpandableListAdapter;
-import com.journaldev.expandablelistview.ExpandableListDataPump;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
     SharedPreferences sp;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     private CollectionReference tripRef = database.collection("trip");
 
-
+    Toolbar detailbar;
 
     private tripAdapter adapter;
     TextView usernameDisplay;
@@ -52,21 +43,20 @@ public class MainActivity extends AppCompatActivity {
     final String KEY_USERNAME = "name";
 
 
-    ExpandableListView expandableListView;
-    ExpandableListAdapter expandableListAdapter;
-    List<String> expandableListTitle;
-    HashMap<String, List<String>> expandableListDetail;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sp = getSharedPreferences("login",MODE_PRIVATE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         setUpRecyclerView();
 
         usernameDisplay = findViewById(R.id.usernameDisplay);
+
+        detailbar = (Toolbar) findViewById(R.id.detailbar);
+        //setSupportActionBar(detailbar);
+
         getUser();
 
 //<<<<<<< HEAD
@@ -138,72 +128,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-
-
-
-//<<<<<<<<<<<<<logout expand
-        expandableListView = (ExpandableListView)findViewById(R.id.expandableListView);
-        expandableListDetail = ExpandableListDataPump.getData();
-        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-        expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
-        expandableListView.setAdapter(expandableListAdapter);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        expandableListTitle.get(groupPosition) + " List Expanded.",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
-
-            @Override
-            public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        expandableListTitle.get(groupPosition) + " List Collapsed.",
-                        Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
-
-//                Toast.makeText(
-//                        getApplicationContext(),
-//                        expandableListTitle.get(groupPosition)
-//                                + " -> "
-//                                + expandableListDetail.get(
-//                                expandableListTitle.get(groupPosition)).get(
-//                                childPosition), Toast.LENGTH_SHORT
-//                ).show();
-
-                if((expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition)) == "your balance")
-                {
-                    Intent intent = new Intent(MainActivity.this,YourBalance.class);
-                    startActivity(intent);
-                }
-                else if((expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition)) == "logout")
-                {
-                    FirebaseAuth.getInstance().signOut();
-                    sp.edit().putBoolean("logged",false).apply();
-                    Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-                else
-                {
-                    Toast.makeText(
-                            getApplicationContext(),"Error.", Toast.LENGTH_SHORT).show();
-                }
-
-                return false;
-            }
-        });
     }
 //<<<<<<<<<<<end logout expand
 
@@ -252,5 +176,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         adapter.stopListening();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.yourblance_id:
+                Intent intent = new Intent(MainActivity.this,YourBalance.class);
+                startActivity(intent);
+                Toast.makeText(this,"balance click",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.logout_id:
+                FirebaseAuth.getInstance().signOut();
+                sp.edit().putBoolean("logged",false).apply();
+                Intent x = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(x);
+                finish();
+                //Toast.makeText(this,"logout click",Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
     }
 }

@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="wrap_content">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="#99e5c7"
+        android:layout_marginTop="5dp"
+        ></RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:background="#FFFF"
-        android:padding="30dp"
-        >
+        android:layout_marginTop="10dp"
+        android:paddingBottom="15dp">
+
+        <ImageView
+            android:layout_width="150px"
+            android:layout_height="200px"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/test1"/>
 
         <TextView
             android:id="@+id/From"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="7dp"
             android:gravity="center"
             android:text="From "
-            android:textStyle="bold"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/startText"
@@ -27,9 +41,8 @@
             android:layout_toRightOf="@+id/From"
             android:gravity="center"
             android:text="Naboo"
-            android:textStyle="bold"
             android:textSize="18sp"
-            />
+            android:layout_marginTop="7dp" />
 
         <TextView
             android:id="@+id/to"
@@ -38,9 +51,9 @@
             android:layout_toRightOf="@+id/startText"
             android:gravity="center"
             android:text=" to "
-            android:textStyle="bold"
             android:textSize="18sp"
-            />
+            android:layout_marginTop="7dp"
+             />
 
         <TextView
             android:id="@+id/destinationText"
@@ -49,60 +62,61 @@
             android:layout_toRightOf="@+id/to"
             android:gravity="center"
             android:text="Tatoine"
-            android:textStyle="bold"
             android:textSize="18sp"
-            />
+            android:layout_marginTop="7dp" />
 
 
         <TextView
             android:id="@+id/toTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/firstTripText"
             android:layout_below="@+id/startText"
-            android:text=" - "
+            android:layout_toRightOf="@+id/firstTripText"
             android:gravity="center"
-            />
+            android:text=" - " />
 
         <TextView
             android:id="@+id/firstTripText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="8.00"
             android:layout_below="@+id/startText"
-            />
+            android:layout_marginStart="50dp"
+            android:text="8.00" />
 
         <TextView
             android:id="@+id/lastTripText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="19.30"
             android:layout_below="@+id/startText"
             android:layout_toRightOf="@+id/toTime"
-            />
+            android:text="19.30" />
 
         <TextView
             android:id="@+id/priceText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="30 Baht"
             android:layout_below="@+id/firstTripText"
-            />
+            android:layout_marginStart="50dp"
+            android:text="30 Baht" />
+
         <TextView
+            android:id="@+id/currency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/currency"
-            android:text="  UNIC"
+            android:layout_marginTop="50dp"
             android:layout_toRightOf="@+id/priceText"
-            android:layout_marginTop="43dp"
-            />
+            android:text="  UNIC" />
+
         <TextView
             android:id="@+id/detailButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Detail"
             android:layout_alignParentRight="true"
-            />
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Detail" />
+
     </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>
