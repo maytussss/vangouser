@@ -178,9 +178,9 @@ public class BillPayment extends AppCompatActivity {
                                                     editor.putString("ticket",tripDocId);
                                                     editor.apply();
 
-                                                    /*Intent intent = new Intent(getApplicationContext(), SuccessBillPayment.class);
-                                                    intent.putExtra("code", tripDocId);
-                                                    startActivity(intent);*/
+                                                    Intent intent = new Intent(getApplicationContext(), SuccessBillPayment.class);
+                                                    //intent.putExtra("code", tripDocId);
+                                                    startActivity(intent);
 
                                                     finish();
                                                 }

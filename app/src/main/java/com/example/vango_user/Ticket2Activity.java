@@ -21,11 +21,10 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class Ticket2Activity extends AppCompatActivity {
-    private FirebaseFirestore database = FirebaseFirestore.getInstance();
+
     ImageButton A1;
     Button A2;
-    String uid;
-    int count = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +32,9 @@ public class Ticket2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_ticket2);
         getSupportActionBar().hide();
 
-        //countQueue();
 
-        A1 = (ImageButton)findViewById(R.id.backbt2);
+
+        A1 = findViewById(R.id.backbt2);
         A1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +43,7 @@ public class Ticket2Activity extends AppCompatActivity {
             }
         });
 
-        A2 = (Button)findViewById(R.id.buybt);
+        A2 = findViewById(R.id.buybt);
         A2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,28 +54,5 @@ public class Ticket2Activity extends AppCompatActivity {
 
     }
 
-    /*private void countQueue(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            uid = user.getUid();
-        }
-        else {
-            uid = "aU6PtXs2QURfUOD3rdy3HKb6l7X2";
-        }
 
-        database.collection("trip").document(uid).collection("queue")
-                .orderBy("timeStamp", Query.Direction.ASCENDING)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            count = 0;
-                            for (DocumentSnapshot document : task.getResult()) {
-                                count++;
-                            }
-                        }
-                    }
-                });
-    }*/
 }
