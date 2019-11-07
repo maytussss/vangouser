@@ -123,7 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             userMap.put("name", username);
                                             userMap.put("email", email);
                                             userMap.put("coin", 1000);
-                                            userMap.put("ticket", false);
+                                            userMap.put("ticket", "");
 
                                             // Add a new document with a generated ID
                                             database.collection("user").document(user.getUid()).set(userMap)
