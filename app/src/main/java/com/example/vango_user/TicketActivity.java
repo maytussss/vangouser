@@ -89,20 +89,6 @@ public class TicketActivity extends AppCompatActivity {
     }
 
     public void countQueue(){
-        SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
-        tripDocId = ticketPref.getString("ticket","");
-
-        /*DocumentReference URef = database.collection("trip").document(tripDocId).collection("queue").document(uid);
-        URef.get()
-            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    if (documentSnapshot.exists()) {
-                        Timestamp time = documentSnapshot.getTimestamp("time");
-                    }
-                }
-            });*/
-
         DocumentReference docRef = database.collection("user").document(uid);
         docRef.get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -110,8 +96,7 @@ public class TicketActivity extends AppCompatActivity {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists()) {
                             String tripDocId = documentSnapshot.getString("ticket");
-                            if (!TextUtils.isEmpty(tripDocId)) {
-
+                            if (!tripDocId.isEmpty()) {
                                 CollectionReference Ref = database.collection("trip").document(tripDocId).collection("queue");
                                 Ref
                                         .orderBy("timestamp",Query.Direction.ASCENDING)
@@ -146,8 +131,8 @@ public class TicketActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists()) {
-                            String ticket = documentSnapshot.getString("ticket");
-                            if(!ticket.isEmpty()){
+                            String tripDocId = documentSnapshot.getString("ticket");
+                            if(!tripDocId.isEmpty()){
                                 String text= tripDocId + " " + uid;
                                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                                 try {
@@ -162,5 +147,7 @@ public class TicketActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+
     }
 }
