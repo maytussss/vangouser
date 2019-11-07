@@ -35,7 +35,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="PAYMENT"
                 android:textColor="#FFFF"
-                android:textSize="36sp"/>
+                android:textSize="30sp"/>
         </LinearLayout>
     </FrameLayout>
     <RelativeLayout
