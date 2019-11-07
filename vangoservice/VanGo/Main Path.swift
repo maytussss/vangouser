@@ -12,9 +12,11 @@ import Firebase
 public var myIndex = 0
 var array = [String]()
 var stopArray = [String]()
+var docIDarray = [String]()
 class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource
 {
     public var PathDataArray = [Path]()
+    //var DataArray = [messageData]
     public var db:Firestore!
     public var IDcollec = ""
     public var docIDButt = ""
@@ -22,6 +24,8 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
 
 
     @IBOutlet weak var pathTable: UITableView!
+    //@IBOutlet weak var start_station: UILabel!
+    //@IBOutlet weak var stop_station: UILabel!
     
     @IBAction func Go(_ sender: Any)
     {
@@ -40,6 +44,7 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
         checkForUpdate()
         array = []
         stopArray = []
+        docIDarray = []
         
     }
     
@@ -51,6 +56,8 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
         checkForUpdate()
         array = []
         stopArray = []
+        docIDarray = []
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -101,7 +108,11 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
         let path = PathDataArray[indexPath.row]
         array.append(path.start)
         stopArray.append(path.stop)
-        cell.textLabel?.text = "\(path.start)   =>  \(path.stop)"
+        docIDarray.append(path.docID)
+        cell.textLabel?.text = "From \t : \(path.start) : \t To \t : \(path.stop)"
+        //cell.textLabel?.textColor = UIColor.blue
+        //start_station.text = path.start
+        //stop_station.text = path.stop
         docIDButt = path.docID
         print(indexPath)
         return cell

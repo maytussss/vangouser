@@ -13,6 +13,19 @@ protocol DocumentSerializable {
     init?(dictionary:[String:Any])
 }
 
+
+class messageData
+{
+    private var _msgText:String!
+    var MyText:String{
+        return _msgText
+    }
+    init(msgText:String) {
+        
+        self._msgText = msgText
+    }
+}
+
 struct Path {
     var ID:String
     var start:String
