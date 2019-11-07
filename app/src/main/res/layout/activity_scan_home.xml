@@ -8,95 +8,85 @@
     tools:context=".ScanHome">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_gravity="top"
         android:background="#2E3548"
-        android:padding="10dp">
+        android:padding="5dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             >
-        <ImageButton
-            android:id="@+id/back_btn_title_bar"
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/iconbacktitlebar"
-            android:background="#2E3548"
-            />
 
-        <TextView
-            android:id="@+id/text_scan"
-            android:layout_marginStart="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="SCAN"
-            android:textColor="#FFFF"
-            android:textSize="40sp"
-            android:textStyle="bold" />
+            <ImageButton
+                android:id="@+id/backbt3"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:background="?attr/actionModeCloseDrawable"
+                android:backgroundTint="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:tint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/text_scan"
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="SCAN"
+                android:textColor="#FFFF"
+                android:textSize="30sp" />
         </LinearLayout>
     </FrameLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         >
-        <TextView
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Scan QR Code"
-            android:textSize="20dp"
-            android:layout_marginTop="140dp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignTop="@+id/barcode_scanner"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Scan QR Code for Booking Van."
-            android:textSize="20dp"
-            android:layout_marginTop="420dp"
-            android:layout_centerHorizontal="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Focus on QR Code."
-            android:textSize="20dp"
-            android:layout_marginTop="450dp"
-            android:layout_centerHorizontal="true"/>
-        <fragment
-            android:id="@+id/barcode_scanner"
-            android:name="info.androidhive.barcode.BarcodeReader"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:orientation="vertical"
             android:layout_centerInParent="true"
-            app:auto_focus="true"
-            app:use_flash="false" />
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan QR Code"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+            <RelativeLayout
+                android:layout_width="270dp"
+                android:layout_height="270dp"
+                android:background="@drawable/qrgreenflame"
+                android:layout_gravity="center"
+                android:layout_marginVertical="10dp"
+                >
+                <fragment
+                    android:id="@+id/barcode_scanner"
+                    android:name="info.androidhive.barcode.BarcodeReader"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="10dp"
+                    android:layout_centerInParent="true"
+                    app:auto_focus="true"
+                    app:use_flash="false" />
 
-        <info.androidhive.barcode.ScannerOverlay
-            android:layout_width="match_parent"
-            android:layout_height="570dp"
-            android:background="#44000000"
-            app:line_color="#FF0000"
-            app:line_speed="6"
-            app:line_width="4"
-            app:square_height="200"
-            app:square_width="200" >
+            </RelativeLayout>
 
-        </info.androidhive.barcode.ScannerOverlay>
-    </RelativeLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:background="#2E3548"
-            android:padding="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan QR Code for Booking Van."
+                android:layout_gravity="center"
+                android:layout_marginVertical="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
 
-    </LinearLayout>
+        </RelativeLayout>
 </LinearLayout>

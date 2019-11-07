@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 //<<<<<<< HEAD
 import android.view.View;
@@ -39,9 +40,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    SharedPreferences sp;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     private CollectionReference tripRef = database.collection("trip");
+
+
 
     private tripAdapter adapter;
     TextView usernameDisplay;
@@ -56,11 +59,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sp = getSharedPreferences("login",MODE_PRIVATE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
         setUpRecyclerView();
+
+        usernameDisplay = findViewById(R.id.usernameDisplay);
+        getUser();
+
 //<<<<<<< HEAD
 
         // Scan Button
@@ -68,15 +76,71 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(MainActivity.this,ScanHome.class);
-                        startActivity(intent);
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        if (user != null) {
+                            uid = user.getUid();
+                            //usernameDisplay.setText(uid);
+                        }
+
+                        DocumentReference docRef = database.collection("user").document(uid);
+                        docRef.get()
+                                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                        if (documentSnapshot.exists()) {
+                                            Boolean ticket = documentSnapshot.getBoolean("ticket");
+                                            if(ticket){
+                                                Intent intent = new Intent(MainActivity.this,TicketExist.class);
+                                                startActivity(intent);
+                                            }
+                                            else{
+                                                Intent intent = new Intent(MainActivity.this,ScanHome.class);
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    }
+                                });
                     }
                 }
         );
 
 
-        usernameDisplay = findViewById(R.id.usernameDisplay);
-        getUser();
+        findViewById(R.id.goticket).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        if (user != null) {
+                            uid = user.getUid();
+                            //usernameDisplay.setText(uid);
+                        }
+
+                        DocumentReference docRef = database.collection("user").document(uid);
+                        docRef.get()
+                                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                        if (documentSnapshot.exists()) {
+                                            Boolean ticket = documentSnapshot.getBoolean("ticket");
+                                            if(ticket){
+                                                Intent intent = new Intent(MainActivity.this,TicketActivity.class);
+                                                startActivity(intent);
+                                            }
+                                            else{
+                                                Intent intent = new Intent(MainActivity.this,Ticket2Activity.class);
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    }
+                                });
+                    }
+                }
+        );
+
+
+
 //<<<<<<<<<<<<<logout expand
         expandableListView = (ExpandableListView)findViewById(R.id.expandableListView);
         expandableListDetail = ExpandableListDataPump.getData();
@@ -125,8 +189,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if((expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition)) == "logout")
                 {
+                    FirebaseAuth.getInstance().signOut();
+                    sp.edit().putBoolean("logged",false).apply();
                     Intent intent = new Intent(MainActivity.this,LoginActivity.class);
                     startActivity(intent);
+                    finish();
                 }
                 else
                 {

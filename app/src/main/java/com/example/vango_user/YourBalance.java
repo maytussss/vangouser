@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -18,7 +19,7 @@ public class YourBalance extends AppCompatActivity {
 
     String uid;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
-    TextView balance_amount;
+    Button balance_amount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,19 +29,22 @@ public class YourBalance extends AppCompatActivity {
 
         balance_amount = findViewById(R.id.balance_amount);
         getUser();
-
-        final String code_from = getIntent().getStringExtra("code_from");
-        final String code_to = getIntent().getStringExtra("code_to");
-        final String code_price = getIntent().getStringExtra("code_price");
-
-        findViewById(R.id.purchase_btn).setOnClickListener(
+        findViewById(R.id.backbt3).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                            Intent intent = new Intent(YourBalance.this, SuccessBillPayment.class);
-                            intent.putExtra("code_from",code_from);
-                            intent.putExtra("code_to",code_to);
-                            intent.putExtra("code_price",code_price);
+                        Intent intent = new Intent(YourBalance.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+        );
+
+        findViewById(R.id.balance_amount).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                            Intent intent = new Intent(YourBalance.this, BillPayment.class);
                             startActivity(intent);
                     }
                 }
@@ -49,6 +53,7 @@ public class YourBalance extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(YourBalance.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void getUser(){
