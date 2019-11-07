@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setUpRecyclerView();
+
+        usernameDisplay = findViewById(R.id.usernameDisplay);
+        getUser();
+
 //<<<<<<< HEAD
 
         // Scan Button
@@ -134,8 +138,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
 
-        usernameDisplay = findViewById(R.id.usernameDisplay);
-        getUser();
+
 //<<<<<<<<<<<<<logout expand
         expandableListView = (ExpandableListView)findViewById(R.id.expandableListView);
         expandableListDetail = ExpandableListDataPump.getData();

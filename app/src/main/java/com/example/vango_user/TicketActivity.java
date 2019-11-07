@@ -12,12 +12,17 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class TicketActivity extends AppCompatActivity {
@@ -25,8 +30,8 @@ public class TicketActivity extends AppCompatActivity {
     ImageButton b1;
     Button b2;
     String uid;
-    TextView qno;
     String tripDocId;
+    TextView textView3;
 
     int count = 0;
 
@@ -36,7 +41,10 @@ public class TicketActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ticket);
         getSupportActionBar().hide();
 
-        //countQueue();
+        textView3 = this.findViewById(R.id.textView3);
+        countQueue();
+
+
 
         b1 = findViewById(R.id.backbt);
         b1.setOnClickListener(new View.OnClickListener() {
@@ -57,8 +65,9 @@ public class TicketActivity extends AppCompatActivity {
         });
     }
 
-    /*private void countQueue(){
+    public void countQueue(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         if (user != null) {
             uid = user.getUid();
         }
@@ -69,27 +78,36 @@ public class TicketActivity extends AppCompatActivity {
         SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
         tripDocId = ticketPref.getString("ticket","");
 
-        database.collection("trip").document(tripDocId).collection("queue")
-                .orderBy("timeStamp", Query.Direction.ASCENDING)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            count = 0;
-                            for (DocumentSnapshot document : task.getResult()) {
-                                String user = document.getString("uid");
-                                if(uid.equals(user)){
-                                    break;
-                                }
-                                else{
-                                    count++;
-                                }
+        /*DocumentReference URef = database.collection("trip").document(tripDocId).collection("queue").document(uid);
+        URef.get()
+            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    if (documentSnapshot.exists()) {
+                        Timestamp time = documentSnapshot.getTimestamp("time");
+                    }
+                }
+            });*/
+
+
+        CollectionReference Ref = database.collection("trip").document(tripDocId).collection("queue");
+        Ref
+            .orderBy("timestamp",Query.Direction.ASCENDING)
+            .get()
+            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            if(uid.equals(document.getId())){
+                                break;
+                            } else{
+                                count++;
                             }
                         }
+                        textView3.setText(String.valueOf(count));
                     }
-                });
-        qno = findViewById(R.id.textView3);
-        qno.setText(count);
-    }*/
+                }
+            });
+    }
 }
