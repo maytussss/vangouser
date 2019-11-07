@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                                         if (documentSnapshot.exists()) {
-                                            Boolean ticket = documentSnapshot.getBoolean("ticket");
-                                            if(ticket){
+                                            String tripDocId = documentSnapshot.getString("ticket");
+                                            if(!tripDocId.isEmpty()){
                                                 Intent intent = new Intent(MainActivity.this,TicketExist.class);
                                                 startActivity(intent);
                                             }
@@ -123,8 +123,8 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                                         if (documentSnapshot.exists()) {
-                                            Boolean ticket = documentSnapshot.getBoolean("ticket");
-                                            if(ticket){
+                                            String tripDocId = documentSnapshot.getString("ticket");
+                                            if(!tripDocId.isEmpty()){
                                                 Intent intent = new Intent(MainActivity.this,TicketActivity.class);
                                                 startActivity(intent);
                                             }

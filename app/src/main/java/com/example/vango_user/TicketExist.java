@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -70,19 +71,33 @@ public class TicketExist extends AppCompatActivity {
     }
 
     public void cancelQueue() {
-
         SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
         tripDocId = ticketPref.getString("ticket","");
 
         uid = getUID();
-        DocumentReference tripRef = database.collection("trip").document(tripDocId).collection("queue").document(uid);
-        DocumentReference userRef = database.collection("user").document(uid);
-        tripRef.delete();
-        userRef.update("ticket", false);
 
-        SharedPreferences.Editor editor = ticketPref.edit();
+        DocumentReference docRef = database.collection("user").document(uid);
+        docRef.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            String tripDocId = documentSnapshot.getString("ticket");
+                            if (!TextUtils.isEmpty(tripDocId)) {
+                                DocumentReference tripRef = database.collection("trip").document(tripDocId).collection("queue").document(uid);
+                                DocumentReference userRef = database.collection("user").document(uid);
+                                tripRef.delete();
+                                userRef.update("ticket", "");
+                            }
+                        }
+                    }
+                });
+
+
+
+        /*SharedPreferences.Editor editor = ticketPref.edit();
         editor.putString("ticket",null);
-        editor.apply();
+        editor.apply();*/
 
 
     }

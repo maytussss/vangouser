@@ -59,6 +59,12 @@ public class BillPayment extends AppCompatActivity {
 
 
         tripDocId =  getIntent().getStringExtra("code");
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            uid = user.getUid();
+            //usernameDisplay.setText(uid);
+        }
+
 
         if (TextUtils.isEmpty(tripDocId)) {
             Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
@@ -173,10 +179,10 @@ public class BillPayment extends AppCompatActivity {
 
                                                     queue(tripDocId, uid);
 
-                                                    SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
+                                                    /*SharedPreferences ticketPref = getSharedPreferences("ticket",MODE_PRIVATE);
                                                     SharedPreferences.Editor editor = ticketPref.edit();
                                                     editor.putString("ticket",tripDocId);
-                                                    editor.apply();
+                                                    editor.apply();*/
 
                                                     Intent intent = new Intent(getApplicationContext(), SuccessBillPayment.class);
                                                     //intent.putExtra("code", tripDocId);
@@ -211,7 +217,7 @@ public class BillPayment extends AppCompatActivity {
                 });
 
         DocumentReference userRef = database.collection("user").document(uid);
-        userRef.update("ticket", true);
+        userRef.update("ticket", tripDocId);
     }
 }
 
