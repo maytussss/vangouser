@@ -10,12 +10,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,11 +32,15 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText usernameText, emailText, passwordText, confirmPasswordText;
+    TextView yourusername, appname;
+    TextInputLayout usernhint,passwhint,confpasshint,emhint;
+    ProgressBar loading;
     Button registerButton;
     Button backButton;
     private FirebaseAuth firebaseAuth;
     String email, username, password, confirmPassword;
     int coin;
+    int pass;
     private Button button;
 
     FirebaseFirestore database;
@@ -53,6 +60,13 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.registerButton);
         backButton = findViewById(R.id.backButton);
         firebaseAuth = FirebaseAuth.getInstance();
+        yourusername = findViewById(R.id.urusername);
+        usernhint = findViewById(R.id.usnhintt);
+        passwhint = findViewById(R.id.pwhintt);
+        confpasshint = findViewById(R.id.cfpwhintt);
+        emhint = findViewById(R.id.emhintt);
+        loading = findViewById(R.id.progressBar22);
+        appname = findViewById(R.id.appname);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +102,19 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+                                        loading.setVisibility(View.VISIBLE);
+                                        emailText.setVisibility(View.INVISIBLE);
+                                        usernameText.setVisibility(View.INVISIBLE);
+                                        passwordText.setVisibility(View.INVISIBLE);
+                                        confirmPasswordText.setVisibility(View.INVISIBLE);
+                                        emhint.setVisibility(View.INVISIBLE);
+                                        usernhint.setVisibility(View.INVISIBLE);
+                                        passwhint.setVisibility(View.INVISIBLE);
+                                        confpasshint.setVisibility(View.INVISIBLE);
+                                        registerButton.setVisibility(View.INVISIBLE);
+                                        backButton.setVisibility(View.INVISIBLE);
+                                        appname.setVisibility(View.INVISIBLE);
+                                        yourusername.setVisibility(View.INVISIBLE);
                                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -107,12 +134,15 @@ public class RegisterActivity extends AppCompatActivity {
                                                     });
                                         }
 
-                                    } else {
-                                        Toast.makeText(RegisterActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
                                     }
+
 
                                 }
                             });
+
+                }
+                else{
+                    Toast.makeText(RegisterActivity.this, "Please check Confirm Password ", Toast.LENGTH_SHORT).show();
                 }
 
             }

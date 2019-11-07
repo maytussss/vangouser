@@ -11,10 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -22,10 +25,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class LoginActivity extends AppCompatActivity {
 
     EditText emailText, passwordText;
+    TextInputLayout usernamehint, passwordhint;
     ImageButton test;
+    TextView dots, openingword, leadtoReg, loadPhrase;
     Button loginButton;
+    ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
     SharedPreferences sp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +49,13 @@ public class LoginActivity extends AppCompatActivity {
         emailText = findViewById(R.id.emailText);
         passwordText = findViewById(R.id.passwordText);
         loginButton = findViewById(R.id.loginButton);
+        progressBar = findViewById(R.id.progressBar11);
+        dots = findViewById(R.id.fivedots);
+        openingword = findViewById(R.id.opngwrd);
+        leadtoReg = findViewById(R.id.btntoreg);
+        loadPhrase = findViewById(R.id.welcome);
+        usernamehint = findViewById(R.id.userhint);
+        passwordhint = findViewById(R.id.passhint);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -68,6 +82,16 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    progressBar.setVisibility(View.VISIBLE);
+                                    emailText.setVisibility(View.INVISIBLE);
+                                    passwordText.setVisibility(View.INVISIBLE);
+                                    loginButton.setVisibility(View.INVISIBLE);
+                                    dots.setVisibility(View.INVISIBLE);
+                                    openingword.setVisibility(View.INVISIBLE);
+                                    leadtoReg.setVisibility(View.INVISIBLE);
+                                    loadPhrase.setVisibility(View.VISIBLE);
+                                    usernamehint.setVisibility(View.INVISIBLE);
+                                    passwordhint.setVisibility(View.INVISIBLE);
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     sp.edit().putBoolean("logged",true).apply();
                                     Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
