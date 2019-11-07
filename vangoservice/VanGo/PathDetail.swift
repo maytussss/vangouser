@@ -21,7 +21,6 @@ class PathDetail: UIViewController {
         stop_name.text = stopArray[myIndex]
         
         //stop_name.text = stopArray[myIndex]
-
         // Do any additional setup after loading the view.
     }
     

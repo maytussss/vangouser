@@ -13,11 +13,14 @@ import Firebase
 class PathCell: UITableViewCell {
     @IBOutlet weak var start: UILabel!
     @IBOutlet weak var stop: UILabel!
+    @IBOutlet weak var start_label: UILabel!
+    @IBOutlet weak var stop_label: UILabel!
     
-//    func setValueStart(PathData:Path)
-//    {
-//        start.text = PathData.start
-//    }
+    func setValue(data:Path)
+    {
+        start_label.text = data.start
+        stop_label.text = data.stop
+    }
 //    func setValueStop(PathData:pathData)
 //    {
 //        stop.text = PathData.PathStop
