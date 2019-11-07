@@ -19,7 +19,7 @@ public class YourBalance extends AppCompatActivity {
 
     String uid;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
-    Button balance_amount;
+    TextView balance_amount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,26 +29,6 @@ public class YourBalance extends AppCompatActivity {
 
         balance_amount = findViewById(R.id.balance_amount);
         getUser();
-        findViewById(R.id.backbt3).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(YourBalance.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                }
-        );
-
-        findViewById(R.id.balance_amount).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                            Intent intent = new Intent(YourBalance.this, BillPayment.class);
-                            startActivity(intent);
-                    }
-                }
-        );
     }
     public void onBackPressed() {
         Intent intent = new Intent(YourBalance.this, MainActivity.class);

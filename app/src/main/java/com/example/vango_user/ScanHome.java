@@ -26,16 +26,6 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
         setContentView(R.layout.activity_scan_home);
         getSupportActionBar().hide();
 
-        findViewById(R.id.backbt3).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(ScanHome.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                }
-        );
         barcodeReader = (BarcodeReader) getSupportFragmentManager().findFragmentById(R.id.barcode_scanner);
     }
     @Override
