@@ -35,7 +35,6 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 public class TicketActivity extends AppCompatActivity {
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
-    ImageButton b1;
     Button b2;
     String uid;
     String tripDocId;
@@ -66,14 +65,6 @@ public class TicketActivity extends AppCompatActivity {
 
 
 
-        b1 = findViewById(R.id.backbt);
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent b1 = new Intent(TicketActivity.this,MainActivity.class);
-                startActivity(b1);
-            }
-        });
 
         b2 = findViewById(R.id.donebt);
         b2.setOnClickListener(new View.OnClickListener() {
