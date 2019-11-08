@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="850dp"
     android:background="@drawable/loginbg"
+    android:orientation="vertical"
     android:padding="30dp"
     tools:context=".LoginActivity">
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
         android:id="@+id/userhint"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="340dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:textColorHint="#939494"
@@ -33,10 +33,10 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passhint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/passhint"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="400dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:textColorHint="#939494"
@@ -51,13 +51,14 @@
             android:inputType="textPassword"
             android:textColorHint="#009688"
             android:theme="@style/Platform.MaterialComponents.Light" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="500dp"
         android:backgroundTint="#009688"
         android:text="Sign in"
         android:textColor="#FFFFFF"
@@ -68,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="220dp"
         android:onClick="btn_gotoRegister"
         android:text="Don't Have An Account Click Here"
         android:textColor="#009688"
@@ -78,11 +79,11 @@
         android:id="@+id/opngwrd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="260dp"
         android:gravity="center_horizontal"
         android:text="Where do you want to go?"
         android:textColor="#009688"
-        android:textSize="29sp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/welcome"
@@ -98,8 +99,8 @@
     <ProgressBar
         android:id="@+id/progressBar11"
         style="?android:attr/progressBarStyle"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="300dp"
         android:backgroundTint="#FFFEFE"
@@ -115,7 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="220dp"
         android:text="....."
         android:textColor="#009688"
         android:textSize="100sp" />
