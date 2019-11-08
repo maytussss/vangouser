@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please use this ticket to get into van"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your Queue"
-        android:textSize="36sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,19 +62,13 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="       TICKET"
+            android:layout_width="400dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="TICKET"
             android:textColor="#FFFFFF"
-            android:textSize="36sp" />
+            android:textSize="30sp" />
 
-        <ImageButton
-            android:id="@+id/backbt2"
-            android:layout_width="62dp"
-            android:layout_height="54dp"
-            android:background="?attr/actionModeCloseDrawable"
-            android:backgroundTint="#FFFFFF"
-            android:tint="#FFFFFF" />
     </FrameLayout>
 
     <Button
@@ -92,7 +87,8 @@
         android:id="@+id/buybt"
         android:layout_width="282dp"
         android:layout_height="61dp"
-        android:background="#74DDD0"
+        android:layout_marginBottom="20dp"
+        android:background="#009688"
         android:text="Buy Ticket"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
