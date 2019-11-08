@@ -14,7 +14,7 @@
         android:id="@+id/userhint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="335dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:textColorHint="#939494"
@@ -62,7 +62,7 @@
         android:backgroundTint="#009688"
         android:text="Sign in"
         android:textColor="#FFFFFF"
-        android:textSize="18dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/btntoreg"
