@@ -44,6 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Username"
+                    android:textStyle="bold"
                     android:textSize="20sp">
 
                 </TextView>
@@ -57,7 +58,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Your balance:"
-                        android:textSize="25sp" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/balance_amount"
@@ -72,14 +73,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="5dp"
                         android:text="Unicoin"
-                        android:textSize="25sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="UNICOIN"
+                android:text="PURCHASE UNICOIN"
                 android:layout_gravity="center"
                 android:layout_marginVertical="30dp"
                 android:gravity="center"

@@ -22,7 +22,6 @@ public class YourBalance extends AppCompatActivity {
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     TextView balance_amount;
     TextView UserName;
-    SharedPreferences sp;
 
 
     @Override
