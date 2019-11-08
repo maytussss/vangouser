@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AddMoneySuccess"></activity>
         <activity android:name=".TicketExist" />
         <activity android:name=".FailBillPayment" />
         <activity android:name=".SuccessBillPayment" /> <!-- <<<<<<< HEAD -->
@@ -20,7 +21,8 @@
         <activity android:name=".ScanHome" />
         <activity android:name=".BillPayment" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".splahPg"
+        <activity
+            android:name=".splahPg"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +33,8 @@
         <activity android:name=".Ticket2Activity" />
         <activity android:name=".TicketActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>
