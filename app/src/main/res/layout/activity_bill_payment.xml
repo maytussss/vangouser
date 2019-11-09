@@ -17,7 +17,8 @@
             android:id="@+id/txtlogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center_vertical"
             android:text="PAYMENT"
             android:textColor="#FFFF"
             android:textSize="30sp"/>
@@ -260,10 +261,11 @@
                             android:id="@+id/declinebtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/cancel_red_btn"
+                            android:background="@drawable/button3"
                             android:text="Decline"
                             android:textColor="#FFF"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"
+                            android:padding="20dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -276,10 +278,11 @@
                             android:id="@+id/acceptbtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/accept_green_btn"
+                            android:background="@drawable/button"
                             android:text="Accept"
                             android:textColor="#FFF"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"
+                            android:padding="20dp"/>
                     </LinearLayout>
 
                 </RelativeLayout>

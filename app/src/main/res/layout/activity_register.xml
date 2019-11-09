@@ -89,7 +89,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="480dp"
-        android:backgroundTint="#009688"
+        android:background="@drawable/button4"
         android:text="Register"
         android:textColor="#ffff" />
 
@@ -98,7 +98,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="540dp"
-        android:backgroundTint="#ffff"
+        android:background="@drawable/button5"
         android:text="Back"
         android:textColor="#009688" />
 
