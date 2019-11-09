@@ -107,7 +107,7 @@ public class SuccessBillPayment extends AppCompatActivity {
                                                     priceTXT.setText(price);
                                                     String start = documentSnapshot.getString("start");
                                                     fromTXT.setText(start);
-                                                    String destination = documentSnapshot.getString("destination");
+                                                    String destination = documentSnapshot.getString("stop");
                                                     toTXT.setText(destination);
                                                 }
                                             }
