@@ -10,6 +10,7 @@
 		083D57B0092ECA0A9872D481 /* Pods_VanGo_VanGoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDCF05EC0CB2761ED309329 /* Pods_VanGo_VanGoUITests.framework */; };
 		B880E437F6D1101862459EA1 /* Pods_VanGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65941341CB04ED35706DA156 /* Pods_VanGo.framework */; };
 		E953265232052EDBE3780085 /* Pods_VanGoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8034C2ED4E0836A378900AC4 /* Pods_VanGoTests.framework */; };
+		F60190A62376FC650030420A /* vango-logoo.png in Resources */ = {isa = PBXBuildFile; fileRef = F60190A52376FC650030420A /* vango-logoo.png */; };
 		F624F82E236769E400E04159 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F624F82D236769E400E04159 /* userData.swift */; };
 		F63040FA236D587800A7C0D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F63040F9236D587800A7C0D5 /* GoogleService-Info.plist */; };
 		F63040FC236D6B2900A7C0D5 /* Main Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63040FB236D6B2900A7C0D5 /* Main Path.swift */; };
@@ -55,6 +56,7 @@
 		A2B247A4097340211C217F11 /* Pods-VanGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGo.debug.xcconfig"; path = "Target Support Files/Pods-VanGo/Pods-VanGo.debug.xcconfig"; sourceTree = "<group>"; };
 		CCDCF05EC0CB2761ED309329 /* Pods_VanGo_VanGoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanGo_VanGoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF209B288DF0ACCAB27F6B0E /* Pods-VanGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGo.release.xcconfig"; path = "Target Support Files/Pods-VanGo/Pods-VanGo.release.xcconfig"; sourceTree = "<group>"; };
+		F60190A52376FC650030420A /* vango-logoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vango-logoo.png"; sourceTree = SOURCE_ROOT; };
 		F624F82D236769E400E04159 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		F63040F9236D587800A7C0D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F63040FB236D6B2900A7C0D5 /* Main Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Main Path.swift"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				F66A822C23660E73002B1F99 /* Assets.xcassets */,
 				F66A822E23660E73002B1F99 /* LaunchScreen.storyboard */,
 				F66A823123660E73002B1F99 /* Info.plist */,
+				F60190A52376FC650030420A /* vango-logoo.png */,
 				F66A822923660E72002B1F99 /* VanGo.xcdatamodeld */,
 				F6765BD12367355900A85720 /* SetPath.swift */,
 				F6765BD3236745AA00A85720 /* const.swift */,
@@ -301,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F60190A62376FC650030420A /* vango-logoo.png in Resources */,
 				F66A823023660E73002B1F99 /* LaunchScreen.storyboard in Resources */,
 				F63040FA236D587800A7C0D5 /* GoogleService-Info.plist in Resources */,
 				F66A822D23660E73002B1F99 /* Assets.xcassets in Resources */,
