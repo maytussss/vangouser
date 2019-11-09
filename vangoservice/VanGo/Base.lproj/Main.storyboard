@@ -218,26 +218,32 @@
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1c-Tb-Ijs">
-                                <rect key="frame" x="153" y="529" width="69" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Ready?">
-                                    <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2U-9o-4QI">
-                                <rect key="frame" x="135" y="586" width="105" height="41"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="139.5" y="586" width="96" height="41"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="GO NOW!">
-                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <state key="normal" title="Check IN">
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Eaj-Xa-6tS" kind="show" id="KXi-8Z-Jtj"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bh-Ia-4wo">
+                                <rect key="frame" x="166" y="331" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x7O-uu-3L9">
+                                <rect key="frame" x="70" y="116" width="240" height="217"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="9Bh-Ia-4wo" firstAttribute="top" secondItem="x7O-uu-3L9" secondAttribute="bottom" constant="10" id="6LJ-dr-a9G"/>
                             <constraint firstItem="15g-kv-aeK" firstAttribute="bottom" secondItem="m6t-gP-ck3" secondAttribute="bottom" constant="160" id="6R8-bE-1To"/>
-                            <constraint firstItem="M1c-Tb-Ijs" firstAttribute="centerX" secondItem="0al-tX-ckH" secondAttribute="centerX" id="CaU-pl-afK"/>
+                            <constraint firstItem="x7O-uu-3L9" firstAttribute="centerX" secondItem="0al-tX-ckH" secondAttribute="centerX" id="EhO-en-ut9"/>
                             <constraint firstItem="15g-kv-aeK" firstAttribute="bottom" secondItem="b6b-ha-4uK" secondAttribute="bottom" constant="200" id="GrO-We-Isa"/>
                             <constraint firstItem="b6b-ha-4uK" firstAttribute="centerX" secondItem="0al-tX-ckH" secondAttribute="centerX" id="H3X-eU-PqU"/>
                             <constraint firstItem="j2U-9o-4QI" firstAttribute="centerX" secondItem="0al-tX-ckH" secondAttribute="centerX" id="IRa-Et-pnt"/>
@@ -247,11 +253,12 @@
                             <constraint firstItem="e4b-fe-9IX" firstAttribute="leading" secondItem="15g-kv-aeK" secondAttribute="leading" constant="70" id="PLf-mH-a2D"/>
                             <constraint firstItem="2UC-1P-9ZH" firstAttribute="top" secondItem="15g-kv-aeK" secondAttribute="top" constant="30" id="PY4-s1-AKr"/>
                             <constraint firstAttribute="trailing" secondItem="o7N-nz-Hz2" secondAttribute="trailing" constant="70" id="QU9-io-LgM"/>
+                            <constraint firstItem="9Bh-Ia-4wo" firstAttribute="centerX" secondItem="0al-tX-ckH" secondAttribute="centerX" id="VLS-8L-HYB"/>
                             <constraint firstItem="J1h-hN-qmU" firstAttribute="top" secondItem="15g-kv-aeK" secondAttribute="top" constant="25" id="WrD-3w-P6X"/>
-                            <constraint firstItem="15g-kv-aeK" firstAttribute="bottom" secondItem="M1c-Tb-Ijs" secondAttribute="bottom" constant="100" id="bUG-KC-7Iw"/>
                             <constraint firstItem="15g-kv-aeK" firstAttribute="bottom" secondItem="e4b-fe-9IX" secondAttribute="bottom" constant="160" id="ct9-cz-qL6"/>
                             <constraint firstItem="15g-kv-aeK" firstAttribute="bottom" secondItem="o7N-nz-Hz2" secondAttribute="bottom" constant="160" id="eCA-ud-KkP"/>
                             <constraint firstItem="J1h-hN-qmU" firstAttribute="leading" secondItem="15g-kv-aeK" secondAttribute="leading" constant="30" id="hpb-XK-9Uy"/>
+                            <constraint firstItem="x7O-uu-3L9" firstAttribute="top" secondItem="J1h-hN-qmU" secondAttribute="bottom" constant="25" id="pQ2-Tr-3dt"/>
                             <constraint firstItem="31V-DN-uJS" firstAttribute="leading" secondItem="J1h-hN-qmU" secondAttribute="trailing" constant="2" id="qxH-7x-ien"/>
                             <constraint firstItem="31V-DN-uJS" firstAttribute="top" secondItem="15g-kv-aeK" secondAttribute="top" constant="31" id="zBH-QL-Ui2"/>
                         </constraints>
@@ -259,13 +266,43 @@
                     </view>
                     <navigationItem key="navigationItem" id="Idj-eS-o7u"/>
                     <connections>
+                        <outlet property="QR" destination="x7O-uu-3L9" id="ZPI-1W-i5I"/>
+                        <outlet property="docID" destination="9Bh-Ia-4wo" id="dKG-Wj-QDF"/>
                         <outlet property="start_name" destination="e4b-fe-9IX" id="U7o-Mk-sXw"/>
                         <outlet property="stop_name" destination="o7N-nz-Hz2" id="CUX-Ey-1g4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9g-NJ-ihW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1799" y="907"/>
+            <point key="canvasLocation" x="1797.5999999999999" y="906.29685157421295"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ra4-AW-xs8">
+            <objects>
+                <viewController id="Eaj-Xa-6tS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vuo-0D-eIz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scan QR (Folk)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eft-hx-24D">
+                                <rect key="frame" x="56.5" y="308" width="262" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Eft-hx-24D" firstAttribute="centerY" secondItem="vuo-0D-eIz" secondAttribute="centerY" id="KCs-ke-OCj"/>
+                            <constraint firstItem="Eft-hx-24D" firstAttribute="centerX" secondItem="vuo-0D-eIz" secondAttribute="centerX" id="f3v-sF-AyC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xzr-hA-JLP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NLm-0u-7cJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hTj-CT-9kG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2710" y="906"/>
         </scene>
         <!--Select Path-->
         <scene sceneID="TVe-xr-0xK">
@@ -306,6 +343,7 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="bottom" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9bd-b7-fLl">
                                 <rect key="frame" x="30" y="148" width="315" height="388"/>
+                                <color key="separatorColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="playback" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showPath" id="1RH-iK-bvZ" customClass="PathCell" customModule="VanGo" customModuleProvider="target">
