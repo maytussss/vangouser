@@ -34,8 +34,12 @@ class SetPath: UIViewController
             IDnumber.backgroundColor = UIColor.white
             let _db =  Firestore.firestore()
             var ref:DocumentReference? = nil
+            var ref_new:DocumentReference? = nil
             //var docID = ref?.documentID
-            ref = _db.collection("trip").addDocument(data: ["driver ":firstname.text,"ID":IDnumber.text,"start":start.text,"stop":traget.text,"seats":"10","price":price.text])
+            let unicoid:String = price.text ?? ""
+            let unicoid_int = Int(unicoid)
+
+            ref = _db.collection("trip").addDocument(data: ["driver ":firstname.text,"ID":IDnumber.text,"start":start.text,"stop":traget.text,"seats":"10","price":unicoid_int])
             {
                 error in
                     if let error = error
@@ -47,9 +51,24 @@ class SetPath: UIViewController
                         let docID = ref?.documentID
                         print("add")
                         ref?.setData(["docID":docID],merge: true)
-                        ref?.collection("queue").addDocument(data: ["status":""])
+                        ref_new = ref?.collection("queue").addDocument(data: ["trash":""])
+                        {
+                            error in
+                            if let error = error
+                            {
+                                print("error")
+                            }
+                            else
+                            {
+                                let docID_new:String = ref_new?.documentID ?? ""
+                                //ref_new?.setData(["docID":docID_new],merge: true)
+                                
+                                //ref?.collection("queue").document(docID_new).delete()
+                 
+                            }
                     }
                 
+                }
             }
             
             let alert = UIAlertController(title: "กด Done!", message: "already added", preferredStyle: .alert)
