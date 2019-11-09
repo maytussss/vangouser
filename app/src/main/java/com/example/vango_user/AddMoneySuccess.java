@@ -27,14 +27,15 @@ public class AddMoneySuccess extends AppCompatActivity {
         setContentView(R.layout.activity_fail_bill_payment);
         getSupportActionBar().hide();
 
-        int cc = getIntent().getIntExtra("price", price);
-        updateCoin(cc);
+
 
         AlertDialog.Builder builder = new AlertDialog.Builder(AddMoneySuccess.this);
         builder.setCancelable(false); // To protect press back navigation.
         builder.setMessage("Do you want to proceed the payment");
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                int cc = getIntent().getIntExtra("price", price);
+                updateCoin(cc);
                 Intent intent = new Intent(AddMoneySuccess.this, YourBalance.class);
                 startActivity(intent);
                 finish();
