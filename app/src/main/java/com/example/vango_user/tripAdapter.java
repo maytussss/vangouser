@@ -21,7 +21,7 @@ public class tripAdapter extends FirestoreRecyclerAdapter<tripList, tripAdapter.
     @Override
     protected void onBindViewHolder(@NonNull tripHolder holder, int position, @NonNull tripList model) {
         holder.startText.setText(model.getStart());
-        holder.destinationText.setText(model.getDestination());
+        holder.destinationText.setText(model.getStop());
         holder.firstTripText.setText(model.getFirstTrip());
         holder.lastTripText.setText(model.getLastTrip());
         holder.priceText.setText(String.valueOf(model.getPrice()));
