@@ -13,12 +13,13 @@
         android:layout_height="70dp"
         android:layout_gravity="top"
         android:background="#2E3548"
+        android:orientation="horizontal"
         android:padding="5dp">
 
         <TextView
             android:id="@+id/txtlogo"
             android:layout_width="wrap_content"
-            android:layout_height="28dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
             android:text="VANGO"
@@ -84,7 +85,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tripRecycler"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="470dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
