@@ -2,18 +2,18 @@ package com.example.vango_user;
 
 public class tripList {
     private String start;
-    private String destination;
+    private String stop;
     private String firstTrip;
     private String lastTrip;
-    private int price;
+    private Double price;
 
     public tripList() {
 
     }
 
-    public tripList(String start, String destination, String firstTrip, String lastTrip, int price){
+    public tripList(String start, String stop, String firstTrip, String lastTrip, Double price){
         this.start = start;
-        this.destination = destination;
+        this.stop = stop;
         this.firstTrip = firstTrip;
         this.lastTrip = lastTrip;
         this.price = price;
@@ -23,8 +23,8 @@ public class tripList {
         return start;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getStop() {
+        return stop;
     }
 
     public String getFirstTrip() {
@@ -35,7 +35,7 @@ public class tripList {
         return lastTrip;
     }
 
-    public int getPrice() {
+    public Double getPrice() {
         return price;
     }
 }
