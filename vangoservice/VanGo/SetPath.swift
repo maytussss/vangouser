@@ -35,7 +35,7 @@ class SetPath: UIViewController
             let _db =  Firestore.firestore()
             var ref:DocumentReference? = nil
             //var docID = ref?.documentID
-            ref = _db.collection("ticket").addDocument(data: ["driver ":firstname.text,"ID":IDnumber.text,"start":start.text,"stop":traget.text,"seats":"10","price":price.text])
+            ref = _db.collection("trip").addDocument(data: ["driver ":firstname.text,"ID":IDnumber.text,"start":start.text,"stop":traget.text,"seats":"10","price":price.text])
             {
                 error in
                     if let error = error
@@ -47,6 +47,7 @@ class SetPath: UIViewController
                         let docID = ref?.documentID
                         print("add")
                         ref?.setData(["docID":docID],merge: true)
+                        ref?.collection("queue").addDocument(data: ["status":""])
                     }
                 
             }

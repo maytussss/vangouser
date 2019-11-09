@@ -13,6 +13,7 @@ public var myIndex = 0
 var array = [String]()
 var stopArray = [String]()
 var docIDarray = [String]()
+
 class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource
 {
     public var PathDataArray = [Path]()
@@ -69,7 +70,7 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
     
     func loadData()
     {
-        db.collection("ticket").getDocuments()
+        db.collection("trip").getDocuments()
             {
                 querySnapshot , error in
                 if let error = error
