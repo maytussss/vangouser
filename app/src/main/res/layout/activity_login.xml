@@ -71,7 +71,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="220dp"
         android:onClick="btn_gotoRegister"
-        android:text="Don't Have An Account Click Here"
+        android:text="Don't Have An Account? Click Here"
         android:textColor="#009688"
         android:textSize="20dp" />
 
