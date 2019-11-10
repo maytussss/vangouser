@@ -82,7 +82,6 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
                 else{
 
                     self.PathDataArray = querySnapshot!.documents.flatMap({Path(dictionary: $0.data())})
-                    
                     DispatchQueue.main.async {
                         self.pathTable.reloadData()
                     }
