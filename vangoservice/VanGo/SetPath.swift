@@ -20,13 +20,15 @@ class SetPath: UIViewController
     @IBOutlet weak var traget: UITextField!
     @IBOutlet weak var seats: UITextField!
     @IBOutlet weak var price: UITextField!
+    @IBOutlet weak var firstTrip: UITextField!
+    @IBOutlet weak var lastTrip: UITextField!
     
     @IBAction func save(_ sender: Any)
     {
         if(IDnumber.text!.count != 13)
         {
             IDnumber.backgroundColor = UIColor(red: 255/255, green: 209/255, blue:220/255, alpha: 1)
-            Const().ShowAleart(title: "LOL Bitch", message: "Are you fucking idiot? \nThat isn't your \n'FUCKING IN'", ViewController: self)
+            Const().ShowAleart(title: "something wrong!", message: "Your ID isn't correct", ViewController: self)
             
         }
         else
@@ -39,7 +41,7 @@ class SetPath: UIViewController
             let unicoid:String = price.text ?? ""
             let unicoid_int = Int(unicoid)
 
-            ref = _db.collection("trip").addDocument(data: ["driver ":firstname.text,"ID":IDnumber.text,"start":start.text,"stop":traget.text,"seats":"10","price":unicoid_int])
+            ref = _db.collection("trip").addDocument(data: ["driver ":firstname.text,"ID":IDnumber.text,"start":start.text,"stop":traget.text,"seats":"10","firstTrip":firstTrip.text,"lastTrip":lastTrip.text,"price":unicoid_int])
             {
                 error in
                     if let error = error

@@ -15,6 +15,7 @@ class PathDetail: UIViewController {
     @IBOutlet weak var start_name: UILabel!
     @IBOutlet weak var QR: UIImageView!
     @IBOutlet weak var docID: UILabel!
+    @IBOutlet weak var schedule: UILabel!
     
     
     
@@ -24,6 +25,7 @@ class PathDetail: UIViewController {
         start_name.text = array[myIndex]
         stop_name.text = stopArray[myIndex]
         docID.text = docIDarray[myIndex]
+        schedule.text = "\(firstTripArray[myIndex]) - \(lastTripArray[myIndex])"
         
         if let myString = docID.text
         {
