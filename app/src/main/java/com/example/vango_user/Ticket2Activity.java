@@ -22,7 +22,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class Ticket2Activity extends AppCompatActivity {
 
-    ImageButton A1;
+
     Button A2;
 
 
@@ -34,14 +34,7 @@ public class Ticket2Activity extends AppCompatActivity {
 
 
 
-        A1 = findViewById(R.id.backbt2);
-        A1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent A1 = new Intent(Ticket2Activity.this,MainActivity.class);
-                startActivity(A1);
-            }
-        });
+
 
         A2 = findViewById(R.id.buybt);
         A2.setOnClickListener(new View.OnClickListener() {

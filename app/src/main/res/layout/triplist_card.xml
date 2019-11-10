@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="85dp"
         android:background="#99e5c7"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         ></RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
 
         <ImageView
             android:layout_width="150px"
-            android:layout_height="270px"
+            android:layout_height="250px"
             android:layout_marginTop="0dp"
             android:layout_marginStart="0dp"
             android:src="@drawable/test1"/>

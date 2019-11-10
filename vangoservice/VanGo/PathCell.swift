@@ -16,11 +16,11 @@ class PathCell: UITableViewCell {
     @IBOutlet weak var start_label: UILabel!
     @IBOutlet weak var stop_label: UILabel!
     
-    func setValue(data:Path)
-    {
-        start_label.text = data.start
-        stop_label.text = data.stop
-    }
+//    func setValue(data:Path)
+//    {
+//        start_label.text = data.start
+//        stop_label.text = data.stop
+//    }
 //    func setValueStop(PathData:pathData)
 //    {
 //        stop.text = PathData.PathStop

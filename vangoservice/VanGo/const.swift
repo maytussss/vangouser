@@ -13,7 +13,7 @@ class Const
     func ShowAleart(title : String ,message : String , ViewController : UIViewController)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let resultAlert =  UIAlertAction(title: "Sorry , Im so fucking Idiot.", style: .cancel, handler: nil)
+        let resultAlert =  UIAlertAction(title: "Try Again", style: .cancel, handler: nil)
         alert.addAction(resultAlert)
         ViewController.present(alert, animated: true, completion: nil)
     }

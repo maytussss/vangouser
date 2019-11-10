@@ -20,13 +20,15 @@ class SetPath: UIViewController
     @IBOutlet weak var traget: UITextField!
     @IBOutlet weak var seats: UITextField!
     @IBOutlet weak var price: UITextField!
+    @IBOutlet weak var firstTrip: UITextField!
+    @IBOutlet weak var lastTrip: UITextField!
     
     @IBAction func save(_ sender: Any)
     {
         if(IDnumber.text!.count != 13)
         {
             IDnumber.backgroundColor = UIColor(red: 255/255, green: 209/255, blue:220/255, alpha: 1)
-            Const().ShowAleart(title: "LOL Bitch", message: "Are you fucking idiot? \nThat isn't your \n'FUCKING IN'", ViewController: self)
+            Const().ShowAleart(title: "something wrong!", message: "Your ID isn't correct", ViewController: self)
             
         }
         else
@@ -34,8 +36,12 @@ class SetPath: UIViewController
             IDnumber.backgroundColor = UIColor.white
             let _db =  Firestore.firestore()
             var ref:DocumentReference? = nil
+            var ref_new:DocumentReference? = nil
             //var docID = ref?.documentID
-            ref = _db.collection("ticket").addDocument(data: ["driver ":firstname.text,"ID":IDnumber.text,"start":start.text,"stop":traget.text,"seats":"10","price":price.text])
+            let unicoid:String = price.text ?? ""
+            let unicoid_int = Int(unicoid)
+
+            ref = _db.collection("trip").addDocument(data: ["driver ":firstname.text,"ID":IDnumber.text,"start":start.text,"stop":traget.text,"seats":"10","firstTrip":firstTrip.text,"lastTrip":lastTrip.text,"price":unicoid_int])
             {
                 error in
                     if let error = error
@@ -47,8 +53,24 @@ class SetPath: UIViewController
                         let docID = ref?.documentID
                         print("add")
                         ref?.setData(["docID":docID],merge: true)
+                        ref_new = ref?.collection("queue").addDocument(data: ["trash":""])
+                        {
+                            error in
+                            if let error = error
+                            {
+                                print("error")
+                            }
+                            else
+                            {
+                                let docID_new:String = ref_new?.documentID ?? ""
+                                //ref_new?.setData(["docID":docID_new],merge: true)
+                                
+                                //ref?.collection("queue").document(docID_new).delete()
+                 
+                            }
                     }
                 
+                }
             }
             
             let alert = UIAlertController(title: "กด Done!", message: "already added", preferredStyle: .alert)

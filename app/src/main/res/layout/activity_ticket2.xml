@@ -64,7 +64,8 @@
             android:id="@+id/textView"
             android:layout_width="400dp"
             android:layout_height="70dp"
-            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:gravity="center_vertical"
             android:text="TICKET"
             android:textColor="#FFFFFF"
             android:textSize="30sp" />
@@ -87,15 +88,15 @@
         android:id="@+id/buybt"
         android:layout_width="282dp"
         android:layout_height="61dp"
-        android:layout_marginBottom="20dp"
-        android:background="#009688"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/button"
         android:text="Buy Ticket"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
-        app:layout_constraintVertical_bias="0.943" />
+        app:layout_constraintVertical_bias="0.933" />
 </androidx.constraintlayout.widget.ConstraintLayout>

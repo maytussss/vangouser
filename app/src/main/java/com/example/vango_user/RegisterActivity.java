@@ -122,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             Map<String, Object> userMap = new HashMap<>();
                                             userMap.put("name", username);
                                             userMap.put("email", email);
-                                            userMap.put("coin", 1000);
+                                            userMap.put("coin", 0);
                                             userMap.put("ticket", "");
 
                                             // Add a new document with a generated ID

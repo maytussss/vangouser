@@ -14,23 +14,25 @@ protocol DocumentSerializable {
 }
 
 
-class messageData
-{
-    private var _msgText:String!
-    var MyText:String{
-        return _msgText
-    }
-    init(msgText:String) {
-        
-        self._msgText = msgText
-    }
-}
+//class messageData
+//{
+//    private var _msgText:String!
+//    var MyText:String{
+//        return _msgText
+//    }
+//    init(msgText:String) {
+//
+//        self._msgText = msgText
+//    }
+//}
 
 struct Path {
     var ID:String
     var start:String
     var stop:String
     var docID:String
+    var firstTrip:String
+    var lastTrip:String
     
     var dictationary:[String:Any]
     {
@@ -38,7 +40,9 @@ struct Path {
             "ID":ID,
             "start":start,
             "stop":stop,
-            "docID":docID
+            "docID":docID,
+            "firstTrip":firstTrip,
+            "lastTrip":lastTrip
         ]
     }
 }
@@ -49,12 +53,14 @@ extension Path : DocumentSerializable{
         guard let ID = dictationary["ID"]as? String,
               let start = dictationary["start"]as? String,
             let stop = dictationary["stop"] as? String,
-            let docID = dictationary["docID"] as? String
+            let docID = dictationary["docID"] as? String,
+            let firstTrip = dictationary["firstTrip"]as? String,
+            let lastTrip = dictationary["lastTrip"]as? String
             
             else
         {return nil}
         
-        self.init(ID:ID,start:start,stop:stop,docID:docID)
+        self.init(ID:ID,start:start,stop:stop,docID:docID,firstTrip: firstTrip,lastTrip: lastTrip)
          
     }
 }

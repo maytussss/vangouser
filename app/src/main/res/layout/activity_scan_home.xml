@@ -11,12 +11,13 @@
         android:layout_height="70dp"
         android:layout_gravity="top"
         android:background="#2E3548"
-        android:padding="5dp">
+        >
         <TextView
             android:id="@+id/txtlogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center_vertical"
             android:text="SCAN"
             android:textColor="#FFFF"
             android:textSize="30sp"/>
@@ -66,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:text="Scan QR Code for Booking Van."
                 android:layout_gravity="center"
-                android:layout_marginVertical="10dp"
+                android:layout_marginVertical="0dp"
                 android:gravity="center"
                 android:textSize="20sp"
                 />

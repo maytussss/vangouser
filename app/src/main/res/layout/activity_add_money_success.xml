@@ -4,7 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="30dp"
+    android:background="#cc000000"
     tools:context=".AddMoneySuccess">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/button2"
+        android:orientation="vertical"
+        android:padding="20dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txt_static_proceed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Do you want to purchase"
+            android:textColor="#000000"
+            android:textSize="8pt" />
+        <TextView
+            android:id="@+id/txt_amount_proceed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="8pt" />
+        <TextView
+            android:id="@+id/txt_static_unit_proceed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Unicoin?"
+            android:textColor="#000000"
+            android:textSize="8pt" />
+    </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/proceed_no"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:background="@drawable/cancel_red_btn"
+                android:padding="10dp"
+                android:textColor="#FFF"
+                android:textSize="7pt"
+                android:text="No" />
+
+            <Button
+                android:id="@+id/proceed_yes"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/button"
+                android:padding="10dp"
+                android:textColor="#FFF"
+                android:textSize="7pt"
+                android:text="Yes" />
+
+        </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
 </FrameLayout>

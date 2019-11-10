@@ -3,12 +3,15 @@ package com.example.vango_user;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FailBillPayment extends AppCompatActivity {
-
+    Button toBack;
+    Button toTopup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,17 +19,40 @@ public class FailBillPayment extends AppCompatActivity {
         setContentView(R.layout.activity_fail_bill_payment);
         getSupportActionBar().hide();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(FailBillPayment.this);
-        builder.setCancelable(false); // To protect press back navigation.
-        builder.setMessage("Payment Failure: Not enough money to purchase this payment. Please top up your money and try again.");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                Intent intent = new Intent(FailBillPayment.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        builder.show();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(FailBillPayment.this);
+//        builder.setCancelable(false); // To protect press back navigation.
+//        builder.setMessage("Payment Failure: Not enough money to purchase this payment. Please top up your money and try again.");
+//        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int id) {
+//                Intent intent = new Intent(FailBillPayment.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//        builder.show();
+        toBack = (Button)findViewById(R.id.to_Back);
+        toTopup = (Button)findViewById(R.id.to_topUp);
+
+        toBack.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    Intent intent = new Intent(FailBillPayment.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                    }
+                }
+        );
+        toTopup.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    Intent intent = new Intent(FailBillPayment.this, YourBalance.class);
+                    startActivity(intent);
+                    finish();
+                    }
+                }
+        );
     }
     public void onBackPressed() {
         Intent intent = new Intent(FailBillPayment.this, MainActivity.class);

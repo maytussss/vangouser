@@ -13,6 +13,9 @@ public var myIndex = 0
 var array = [String]()
 var stopArray = [String]()
 var docIDarray = [String]()
+var firstTripArray = [String]()
+var lastTripArray = [String]()
+
 class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource
 {
     public var PathDataArray = [Path]()
@@ -69,7 +72,7 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
     
     func loadData()
     {
-        db.collection("ticket").getDocuments()
+        db.collection("trip").getDocuments()
             {
                 querySnapshot , error in
                 if let error = error
@@ -79,7 +82,6 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
                 else{
 
                     self.PathDataArray = querySnapshot!.documents.flatMap({Path(dictionary: $0.data())})
-                    
                     DispatchQueue.main.async {
                         self.pathTable.reloadData()
                     }
@@ -103,12 +105,16 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
+        
         _ = PathDataArray[indexPath.row]
         let  cell = tableView.dequeueReusableCell(withIdentifier: "showPath", for : indexPath)
         let path = PathDataArray[indexPath.row]
         array.append(path.start)
         stopArray.append(path.stop)
         docIDarray.append(path.docID)
+        firstTripArray.append(path.firstTrip)
+        lastTripArray.append(path.lastTrip)
+        
         cell.textLabel?.text = "From \t : \(path.start) : \t To \t : \(path.stop)"
         //cell.textLabel?.textColor = UIColor.blue
         //start_station.text = path.start

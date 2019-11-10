@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -26,6 +28,8 @@ public class TicketExist extends AppCompatActivity {
     String uid;
     String tripDocId;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
+    Button proceed_y;
+    Button proceed_n;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,25 +37,48 @@ public class TicketExist extends AppCompatActivity {
         setContentView(R.layout.activity_fail_bill_payment);
         getSupportActionBar().hide();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(TicketExist.this);
-        builder.setCancelable(false); // To protect press back navigation.
-        builder.setMessage("Ticket already exist: Do you want to cancel the existing ticket and buy the new one?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                cancelQueue();
-                Intent intent = new Intent(TicketExist.this, ScanHome.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                Intent intent = new Intent(TicketExist.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        builder.show();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(TicketExist.this);
+//        builder.setCancelable(false); // To protect press back navigation.
+//        builder.setMessage("Ticket already exist: Do you want to cancel the existing ticket and buy the new one?");
+//        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int id) {
+//                cancelQueue();
+//                Intent intent = new Intent(TicketExist.this, ScanHome.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int id) {
+//                Intent intent = new Intent(TicketExist.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//        builder.show();
+        proceed_y = (Button)findViewById(R.id.proceed_yes);
+        proceed_n = (Button)findViewById(R.id.proceed_no);
+        proceed_y.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    cancelQueue();
+                    Intent intent = new Intent(TicketExist.this, ScanHome.class);
+                    startActivity(intent);
+                    finish();
+                    }
+                }
+        );
+        proceed_n.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(TicketExist.this, YourBalance.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+        );
     }
     public void onBackPressed() {
         Intent intent = new Intent(TicketExist.this, MainActivity.class);

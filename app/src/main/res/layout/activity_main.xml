@@ -10,10 +10,11 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_gravity="top"
         android:background="#2E3548"
-        android:padding="5dp">
+        android:orientation="horizontal"
+        >
 
         <TextView
             android:id="@+id/txtlogo"
@@ -24,13 +25,13 @@
             android:text="VANGO"
             android:textColor="#FFFF"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            />
 
 
         <ImageButton
             android:id="@+id/goticket"
-            android:layout_width="300px"
-            android:layout_height="80px"
+            android:layout_width="240px"
+            android:layout_height="150px"
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="20dp"
             app:srcCompat="@drawable/ticket" />
@@ -38,11 +39,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
         android:background="#ebebeb"
-        android:padding="20dp">
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -56,9 +57,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Username"
-                android:textSize="9pt"
+                android:textSize="7pt"
                 android:layout_marginStart="30dp"
-                android:paddingBottom="5dp"
+                android:paddingBottom="3dp"
                 android:textColor="#484848"
                 android:textStyle="bold"
                 android:layout_above="@+id/menubar"/>
@@ -66,10 +67,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Where do you want to go?"
-                android:textSize="10pt"
+                android:textSize="8pt"
                 android:layout_marginStart="30dp"
                 android:textColor="#484848"
-                android:paddingRight="30dp"
+                android:paddingRight="120dp"
                 android:layout_above="@+id/menubar"/>
         </LinearLayout>
         <androidx.appcompat.widget.Toolbar
@@ -84,13 +85,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tripRecycler"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="500dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_gravity="bottom"
         android:background="#2E3548">
 
