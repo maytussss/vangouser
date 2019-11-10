@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:text="Scan QR Code for Booking Van."
                 android:layout_gravity="center"
-                android:layout_marginVertical="10dp"
+                android:layout_marginVertical="0dp"
                 android:gravity="center"
                 android:textSize="20sp"
                 />
