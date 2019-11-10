@@ -182,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.yourblance_id:
                 Intent intent = new Intent(MainActivity.this,YourBalance.class);
                 startActivity(intent);
+                finish();
                 //Toast.makeText(this,"balance click",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.logout_id:
