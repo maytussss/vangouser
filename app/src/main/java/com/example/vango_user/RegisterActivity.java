@@ -32,7 +32,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText usernameText, emailText, passwordText, confirmPasswordText;
-    TextView yourusername, appname;
+    TextView yourusername, appname, warn;
     TextInputLayout usernhint,passwhint,confpasshint,emhint;
     ProgressBar loading;
     Button registerButton;
@@ -67,6 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
         emhint = findViewById(R.id.emhintt);
         loading = findViewById(R.id.progressBar22);
         appname = findViewById(R.id.appname);
+        warn = findViewById(R.id.notmatch);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,7 +144,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 }
                 else{
-                    Toast.makeText(RegisterActivity.this, "Please check Confirm Password ", Toast.LENGTH_SHORT).show();
+                    warn.setVisibility(View.VISIBLE);
                 }
 
             }

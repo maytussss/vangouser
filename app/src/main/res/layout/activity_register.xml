@@ -88,7 +88,7 @@
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="500dp"
         android:background="@drawable/button4"
         android:text="Register"
         android:textColor="#ffff" />
@@ -97,7 +97,7 @@
         android:id="@+id/backButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="560dp"
         android:background="@drawable/button5"
         android:text="Back"
         android:textColor="#009688" />
@@ -127,8 +127,8 @@
     <ProgressBar
         android:id="@+id/progressBar22"
         style="?android:attr/progressBarStyle"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="240dp"
         android:backgroundTint="#FFFEFE"
@@ -137,6 +137,16 @@
         android:progressBackgroundTint="#009688"
         android:progressTint="#009688"
         android:progressTintMode="src_over"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/notmatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:text="Confirm password does not match to password."
+        android:textColor="#FA1505"
+        android:textSize="16sp"
         android:visibility="invisible" />
 
 

@@ -125,12 +125,10 @@
         android:id="@+id/plscheck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="465dp"
-        android:gravity="center_horizontal"
-        android:text="Please check your Email and password"
+        android:layout_marginTop="460dp"
+        android:text="Please check your Email and password."
         android:textColor="#F71404"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:visibility="invisible" />
 
 
