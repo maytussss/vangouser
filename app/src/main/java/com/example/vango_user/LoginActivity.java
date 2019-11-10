@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText emailText, passwordText;
     TextInputLayout usernamehint, passwordhint;
     ImageButton test;
-    TextView dots, openingword, leadtoReg, loadPhrase;
+    TextView dots, openingword, leadtoReg, loadPhrase, warning;
     Button loginButton;
     ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         loadPhrase = findViewById(R.id.welcome);
         usernamehint = findViewById(R.id.userhint);
         passwordhint = findViewById(R.id.passhint);
+        warning = findViewById(R.id.plscheck);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -97,8 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                                     finish();
                                 } else {
-                                    Toast.makeText(LoginActivity.this, "Plaease check your Email and Password", Toast.LENGTH_SHORT).show();
-
+                                    warning.setVisibility(View.VISIBLE);
                                 }
 
                             }
