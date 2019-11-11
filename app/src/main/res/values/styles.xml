@@ -4,6 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimaryDark">#767575</item>
+        <item name="android:statusBarColor">#767575</item>
 
     </style>
 

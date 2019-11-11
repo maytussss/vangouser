@@ -102,6 +102,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 if(password.length()<6){
                     sixmin.setVisibility(View.VISIBLE);
+                    //Toast.makeText(RegisterActivity.this, "Please enter Email address", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if(password.equals(confirmPassword)){
                     firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -143,7 +145,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                         @Override
                                                         public void onSuccess(Void aVoid) {
-                                                            Toast.makeText(RegisterActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
+                                                            //Toast.makeText(RegisterActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
                                         }

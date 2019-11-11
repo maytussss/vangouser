@@ -18,10 +18,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Not enough money to purchase\n the ticket.\n\n Please top up your money\nand try again."
+            android:text="Not enough money to purchase the ticket. Please top up your moneyand try again."
             android:textColor="#000000"
-
-            android:gravity="center"
             android:textSize="8pt"
             android:padding="20dp"/>
         <RelativeLayout
@@ -39,10 +37,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Back"
-                android:background="@drawable/button3"
+                android:background="@drawable/button2"
                 android:layout_gravity="start"
-                android:padding="10dp"
-                android:textColor="#FFF"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="#000000"
                 android:textSize="7pt"
                 />
 
@@ -53,7 +52,8 @@
                 android:layout_gravity="end"
                 android:background="@drawable/button"
                 android:layout_marginStart="40dp"
-                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:textColor="#FFF"
                 android:textSize="7pt"
                 android:text="Top up" />

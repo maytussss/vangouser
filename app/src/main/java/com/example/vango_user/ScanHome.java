@@ -35,7 +35,7 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
 
         // Check detected text is empty?
         if (TextUtils.isEmpty(barcode.displayValue)) {
-            Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
         }
         else
             {
@@ -68,7 +68,7 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
 
     @Override
     public void onScanError(String s) {
-        Toast.makeText(getApplicationContext(), "Error occurred while scanning " + s, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Error occurred while scanning " + s, Toast.LENGTH_SHORT).show();
     }
     public void onBackPressed() {
         Intent intent = new Intent(ScanHome.this, MainActivity.class);
