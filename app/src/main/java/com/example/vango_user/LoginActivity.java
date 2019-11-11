@@ -93,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                                     loadPhrase.setVisibility(View.VISIBLE);
                                     usernamehint.setVisibility(View.INVISIBLE);
                                     passwordhint.setVisibility(View.INVISIBLE);
+                                    warning.setVisibility(View.INVISIBLE);
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     sp.edit().putBoolean("logged",true).apply();
                                     Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();

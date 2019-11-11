@@ -149,5 +149,62 @@
         android:textSize="16sp"
         android:visibility="invisible" />
 
+    <TextView
+        android:id="@+id/entemailadd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="230dp"
+        android:text="Please enter Email Address."
+        android:textColor="#FCF80303"
+        android:textSize="16sp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/entpassw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="372dp"
+        android:text="Please enter password."
+        android:textColor="#FCF80303"
+        android:textSize="16sp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/confpassw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="445dp"
+        android:text="Please confirm password."
+        android:textColor="#FCF80303"
+        android:textSize="16sp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/entusern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="300dp"
+        android:text="Please enter username."
+        android:textColor="#FCF80303"
+        android:textSize="16sp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/passwmini"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="372dp"
+        android:text="Password has to be 6 character at minimum."
+        android:textColor="#FCF80303"
+        android:textSize="16sp"
+        android:visibility="invisible"/>
+
+
+
 
 </FrameLayout>

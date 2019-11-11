@@ -32,7 +32,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText usernameText, emailText, passwordText, confirmPasswordText;
-    TextView yourusername, appname, warn;
+    TextView yourusername, appname, warn, plsentusern, plsentpass, plsentmail, plsconfpass, sixmin;
     TextInputLayout usernhint,passwhint,confpasshint,emhint;
     ProgressBar loading;
     Button registerButton;
@@ -68,6 +68,11 @@ public class RegisterActivity extends AppCompatActivity {
         loading = findViewById(R.id.progressBar22);
         appname = findViewById(R.id.appname);
         warn = findViewById(R.id.notmatch);
+        plsentusern = findViewById(R.id.entusern);
+        plsentpass = findViewById(R.id.entpassw);
+        plsentmail = findViewById(R.id.entemailadd);
+        plsconfpass = findViewById(R.id.confpassw);
+        sixmin = findViewById(R.id.passwmini);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,23 +84,24 @@ public class RegisterActivity extends AppCompatActivity {
                 coin = 0;
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(RegisterActivity.this, "Please enter Email address", Toast.LENGTH_SHORT).show();
+                    plsentmail.setVisibility(View.VISIBLE);
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(RegisterActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
+                    plsentpass.setVisibility(View.VISIBLE);
                     return;
                 }
                 if(TextUtils.isEmpty(confirmPassword)){
-                    Toast.makeText(RegisterActivity.this, "Please confirm password", Toast.LENGTH_SHORT).show();
+                    plsentpass.setVisibility(View.INVISIBLE);
+                    plsconfpass.setVisibility(View.VISIBLE);
                     return;
                 }
                 if(TextUtils.isEmpty(username)){
-                    Toast.makeText(RegisterActivity.this, "Please enter username", Toast.LENGTH_SHORT).show();
+                    plsentusern.setVisibility(View.VISIBLE);
                     return;
                 }
                 if(password.length()<6){
-                    Toast.makeText(RegisterActivity.this, "Password has to be 6 character at minimum", Toast.LENGTH_SHORT).show();
+                    sixmin.setVisibility(View.VISIBLE);
                 }
                 if(password.equals(confirmPassword)){
                     firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -116,6 +122,12 @@ public class RegisterActivity extends AppCompatActivity {
                                         backButton.setVisibility(View.INVISIBLE);
                                         appname.setVisibility(View.INVISIBLE);
                                         yourusername.setVisibility(View.INVISIBLE);
+                                        warn.setVisibility(View.INVISIBLE);
+                                        plsentmail.setVisibility(View.INVISIBLE);
+                                        plsentpass.setVisibility(View.INVISIBLE);
+                                        plsconfpass.setVisibility(View.INVISIBLE);
+                                        plsentusern.setVisibility(View.INVISIBLE);
+                                        sixmin.setVisibility(View.INVISIBLE);
                                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -145,6 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else{
                     warn.setVisibility(View.VISIBLE);
+                    plsconfpass.setVisibility(View.INVISIBLE);
                 }
 
             }
