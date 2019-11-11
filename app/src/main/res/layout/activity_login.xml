@@ -96,20 +96,6 @@
         android:textSize="30dp"
         android:visibility="invisible" />
 
-    <ProgressBar
-        android:id="@+id/progressBar11"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="300dp"
-        android:backgroundTint="#FFFEFE"
-        android:foregroundTint="#FFFF"
-        android:indeterminateTint="#009688"
-        android:progressBackgroundTint="#009688"
-        android:progressTint="#009688"
-        android:progressTintMode="src_over"
-        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/fivedots"
@@ -130,6 +116,51 @@
         android:textColor="#F71404"
         android:textSize="16sp"
         android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/plsfillp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:text="Please enter password."
+        android:textColor="#F71404"
+        android:textSize="16sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/plsfillu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="385dp"
+        android:text="Please enter username."
+        android:textColor="#F71404"
+        android:textSize="16sp"
+        android:visibility="invisible" />
+
+    <FrameLayout
+        android:id="@+id/FramdLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="670dp"
+        android:background="@drawable/whiteeee"
+        android:visibility="invisible">
+
+        <ProgressBar
+            android:id="@+id/progressBar11"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="300dp"
+            android:backgroundTint="#FFFEFE"
+            android:foregroundTint="#FFFF"
+            android:indeterminateTint="#009688"
+            android:progressBackgroundTint="#009688"
+            android:progressTint="#009688"
+            android:progressTintMode="src_over"
+            android:visibility="invisible" />
+
+    </FrameLayout>
+
 
 
 </FrameLayout>
