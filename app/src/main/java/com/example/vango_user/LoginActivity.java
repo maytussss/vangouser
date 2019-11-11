@@ -67,15 +67,15 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordText.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(LoginActivity.this, "Please enter Email address", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "Please enter Email address", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(password.length()<6){
-                    Toast.makeText(LoginActivity.this, "Password has to be 6 character at minimum", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "Password has to be 6 character at minimum", Toast.LENGTH_SHORT).show();
                 }
 
                 firebaseAuth.signInWithEmailAndPassword(email, password)
@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                                     passwordhint.setVisibility(View.INVISIBLE);
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     sp.edit().putBoolean("logged",true).apply();
-                                    Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                                     finish();
                                 } else {
                                     warning.setVisibility(View.VISIBLE);

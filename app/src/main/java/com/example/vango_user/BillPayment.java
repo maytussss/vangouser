@@ -67,7 +67,7 @@ public class BillPayment extends AppCompatActivity {
 
 
         if (TextUtils.isEmpty(tripDocId)) {
-            Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "Barcode is empty!", Toast.LENGTH_LONG).show();
 
             Intent intent = new Intent(BillPayment.this, MainActivity.class);
             startActivity(intent);
@@ -212,7 +212,7 @@ public class BillPayment extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(BillPayment.this, "Payment success", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(BillPayment.this, "Payment success", Toast.LENGTH_SHORT).show();
                     }
                 });
 

@@ -79,23 +79,23 @@ public class RegisterActivity extends AppCompatActivity {
                 coin = 0;
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(RegisterActivity.this, "Please enter Email address", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(RegisterActivity.this, "Please enter Email address", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(RegisterActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(RegisterActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(confirmPassword)){
-                    Toast.makeText(RegisterActivity.this, "Please confirm password", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(RegisterActivity.this, "Please confirm password", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(username)){
-                    Toast.makeText(RegisterActivity.this, "Please enter username", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(RegisterActivity.this, "Please enter username", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(password.length()<6){
-                    Toast.makeText(RegisterActivity.this, "Password has to be 6 character at minimum", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(RegisterActivity.this, "Password has to be 6 character at minimum", Toast.LENGTH_SHORT).show();
                 }
                 if(password.equals(confirmPassword)){
                     firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -131,7 +131,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                         @Override
                                                         public void onSuccess(Void aVoid) {
-                                                            Toast.makeText(RegisterActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
+                                                            //Toast.makeText(RegisterActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
                                         }
