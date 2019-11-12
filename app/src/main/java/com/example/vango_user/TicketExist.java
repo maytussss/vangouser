@@ -121,7 +121,6 @@ public class TicketExist extends AppCompatActivity {
                 });
 
 
-
         /*SharedPreferences.Editor editor = ticketPref.edit();
         editor.putString("ticket",null);
         editor.apply();*/
