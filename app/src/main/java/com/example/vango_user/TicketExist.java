@@ -34,7 +34,7 @@ public class TicketExist extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fail_bill_payment);
+        setContentView(R.layout.activity_ticket_exist);
         getSupportActionBar().hide();
 
 //        AlertDialog.Builder builder = new AlertDialog.Builder(TicketExist.this);
@@ -56,13 +56,13 @@ public class TicketExist extends AppCompatActivity {
 //            }
 //        });
 //        builder.show();
-        proceed_y = (Button)findViewById(R.id.proceed_yes);
-        proceed_n = (Button)findViewById(R.id.proceed_no);
+        proceed_y = this.findViewById(R.id.proceed_yes_t);
+        proceed_n = this.findViewById(R.id.proceed_no_t);
         proceed_y.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                    cancelQueue();
+                    //cancelQueue();
                     Intent intent = new Intent(TicketExist.this, ScanHome.class);
                     startActivity(intent);
                     finish();
