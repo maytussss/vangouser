@@ -58,7 +58,7 @@ public class TicketExist extends AppCompatActivity {
 //        builder.show();
         proceed_y = this.findViewById(R.id.proceed_yes_t);
         proceed_n = this.findViewById(R.id.proceed_no_t);
-        proceed_n.setOnClickListener(
+        proceed_y.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -69,11 +69,11 @@ public class TicketExist extends AppCompatActivity {
                     }
                 }
         );
-        proceed_y.setOnClickListener(
+        proceed_n.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(TicketExist.this, YourBalance.class);
+                        Intent intent = new Intent(TicketExist.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                     }
