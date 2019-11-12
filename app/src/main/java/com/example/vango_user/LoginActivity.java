@@ -73,12 +73,18 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordText.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email)){
-
                     plsentusern.setVisibility(View.VISIBLE);
+                    plsentsixmin.setVisibility(View.INVISIBLE);
+                    plsentpassw.setVisibility(View.INVISIBLE);
+                    warning.setVisibility(View.INVISIBLE);
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
                     plsentpassw.setVisibility(View.VISIBLE);
+                    plsentusern.setVisibility(View.INVISIBLE);
+                    plsentsixmin.setVisibility(View.INVISIBLE);
+                    warning.setVisibility(View.INVISIBLE);
+
 
                     //Toast.makeText(LoginActivity.this, "Please enter Email address", Toast.LENGTH_SHORT).show();
                     return;
@@ -87,6 +93,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(password.length()<6){
                     plsentpassw.setVisibility(View.INVISIBLE);
                     plsentsixmin.setVisibility(View.VISIBLE);
+                    warning.setVisibility(View.INVISIBLE);
+                    plsentusern.setVisibility(View.INVISIBLE);
                     //Toast.makeText(LoginActivity.this, "Password has to be 6 character at minimum", Toast.LENGTH_SHORT).show();
                 }
 

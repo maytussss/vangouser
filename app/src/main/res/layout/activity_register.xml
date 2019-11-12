@@ -143,10 +143,11 @@
         android:id="@+id/notmatch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="460dp"
         android:text="Confirm password does not match to password."
         android:textColor="#FA1505"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:visibility="invisible" />
 
     <TextView
@@ -154,10 +155,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="460dp"
         android:text="Please enter Email Address."
         android:textColor="#FCF80303"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:visibility="invisible"/>
 
     <TextView
@@ -165,10 +166,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="372dp"
+        android:layout_marginTop="460dp"
         android:text="Please enter password."
         android:textColor="#FCF80303"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:visibility="invisible"/>
 
     <TextView
@@ -176,10 +177,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="445dp"
+        android:layout_marginTop="460dp"
         android:text="Please confirm password."
         android:textColor="#FCF80303"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:visibility="invisible"/>
 
     <TextView
@@ -187,10 +188,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="460dp"
         android:text="Please enter username."
         android:textColor="#FCF80303"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:visibility="invisible"/>
 
     <TextView
@@ -198,10 +199,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="372dp"
+        android:layout_marginTop="460dp"
         android:text="Password has to be 6 character at minimum."
         android:textColor="#FCF80303"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:visibility="invisible"/>
 
 

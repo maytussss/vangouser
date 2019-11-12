@@ -85,23 +85,47 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(email)){
                     plsentmail.setVisibility(View.VISIBLE);
+                    plsentusern.setVisibility(View.INVISIBLE);
+                    plsentpass.setVisibility(View.INVISIBLE);
+                    plsconfpass.setVisibility(View.INVISIBLE);
+                    sixmin.setVisibility(View.INVISIBLE);
+                    warn.setVisibility(View.INVISIBLE);
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    plsentpass.setVisibility(View.VISIBLE);
+                    plsentmail.setVisibility(View.INVISIBLE);
+                    plsentusern.setVisibility(View.INVISIBLE);
+                    plsentpass.setVisibility(View.INVISIBLE);
+                    plsconfpass.setVisibility(View.VISIBLE);
+                    sixmin.setVisibility(View.INVISIBLE);
+                    warn.setVisibility(View.INVISIBLE);
                     return;
                 }
                 if(TextUtils.isEmpty(confirmPassword)){
+                    plsentmail.setVisibility(View.INVISIBLE);
+                    plsentusern.setVisibility(View.INVISIBLE);
                     plsentpass.setVisibility(View.INVISIBLE);
                     plsconfpass.setVisibility(View.VISIBLE);
+                    sixmin.setVisibility(View.INVISIBLE);
+                    warn.setVisibility(View.INVISIBLE);
                     return;
                 }
                 if(TextUtils.isEmpty(username)){
+                    plsentmail.setVisibility(View.INVISIBLE);
                     plsentusern.setVisibility(View.VISIBLE);
+                    plsentpass.setVisibility(View.INVISIBLE);
+                    plsconfpass.setVisibility(View.INVISIBLE);
+                    sixmin.setVisibility(View.INVISIBLE);
+                    warn.setVisibility(View.INVISIBLE);
                     return;
                 }
                 if(password.length()<6){
+                    plsentmail.setVisibility(View.INVISIBLE);
+                    plsentusern.setVisibility(View.INVISIBLE);
+                    plsentpass.setVisibility(View.INVISIBLE);
+                    plsconfpass.setVisibility(View.INVISIBLE);
                     sixmin.setVisibility(View.VISIBLE);
+                    warn.setVisibility(View.INVISIBLE);
                     //Toast.makeText(RegisterActivity.this, "Please enter Email address", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -158,8 +182,12 @@ public class RegisterActivity extends AppCompatActivity {
 
                 }
                 else{
-                    warn.setVisibility(View.VISIBLE);
+                    plsentmail.setVisibility(View.INVISIBLE);
+                    plsentusern.setVisibility(View.INVISIBLE);
+                    plsentpass.setVisibility(View.INVISIBLE);
                     plsconfpass.setVisibility(View.INVISIBLE);
+                    sixmin.setVisibility(View.INVISIBLE);
+                    warn.setVisibility(View.VISIBLE);
                 }
 
             }
