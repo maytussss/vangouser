@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,8 +28,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText emailText, passwordText;
     TextInputLayout usernamehint, passwordhint;
     ImageButton test;
-    TextView dots, openingword, leadtoReg, loadPhrase, warning;
+    TextView dots, openingword, leadtoReg, loadPhrase, warning, plsentpassw, plsentusern, plsentsixmin;
     Button loginButton;
+    FrameLayout Framelayo;
     ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
     SharedPreferences sp;
@@ -57,6 +59,10 @@ public class LoginActivity extends AppCompatActivity {
         usernamehint = findViewById(R.id.userhint);
         passwordhint = findViewById(R.id.passhint);
         warning = findViewById(R.id.plscheck);
+        Framelayo = findViewById(R.id.FramdLayout2);
+        plsentpassw = findViewById(R.id.plsfillp);
+        plsentusern = findViewById(R.id.plsfillu);
+        plsentsixmin = findViewById(R.id.plsfillmin);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -67,14 +73,28 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordText.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email)){
-                    //Toast.makeText(LoginActivity.this, "Please enter Email address", Toast.LENGTH_SHORT).show();
+                    plsentusern.setVisibility(View.VISIBLE);
+                    plsentsixmin.setVisibility(View.INVISIBLE);
+                    plsentpassw.setVisibility(View.INVISIBLE);
+                    warning.setVisibility(View.INVISIBLE);
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    //Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
+                    plsentpassw.setVisibility(View.VISIBLE);
+                    plsentusern.setVisibility(View.INVISIBLE);
+                    plsentsixmin.setVisibility(View.INVISIBLE);
+                    warning.setVisibility(View.INVISIBLE);
+
+
+                    //Toast.makeText(LoginActivity.this, "Please enter Email address", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 if(password.length()<6){
+                    plsentpassw.setVisibility(View.INVISIBLE);
+                    plsentsixmin.setVisibility(View.VISIBLE);
+                    warning.setVisibility(View.INVISIBLE);
+                    plsentusern.setVisibility(View.INVISIBLE);
                     //Toast.makeText(LoginActivity.this, "Password has to be 6 character at minimum", Toast.LENGTH_SHORT).show();
                 }
 
@@ -84,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     progressBar.setVisibility(View.VISIBLE);
+                                    Framelayo.setVisibility(View.VISIBLE);
                                     emailText.setVisibility(View.INVISIBLE);
                                     passwordText.setVisibility(View.INVISIBLE);
                                     loginButton.setVisibility(View.INVISIBLE);
@@ -93,12 +114,19 @@ public class LoginActivity extends AppCompatActivity {
                                     loadPhrase.setVisibility(View.VISIBLE);
                                     usernamehint.setVisibility(View.INVISIBLE);
                                     passwordhint.setVisibility(View.INVISIBLE);
+                                    warning.setVisibility(View.INVISIBLE);
+                                    plsentpassw.setVisibility(View.INVISIBLE);
+                                    plsentusern.setVisibility(View.INVISIBLE);
+                                    plsentsixmin.setVisibility(View.INVISIBLE);
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     sp.edit().putBoolean("logged",true).apply();
                                     //Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                                     finish();
                                 } else {
+                                    plsentpassw.setVisibility(View.INVISIBLE);
+                                    plsentusern.setVisibility(View.INVISIBLE);
                                     warning.setVisibility(View.VISIBLE);
+                                    plsentsixmin.setVisibility(View.INVISIBLE);
                                 }
 
                             }
