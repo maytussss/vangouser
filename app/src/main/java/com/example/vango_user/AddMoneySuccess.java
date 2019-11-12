@@ -66,9 +66,7 @@ public class AddMoneySuccess extends AppCompatActivity {
                     public void onClick(View view) {
                         int cc = getIntent().getIntExtra("price", price);
                         updateCoin(cc);
-                        Intent intent = new Intent(AddMoneySuccess.this, YourBalance.class);
-                        startActivity(intent);
-                        finish();
+
                     }
                 }
         );
@@ -107,6 +105,9 @@ public class AddMoneySuccess extends AppCompatActivity {
                             coin = documentSnapshot.getDouble("coin");
                             coin += pricex;
                             docRef.update("coin", coin);
+                            Intent intent = new Intent(AddMoneySuccess.this, YourBalance.class);
+                            startActivity(intent);
+                            finish();
                         }
                     }
                 });
