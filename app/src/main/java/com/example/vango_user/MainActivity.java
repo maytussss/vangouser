@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
-//<<<<<<<<<<<end logout expand
 
     private void getUser(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
