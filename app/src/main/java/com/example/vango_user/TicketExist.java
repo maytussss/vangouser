@@ -62,7 +62,7 @@ public class TicketExist extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                    //cancelQueue();
+                    cancelQueue();
                     Intent intent = new Intent(TicketExist.this, ScanHome.class);
                     startActivity(intent);
                     finish();
