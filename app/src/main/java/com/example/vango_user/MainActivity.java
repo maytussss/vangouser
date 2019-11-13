@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setUpRecyclerView();
+        //setUpRecyclerView();
 
         usernameDisplay = findViewById(R.id.usernameDisplay);
 
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    @Override
+    /***@Override
     protected void onStart() {
         super.onStart();
         adapter.startListening();
@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         adapter.stopListening();
-    }
+    }***/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
