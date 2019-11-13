@@ -50,8 +50,8 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
         }
         else {
 
-            int tripExist = getTripDetail(barcode.displayValue);
-            if (tripExist == 1) {
+           getTripDetail(barcode.displayValue);
+            /*if (tripExist == 1) {
                 String code = barcode.displayValue;
                 sp = getSharedPreferences("barcode", MODE_PRIVATE);
                 sp.edit().putString("barcode", code).apply();
@@ -66,7 +66,7 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
                 Intent intent = new Intent(ScanHome.this, not_correct_qrcode.class);
                 startActivity(intent);
                 finish();
-            }
+            }*/
         }
     }
 
@@ -95,25 +95,31 @@ public class ScanHome extends AppCompatActivity implements BarcodeReader.Barcode
         finish();
     }
 
-    private int getTripDetail(String tripDocId){
+    private void getTripDetail(final String tripDocId){
         DocumentReference docRef = database.collection("trip").document(tripDocId);
         docRef.get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists()) {
-                            check = 1;
+
+                            String code = tripDocId;
+                            sp = getSharedPreferences("barcode", MODE_PRIVATE);
+                            sp.edit().putString("barcode", code).apply();
+
+
+                            Intent intent = new Intent(ScanHome.this, BillPayment.class);
+                            intent.putExtra("code", tripDocId);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else{
+                            Intent intent = new Intent(ScanHome.this, not_correct_qrcode.class);
+                            startActivity(intent);
+                            finish();
                         }
                     }
                 });
-        docRef.get()
-                .addOnFailureListener(new OnFailureListener()  {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                            check = 0;
-                    }
-                });
-        return check;
     }
 }
 
