@@ -1,5 +1,6 @@
 package com.example.vango_user;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 //<<<<<<< HEAD
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +23,9 @@ import android.content.Intent;
 //>>>>>>> dddee1a9144ae106420fa45ce5f60bd6855cde1f
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -29,6 +33,10 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 public class MainActivity extends AppCompatActivity {
     SharedPreferences sp;
@@ -39,10 +47,19 @@ public class MainActivity extends AppCompatActivity {
     TextView usernameDisplay;
     String uid;
     final String KEY_USERNAME = "name";
+    String token;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( MainActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                token = instanceIdResult.getToken();
+            }
+        });
+
         sp = getSharedPreferences("login",MODE_PRIVATE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -185,6 +202,30 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(this,"balance click",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.logout_id:
+                DocumentReference tokenRef = database.collection("user").document(uid).collection("token").document(token);
+                tokenRef.delete();
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    uid = user.getUid();
+                    //usernameDisplay.setText(uid);
+                }
+
+                DocumentReference docRef = database.collection("user").document(uid);
+                docRef.get()
+                        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            @Override
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                if (documentSnapshot.exists()) {
+                                    String tripDocId = documentSnapshot.getString("ticket");
+                                    if(!tripDocId.isEmpty()){
+                                        DocumentReference tokenRef = database.collection("trip").document(tripDocId).collection("queue").document(uid).collection("token").document(token);
+                                        tokenRef.delete();
+                                    }
+                                }
+                            }
+                        });
+
                 FirebaseAuth.getInstance().signOut();
                 sp.edit().putBoolean("logged",false).apply();
                 Intent x = new Intent(MainActivity.this,LoginActivity.class);
