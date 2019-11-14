@@ -85,6 +85,39 @@ public class YourBalance extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.goscan).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        if (user != null) {
+                            uid = user.getUid();
+                            //usernameDisplay.setText(uid);
+                        }
+
+                        DocumentReference docRef = database.collection("user").document(uid);
+                        docRef.get()
+                                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                        if (documentSnapshot.exists()) {
+                                            String tripDocId = documentSnapshot.getString("ticket");
+                                            if(!tripDocId.isEmpty()){
+                                                Intent intent = new Intent(YourBalance.this,TicketExist.class);
+                                                startActivity(intent);
+                                            }
+                                            else{
+                                                Intent intent = new Intent(YourBalance.this,ScanHome.class);
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    }
+                                });
+                    }
+                }
+        );
+
 
     }
     public void onBackPressed() {
