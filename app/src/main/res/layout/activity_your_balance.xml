@@ -29,10 +29,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -345,7 +347,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingBottom="20dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -371,8 +374,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="40dp"
-                    android:paddingBottom="35dp">
+                    android:layout_marginEnd="40dp">
 
                     <Button
                         android:id="@+id/uni1000btn"
@@ -381,24 +383,28 @@
                         android:background="@drawable/button"
                         android:text="1,000 Unic"
                         android:textColor="#FFF"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
                 </LinearLayout>
             </RelativeLayout>
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_gravity="bottom"
+                android:layout_gravity="center"
+                android:layout_marginBottom="0dp"
                 android:background="#2E3548"
                 android:padding="5dp">
+
                 <ImageButton
                     android:id="@+id/goscan"
-                    android:layout_width="170px"
-                    android:layout_height="170px"
+                    android:layout_width="150px"
+                    android:layout_height="150px"
+                    android:layout_alignParentEnd="true"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/scanbtn" />
             </FrameLayout>
         </LinearLayout>
     </RelativeLayout>
+
 
 </LinearLayout>
