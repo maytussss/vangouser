@@ -2,6 +2,7 @@ package com.example.vango_user;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -11,9 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -21,8 +25,19 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.ServerTimestamp;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +58,7 @@ public class BillPayment extends AppCompatActivity {
     String uid;
     Double coin;
     Double price;
+    ArrayList<String> tokenList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -202,19 +218,37 @@ public class BillPayment extends AppCompatActivity {
                 });
     }
 
-    public void queue(String tripDocId, String uid) {
-        DocumentReference docRef = database.collection("trip").document(tripDocId).collection("queue").document(uid);
-        Map<String, Object> userTicket = new HashMap<>();
-        userTicket.put("timestamp", FieldValue.serverTimestamp());
-        userTicket.put("status", "");
+    public void queue(final String tripDocId, final String uid) {
 
-        docRef.set(userTicket)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        //Toast.makeText(BillPayment.this, "Payment success", Toast.LENGTH_SHORT).show();
+        CollectionReference tokenRef = database.collection("user").document(uid).collection("token");
+        tokenRef
+            .get()
+            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            tokenList.add(document.getId());
+                            Log.d("PRINT", tokenList.get(0));
+                        }
+
+                        DocumentReference docRef = database.collection("trip").document(tripDocId).collection("queue").document(uid);
+                        Map<String, Object> userTicket = new HashMap<>();
+                        userTicket.put("timestamp", FieldValue.serverTimestamp());
+                        userTicket.put("status", "");
+                        docRef.set(userTicket);
+
+
+                        for (int i =0; i < tokenList.size(); i++){
+                            DocumentReference queueTokenRef = database.collection("trip").document(tripDocId).collection("queue").document(uid).collection("token").document(tokenList.get(i));
+                            Log.d("PRINT", tokenList.get(i));
+                            Map<String, Object> tokenMap = new HashMap<>();
+                            tokenMap.put("token", tokenList.get(i));
+                            queueTokenRef.set(tokenMap);
+                        }
                     }
-                });
+                }
+            });
 
         DocumentReference userRef = database.collection("user").document(uid);
         userRef.update("ticket", tripDocId);

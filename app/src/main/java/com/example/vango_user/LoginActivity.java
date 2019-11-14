@@ -17,11 +17,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -34,6 +46,9 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
     SharedPreferences sp;
+    String token;
+    String uid;
+    private FirebaseFirestore database = FirebaseFirestore.getInstance();
 
 
     @Override
@@ -41,6 +56,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( LoginActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                token = instanceIdResult.getToken();
+            }
+        });
 
         sp = getSharedPreferences("login",MODE_PRIVATE);
         if(sp.getBoolean("logged",false)){
@@ -118,6 +140,43 @@ public class LoginActivity extends AppCompatActivity {
                                     plsentpassw.setVisibility(View.INVISIBLE);
                                     plsentusern.setVisibility(View.INVISIBLE);
                                     plsentsixmin.setVisibility(View.INVISIBLE);
+
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    if (user != null) {
+                                        uid = user.getUid();
+                                    }
+
+                                    final DocumentReference docRef = database.collection("user").document(uid);
+                                    docRef.get()
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                    if (documentSnapshot.exists()) {
+                                                        DocumentReference tokenRef = database.collection("user").document(uid).collection("token").document(token);
+                                                        Map<String, Object> tokenMap = new HashMap<>();
+                                                        tokenMap.put("token", token);
+                                                        tokenRef.set(tokenMap);
+                                                    }
+                                                }
+                                            });
+
+                                    DocumentReference tokenRef = database.collection("user").document(uid);
+                                    tokenRef.get()
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                    if (documentSnapshot.exists()) {
+                                                        String tripDocId = documentSnapshot.getString("ticket");
+                                                        if(!tripDocId.isEmpty()){
+                                                            DocumentReference tokenRef = database.collection("trip").document(tripDocId).collection("queue").document(uid).collection("token").document(token);
+                                                            Map<String, Object> tokenMap = new HashMap<>();
+                                                            tokenMap.put("token", token);
+                                                            tokenRef.set(tokenMap);
+                                                        }
+                                                    }
+                                                }
+                                            });
+
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     sp.edit().putBoolean("logged",true).apply();
                                     //Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
@@ -145,5 +204,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+
 
 }

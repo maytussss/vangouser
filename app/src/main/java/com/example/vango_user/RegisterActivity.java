@@ -3,6 +3,7 @@ package com.example.vango_user;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -24,7 +25,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.auth.Token;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
     String email, username, password, confirmPassword;
     int coin;
     int pass;
+    String token;
     private Button button;
 
     FirebaseFirestore database;
@@ -74,6 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
         plsconfpass = findViewById(R.id.confpassw);
         sixmin = findViewById(R.id.passwmini);
 
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -82,6 +91,13 @@ public class RegisterActivity extends AppCompatActivity {
                 confirmPassword = confirmPasswordText.getText().toString().trim();
                 username = usernameText.getText().toString().trim();
                 coin = 0;
+
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( RegisterActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                       token = instanceIdResult.getToken();
+                    }
+                });
 
                 if(TextUtils.isEmpty(email)){
                     plsentmail.setVisibility(View.VISIBLE);
@@ -157,7 +173,9 @@ public class RegisterActivity extends AppCompatActivity {
                                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+
                                         if (user != null) {
+                                            database.collection("user").document(user.getUid()).collection("tokenId").add(token);
                                             Map<String, Object> userMap = new HashMap<>();
                                             userMap.put("name", username);
                                             userMap.put("email", email);
@@ -172,6 +190,10 @@ public class RegisterActivity extends AppCompatActivity {
                                                             //Toast.makeText(RegisterActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
+                                            DocumentReference tokenRef = database.collection("user").document(user.getUid()).collection("token").document(token);
+                                            Map<String, Object> tokenMap = new HashMap<>();
+                                            tokenMap.put("token", token);
+                                            tokenRef.set(tokenMap);
                                         }
 
                                     }

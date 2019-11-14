@@ -91,7 +91,6 @@ public class TicketActivity extends AppCompatActivity {
                                 CollectionReference Ref = database.collection("trip").document(tripDocId).collection("queue");
                                 Ref
                                         .orderBy("timestamp",Query.Direction.ASCENDING)
-                                        .whereEqualTo("status","")
                                         .get()
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
