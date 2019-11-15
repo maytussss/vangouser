@@ -345,7 +345,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingBottom="35dp"
+               >
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -372,7 +374,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="40dp"
-                    android:paddingBottom="35dp">
+                    >
 
                     <Button
                         android:id="@+id/uni1000btn"
@@ -385,12 +387,14 @@
                         />
                 </LinearLayout>
             </RelativeLayout>
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_gravity="bottom"
+                android:layout_gravity="center"
                 android:background="#2E3548"
                 android:padding="5dp">
+
                 <ImageButton
                     android:id="@+id/goscan"
                     android:layout_width="170px"
