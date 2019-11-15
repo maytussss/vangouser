@@ -14,7 +14,7 @@
         android:id="@+id/userhint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="335dp"
+        android:layout_marginTop="380dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:textColorHint="#939494"
@@ -36,7 +36,7 @@
         android:id="@+id/passhint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="435dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:textColorHint="#939494"
@@ -58,7 +58,7 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="520dp"
         android:background="@drawable/button4"
         android:text="Sign in"
         android:textColor="#FFFFFF"
@@ -79,11 +79,11 @@
         android:id="@+id/opngwrd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="280dp"
         android:gravity="center_horizontal"
         android:text="Where do you want to go?"
         android:textColor="#009688"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/welcome"
@@ -102,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="250dp"
         android:text="....."
         android:textColor="#009688"
         android:textSize="100sp" />
