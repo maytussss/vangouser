@@ -1,43 +1,50 @@
 {
   "project_info": {
-    "project_number": "587452186668",
-    "firebase_url": "https://vango-user.firebaseio.com",
-    "project_id": "vango-user",
-    "storage_bucket": "vango-user.appspot.com"
+    "project_number": "357555545801",
+    "firebase_url": "https://vango-2edd2.firebaseio.com",
+    "project_id": "vango-2edd2",
+    "storage_bucket": "vango-2edd2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:587452186668:android:44bfe42ba1092fbbcb1189",
+        "mobilesdk_app_id": "1:357555545801:android:94af66cfc9429daa660f18",
         "android_client_info": {
           "package_name": "com.example.vango_user"
         }
       },
       "oauth_client": [
         {
-          "client_id": "587452186668-irlrco4cpdbblckeiriaae55tdkeq6pu.apps.googleusercontent.com",
+          "client_id": "357555545801-v3dvb1iohj9aomrosmm4ed3voqkqvk12.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.vango_user",
-            "certificate_hash": "534646ab2d4b5048c7b1a221458fbb7a3f5fa01e"
+            "certificate_hash": "7d5afc5d97d95995bc2e2f18b50b0a2564fa167e"
           }
         },
         {
-          "client_id": "587452186668-qc6rt3ivtp4q4ptrgcs8hfv1vt56hd13.apps.googleusercontent.com",
+          "client_id": "357555545801-o28prmirhg2egkmgka3lhkd2ufprcto2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDAu2dtK6EyVfKD3tOwr-yEdTz5WNvtVXA"
+          "current_key": "AIzaSyBpShA5DMMV93rKSc9dWchsbigT5qeu6oE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "587452186668-qc6rt3ivtp4q4ptrgcs8hfv1vt56hd13.apps.googleusercontent.com",
+              "client_id": "357555545801-o28prmirhg2egkmgka3lhkd2ufprcto2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "357555545801-doe92qolc1vkck7itak2tt3e3r6cp860.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "vangosingup"
+              }
             }
           ]
         }
