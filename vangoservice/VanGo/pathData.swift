@@ -47,6 +47,11 @@ struct Path {
     }
 }
 
+struct Queue {
+    var status:String
+    
+}
+
 extension Path : DocumentSerializable{
     init?(dictionary dictationary:[String:Any])
     {
@@ -62,6 +67,18 @@ extension Path : DocumentSerializable{
         
         self.init(ID:ID,start:start,stop:stop,docID:docID,firstTrip: firstTrip,lastTrip: lastTrip)
          
+    }
+}
+
+extension Queue : DocumentSerializable{
+    init?(dictionary: [String : Any]) {
+        guard let status = dictionary["status"]as?String
+    
+        
+            else{
+                return nil
+        }
+        self.init(status:status)
     }
 }
 

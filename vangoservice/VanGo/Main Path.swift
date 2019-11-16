@@ -24,8 +24,9 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
     public var IDcollec = ""
     public var docIDButt = ""
 
-
-
+    @IBOutlet weak var addpath: UIButton!
+    @IBOutlet weak var scanbutton: UIButton!
+    @IBOutlet weak var registerbut: UIButton!
     @IBOutlet weak var pathTable: UITableView!
     //@IBOutlet weak var start_station: UILabel!
     //@IBOutlet weak var stop_station: UILabel!
@@ -48,6 +49,7 @@ class Main_Path: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITabl
         array = []
         stopArray = []
         docIDarray = []
+        
         
     }
     
