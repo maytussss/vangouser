@@ -66,7 +66,6 @@ public class AddMoneySuccess extends AppCompatActivity {
                     public void onClick(View view) {
                         int cc = getIntent().getIntExtra("price", price);
                         updateCoin(cc);
-
                     }
                 }
         );

@@ -175,21 +175,15 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                                         if (user != null) {
-                                            database.collection("user").document(user.getUid()).collection("tokenId").add(token);
+                                            DocumentReference userRef = database.collection("user").document(user.getUid());
                                             Map<String, Object> userMap = new HashMap<>();
                                             userMap.put("name", username);
                                             userMap.put("email", email);
                                             userMap.put("coin", 0);
                                             userMap.put("ticket", "");
+                                            userRef.set(userMap);
 
-                                            // Add a new document with a generated ID
-                                            database.collection("user").document(user.getUid()).set(userMap)
-                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void aVoid) {
-                                                            //Toast.makeText(RegisterActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    });
+
                                             DocumentReference tokenRef = database.collection("user").document(user.getUid()).collection("token").document(token);
                                             Map<String, Object> tokenMap = new HashMap<>();
                                             tokenMap.put("token", token);
