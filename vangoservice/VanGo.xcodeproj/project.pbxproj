@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		083D57B0092ECA0A9872D481 /* Pods_VanGo_VanGoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDCF05EC0CB2761ED309329 /* Pods_VanGo_VanGoUITests.framework */; };
+		41FA8DB7237C0EEA00CFF934 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA8DB6237C0EEA00CFF934 /* ScannerViewController.swift */; };
+		41FA8DB9237C111900CFF934 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA8DB8237C111900CFF934 /* Utilities.swift */; };
+		41FA8DBB237C117100CFF934 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA8DBA237C117100CFF934 /* SignUpViewController.swift */; };
 		B880E437F6D1101862459EA1 /* Pods_VanGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65941341CB04ED35706DA156 /* Pods_VanGo.framework */; };
 		E953265232052EDBE3780085 /* Pods_VanGoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8034C2ED4E0836A378900AC4 /* Pods_VanGoTests.framework */; };
 		F60190A62376FC650030420A /* vango-logoo.png in Resources */ = {isa = PBXBuildFile; fileRef = F60190A52376FC650030420A /* vango-logoo.png */; };
+		F609CCEE237F267700D9E4DD /* userCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F609CCED237F267700D9E4DD /* userCell.swift */; };
 		F624F82E236769E400E04159 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F624F82D236769E400E04159 /* userData.swift */; };
 		F63040FA236D587800A7C0D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F63040F9236D587800A7C0D5 /* GoogleService-Info.plist */; };
 		F63040FC236D6B2900A7C0D5 /* Main Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63040FB236D6B2900A7C0D5 /* Main Path.swift */; };
@@ -51,12 +55,16 @@
 		08903BA59B3FC817B546299D /* Pods-VanGo-VanGoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGo-VanGoUITests.debug.xcconfig"; path = "Target Support Files/Pods-VanGo-VanGoUITests/Pods-VanGo-VanGoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		37BA4A6B996DE48C52A37451 /* Pods-VanGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGoTests.release.xcconfig"; path = "Target Support Files/Pods-VanGoTests/Pods-VanGoTests.release.xcconfig"; sourceTree = "<group>"; };
 		3A4A22325EC9FA5786E6CC16 /* Pods-VanGo-VanGoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGo-VanGoUITests.release.xcconfig"; path = "Target Support Files/Pods-VanGo-VanGoUITests/Pods-VanGo-VanGoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		41FA8DB6237C0EEA00CFF934 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		41FA8DB8237C111900CFF934 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		41FA8DBA237C117100CFF934 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		65941341CB04ED35706DA156 /* Pods_VanGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8034C2ED4E0836A378900AC4 /* Pods_VanGoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanGoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B247A4097340211C217F11 /* Pods-VanGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGo.debug.xcconfig"; path = "Target Support Files/Pods-VanGo/Pods-VanGo.debug.xcconfig"; sourceTree = "<group>"; };
 		CCDCF05EC0CB2761ED309329 /* Pods_VanGo_VanGoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanGo_VanGoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF209B288DF0ACCAB27F6B0E /* Pods-VanGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanGo.release.xcconfig"; path = "Target Support Files/Pods-VanGo/Pods-VanGo.release.xcconfig"; sourceTree = "<group>"; };
 		F60190A52376FC650030420A /* vango-logoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vango-logoo.png"; sourceTree = SOURCE_ROOT; };
+		F609CCED237F267700D9E4DD /* userCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userCell.swift; sourceTree = "<group>"; };
 		F624F82D236769E400E04159 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		F63040F9236D587800A7C0D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F63040FB236D6B2900A7C0D5 /* Main Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Main Path.swift"; sourceTree = "<group>"; };
@@ -163,8 +171,11 @@
 				F66A822C23660E73002B1F99 /* Assets.xcassets */,
 				F66A822E23660E73002B1F99 /* LaunchScreen.storyboard */,
 				F66A823123660E73002B1F99 /* Info.plist */,
+				41FA8DB8237C111900CFF934 /* Utilities.swift */,
 				F60190A52376FC650030420A /* vango-logoo.png */,
+				41FA8DBA237C117100CFF934 /* SignUpViewController.swift */,
 				F66A822923660E72002B1F99 /* VanGo.xcdatamodeld */,
+				41FA8DB6237C0EEA00CFF934 /* ScannerViewController.swift */,
 				F6765BD12367355900A85720 /* SetPath.swift */,
 				F6765BD3236745AA00A85720 /* const.swift */,
 				F624F82D236769E400E04159 /* userData.swift */,
@@ -173,6 +184,7 @@
 				F63040FD236D739900A7C0D5 /* PathCell.swift */,
 				F63040FF236D748D00A7C0D5 /* pathData.swift */,
 				F6871377237480A300D4D01B /* PathDetail.swift */,
+				F609CCED237F267700D9E4DD /* userCell.swift */,
 			);
 			path = VanGo;
 			sourceTree = "<group>";
@@ -442,10 +454,14 @@
 				F6871378237480A400D4D01B /* PathDetail.swift in Sources */,
 				F63040FE236D739900A7C0D5 /* PathCell.swift in Sources */,
 				F66A822B23660E72002B1F99 /* VanGo.xcdatamodeld in Sources */,
+				41FA8DB9237C111900CFF934 /* Utilities.swift in Sources */,
 				F6304100236D748D00A7C0D5 /* pathData.swift in Sources */,
 				F6765BD4236745AA00A85720 /* const.swift in Sources */,
 				F66A822123660E72002B1F99 /* AppDelegate.swift in Sources */,
 				F66A822323660E72002B1F99 /* SceneDelegate.swift in Sources */,
+				41FA8DBB237C117100CFF934 /* SignUpViewController.swift in Sources */,
+				F609CCEE237F267700D9E4DD /* userCell.swift in Sources */,
+				41FA8DB7237C0EEA00CFF934 /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,11 +638,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZXMLKBFPT8;
 				INFOPLIST_FILE = VanGo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vangosingup;
+				PRODUCT_BUNDLE_IDENTIFIER = vangosingup12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -641,11 +658,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZXMLKBFPT8;
 				INFOPLIST_FILE = VanGo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vangosingup;
+				PRODUCT_BUNDLE_IDENTIFIER = vangosingup12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

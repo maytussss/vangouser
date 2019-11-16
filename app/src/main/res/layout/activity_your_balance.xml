@@ -346,7 +346,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="35dp"
+                android:paddingBottom="45dp"
                >
 
                 <LinearLayout
@@ -392,13 +392,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
+                android:layout_marginBottom="0dp"
                 android:background="#2E3548"
                 android:padding="5dp">
 
                 <ImageButton
                     android:id="@+id/goscan"
-                    android:layout_width="170px"
-                    android:layout_height="170px"
+                    android:layout_width="130px"
+                    android:layout_height="130px"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/scanbtn" />
             </FrameLayout>
