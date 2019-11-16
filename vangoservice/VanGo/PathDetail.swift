@@ -46,11 +46,7 @@ class PathDetail: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITab
             docID.text = docIDarray[myIndex]
             schedule.text = "\(firstTripArray[myIndex]) - \(lastTripArray[myIndex])"
             
-            
             let db = Firestore.firestore()
-            
-    //        db.collection("trip").document(docIDarray[myIndex]).collection("queue").order(by: "timestamp")
-            
             
             // get data once time
             db.collection("trip").document(docIDarray[myIndex]).collection("queue").order(by: "timestamp").limit(to: 10).getDocuments() { (querySnapshot, err) in
@@ -58,7 +54,7 @@ class PathDetail: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITab
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-    //                    print("\(document.documentID) => \(document.data())")
+                        print("\(document.documentID) => \(document.data())")
                         self.USER.append(document.documentID)
     //                    print(type(of:data))
                     }
@@ -80,20 +76,11 @@ class PathDetail: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITab
                                                     let token = data["token"] as? String
                                                     self.USER.append(document.documentID)
                                                     self.tokenid.append(token!)
-                                                    print(self.tokenid)
                                                 }
-                                                print(self.tokenid)
                                         }
                                 
                                     }
                             }
-    //                let joined = self.tokenid.joined(separator:"\",\"")
-    //
-    //                let tokens = "tokens=%5B\""+joined+"\"%5D"
-    //
-    //                self.tokensid += self.url+tokens
-    //
-    //                print(self.tokensid)
                                              
                     }
 
@@ -132,6 +119,19 @@ class PathDetail: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITab
         }
         USER = [String]()
         print("USERAFTERDELETE ",USER)
+        print(tokenid)
+    }
+    
+    @IBAction func printidd(_ sender: Any) {
+        print(tokenid)
+        let joined = self.tokenid.joined(separator:"\",\"")
+           
+        let tokens = "tokens=%5B\""+joined+"\"%5D"
+           
+        self.tokensid += self.url+tokens
+           
+        print(self.tokensid)
+    
     }
     override func viewWillAppear(_ animated: Bool)
     {
@@ -152,7 +152,7 @@ class PathDetail: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITab
         db2.collection("trip").document(docIDarray[myIndex]).collection("queue").getDocuments()
             {
                 querySnapshot , error in
-                if let error = error
+                if error != nil
                 {
                     print("errorrrrr")
                 }
@@ -161,7 +161,7 @@ class PathDetail: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITab
 //                        print("\(document.documentID) => \(document.data())")
 //                    }
 
-                    self.userArray = querySnapshot!.documents.flatMap({Queue(dictionary: $0.data())})
+                    self.userArray = querySnapshot!.documents.compactMap({Queue(dictionary: $0.data())})
                     print(self.userArray)
                     DispatchQueue.main.async {
                         self.userTable.reloadData()
