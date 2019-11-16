@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Foundation
+import SafariServices
 
 class PathDetail: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource {
     
@@ -22,7 +23,7 @@ class PathDetail: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITab
     var USER = [String]()
     var tokenid = [String]()
     // บวกtokensหลัง &
-    let url = "https://us-central1-vango-2edd2.cloudfunctions.net/pushnoti?msg=hello&"
+    let url = "us-central1-vango-2edd2.cloudfunctions.net/pushnoti?msg=hello&"
     var tokensid = ""
     
     public var PathDataArray = [Path]()
@@ -126,13 +127,21 @@ class PathDetail: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITab
         print(tokenid)
         let joined = self.tokenid.joined(separator:"\",\"")
            
-        let tokens = "tokens=%5B\""+joined+"\"%5D"
+        let tokens = "tokens=[\""+joined+"\"]"
            
         self.tokensid += self.url+tokens
-           
-        print(self.tokensid)
-    
+        print("\"https://"+self.tokensid+"\"")
+        showSafari(for: "\"https://"+self.tokensid+"\"")
     }
+    
+    func showSafari(for url:String){
+        guard let url = URL(string: url) else {
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool)
     {
         

@@ -281,10 +281,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNQ-wc-GZL">
-                                <rect key="frame" x="44" y="586" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNQ-wc-GZL">
+                                <rect key="frame" x="62" y="590" width="43" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Print"/>
                                 <connections>
                                     <action selector="printidd:" destination="hLw-nP-Eda" eventType="touchUpInside" id="eEy-lg-mx0"/>
                                 </connections>
@@ -294,6 +294,8 @@
                         <constraints>
                             <constraint firstItem="9Bh-Ia-4wo" firstAttribute="top" secondItem="x7O-uu-3L9" secondAttribute="bottom" constant="10" id="6LJ-dr-a9G"/>
                             <constraint firstItem="x7O-uu-3L9" firstAttribute="leading" secondItem="e4b-fe-9IX" secondAttribute="leading" id="Cgf-GE-dhs"/>
+                            <constraint firstItem="j2U-9o-4QI" firstAttribute="leading" secondItem="oNQ-wc-GZL" secondAttribute="trailing" constant="45.5" id="EIK-4N-Ihh"/>
+                            <constraint firstItem="15g-kv-aeK" firstAttribute="bottom" secondItem="oNQ-wc-GZL" secondAttribute="bottom" constant="41" id="EUa-8Z-RlB"/>
                             <constraint firstItem="x7O-uu-3L9" firstAttribute="centerX" secondItem="0al-tX-ckH" secondAttribute="centerX" id="EhO-en-ut9"/>
                             <constraint firstItem="15g-kv-aeK" firstAttribute="bottom" secondItem="b6b-ha-4uK" secondAttribute="bottom" constant="270" id="GrO-We-Isa"/>
                             <constraint firstItem="b6b-ha-4uK" firstAttribute="centerX" secondItem="0al-tX-ckH" secondAttribute="centerX" id="H3X-eU-PqU"/>
@@ -311,6 +313,7 @@
                             <constraint firstItem="15g-kv-aeK" firstAttribute="bottom" secondItem="e4b-fe-9IX" secondAttribute="bottom" constant="240" id="ct9-cz-qL6"/>
                             <constraint firstItem="15g-kv-aeK" firstAttribute="bottom" secondItem="o7N-nz-Hz2" secondAttribute="bottom" constant="240" id="eCA-ud-KkP"/>
                             <constraint firstItem="J1h-hN-qmU" firstAttribute="leading" secondItem="15g-kv-aeK" secondAttribute="leading" constant="30" id="hpb-XK-9Uy"/>
+                            <constraint firstItem="oNQ-wc-GZL" firstAttribute="leading" secondItem="15g-kv-aeK" secondAttribute="leading" constant="62" id="lHl-o4-whS"/>
                             <constraint firstItem="x7O-uu-3L9" firstAttribute="top" secondItem="J1h-hN-qmU" secondAttribute="bottom" constant="25" id="pQ2-Tr-3dt"/>
                             <constraint firstItem="j2U-9o-4QI" firstAttribute="top" secondItem="OkT-Xe-frs" secondAttribute="bottom" constant="120" id="pwp-6g-mpX"/>
                             <constraint firstItem="31V-DN-uJS" firstAttribute="leading" secondItem="J1h-hN-qmU" secondAttribute="trailing" constant="2" id="qxH-7x-ien"/>
