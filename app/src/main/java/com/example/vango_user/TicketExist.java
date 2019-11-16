@@ -5,21 +5,29 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -109,10 +117,25 @@ public class TicketExist extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists()) {
-                            String tripDocId = documentSnapshot.getString("ticket");
+                            final String tripDocId = documentSnapshot.getString("ticket");
                             if (!TextUtils.isEmpty(tripDocId)) {
                                 DocumentReference tripRef = database.collection("trip").document(tripDocId).collection("queue").document(uid);
                                 DocumentReference userRef = database.collection("user").document(uid);
+                                final CollectionReference tokenRef = database.collection("trip").document(tripDocId).collection("queue").document(uid).collection("token");
+                                tokenRef
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                                        DocumentReference queueTokenRef = database.collection("trip").document(tripDocId).collection("queue").document(uid).collection("token").document(document.getId());
+                                                        queueTokenRef.delete();
+                                                    }
+
+                                                }
+                                            }
+                                        });
                                 tripRef.delete();
                                 userRef.update("ticket", "");
                             }
