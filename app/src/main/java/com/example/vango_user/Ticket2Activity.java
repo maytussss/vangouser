@@ -33,15 +33,13 @@ public class Ticket2Activity extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
-
-
-
         A2 = findViewById(R.id.buybt);
         A2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent A2 = new Intent(Ticket2Activity.this,ScanHome.class);
                 startActivity(A2);
+                finish();
             }
         });
 

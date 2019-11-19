@@ -72,6 +72,7 @@ public class TicketActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent b2 = new Intent(TicketActivity.this,MainActivity.class);
                 startActivity(b2);
+                finish();
             }
         });
 
