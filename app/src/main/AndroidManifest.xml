@@ -14,7 +14,16 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".not_correct_qrcode"></activity>
+        <service
+            android:name=".Notification"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <activity android:name=".not_correct_qrcode" />
         <activity android:name=".AddMoneySuccess" />
         <activity android:name=".TicketExist" />
         <activity android:name=".FailBillPayment" />
