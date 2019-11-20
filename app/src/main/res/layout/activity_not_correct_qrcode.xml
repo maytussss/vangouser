@@ -25,7 +25,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="QR code not correct.\nPlease try again"
+                    android:text="QR code is not correct.\nPlease try again"
                     android:textSize="7pt"
                     android:textColor="#000000"
                     />
@@ -40,12 +40,13 @@
                     android:id="@+id/back_page_not_correct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#FFF"
+                    android:background="@drawable/button3"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:textColor="#484848"
+                    android:textColor="#FFFFFF"
                     android:textSize="7pt"
-                    android:text="Back" />
+                    android:text="Cancel"
+                    />
 
                 <Button
                     android:id="@+id/try_again_btn"
