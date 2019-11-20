@@ -97,10 +97,12 @@ public class MainActivity extends AppCompatActivity {
                                             if(!tripDocId.isEmpty()){
                                                 Intent intent = new Intent(MainActivity.this,TicketExist.class);
                                                 startActivity(intent);
+                                                finish();
                                             }
                                             else{
                                                 Intent intent = new Intent(MainActivity.this,ScanHome.class);
                                                 startActivity(intent);
+                                                finish();
                                             }
                                         }
                                     }
@@ -131,10 +133,12 @@ public class MainActivity extends AppCompatActivity {
                                             if(!tripDocId.isEmpty()){
                                                 Intent intent = new Intent(MainActivity.this,TicketActivity.class);
                                                 startActivity(intent);
+                                                finish();
                                             }
                                             else{
                                                 Intent intent = new Intent(MainActivity.this,Ticket2Activity.class);
                                                 startActivity(intent);
+                                                finish();
                                             }
                                         }
                                     }

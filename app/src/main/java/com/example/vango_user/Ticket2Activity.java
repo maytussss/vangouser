@@ -44,6 +44,14 @@ public class Ticket2Activity extends AppCompatActivity {
         });
 
     }
+    public void onBackPressed()
+    {
+        //do whatever you want the 'Back' button to do
+        //as an example the 'Back' button is set to start a new Activity named 'NewActivity'
+        Intent intent = new Intent(Ticket2Activity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 }
