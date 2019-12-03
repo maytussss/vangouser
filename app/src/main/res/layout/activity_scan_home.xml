@@ -36,7 +36,7 @@
             >
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
+                android:layout_height="350dp"
                 android:layout_gravity="top"
                 android:background="#B1B1B1"
                 >
@@ -44,10 +44,10 @@
                 <fragment
                     android:id="@+id/barcode_scanner"
                     android:name="info.androidhive.barcode.BarcodeReader"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
+                    android:layout_width="300dp"
+                    android:layout_height="350dp"
                     android:layout_gravity="center"
+                    android:layout_centerInParent="true"
                     android:layout_marginTop="0dp"
                     app:auto_focus="true"
                     app:use_flash="false" />
