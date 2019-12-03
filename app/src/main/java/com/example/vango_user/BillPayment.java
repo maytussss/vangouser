@@ -236,6 +236,7 @@ public class BillPayment extends AppCompatActivity {
                         Map<String, Object> userTicket = new HashMap<>();
                         userTicket.put("timestamp", FieldValue.serverTimestamp());
                         userTicket.put("status", "");
+                        userTicket.put("status2", "");
                         docRef.set(userTicket);
 
 

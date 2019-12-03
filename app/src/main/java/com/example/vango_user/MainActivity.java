@@ -1,6 +1,7 @@
 package com.example.vango_user;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,7 +32,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     private tripAdapter adapter;
     TextView usernameDisplay;
+    TextView statusDisplay;
     String uid;
     final String KEY_USERNAME = "name";
     String token;
@@ -67,11 +71,14 @@ public class MainActivity extends AppCompatActivity {
         setUpRecyclerView();
 
         usernameDisplay = findViewById(R.id.usernameDisplay);
+        statusDisplay = findViewById(R.id.status);
 
         Toolbar x = findViewById(R.id.menubar);
         setSupportActionBar(x);
 
         getUser();
+        getStatus();
+        statusWatch();
 
 //<<<<<<< HEAD
 
@@ -146,6 +153,116 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    private void statusWatch(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            uid = user.getUid();
+            //usernameDisplay.setText(uid);
+        }
+
+        final DocumentReference docRef = database.collection("user").document(uid);;
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    return;
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    DocumentReference docRef = database.collection("user").document(uid);
+                    docRef.get()
+                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    if (documentSnapshot.exists()) {
+                                        final String ticket = documentSnapshot.getString("ticket");
+                                        if (!ticket.equals("")) {
+                                            final DocumentReference docRef = database.collection("trip").document(ticket).collection("queue").document(uid);
+                                            docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                                                    @Nullable FirebaseFirestoreException e) {
+                                                    if (e != null) {
+                                                        return;
+                                                    }
+
+                                                    if (snapshot != null && snapshot.exists()) {
+                                                        getStatus();
+                                                    }
+                                                }
+                                            });
+                                        }
+                                        else
+                                        {
+                                            String statussText = "Where do you want to go?";
+                                            statusDisplay.setText(statussText);
+                                        }
+                                    }
+                                }
+                            });
+
+                }
+            }
+        });
+    }
+
+
+    private void getStatus(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            uid = user.getUid();
+            //usernameDisplay.setText(uid);
+        }
+
+        DocumentReference docRef = database.collection("user").document(uid);
+        docRef.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            final String ticket = documentSnapshot.getString("ticket");
+                            if (!ticket.equals("")) {
+                                final DocumentReference statusRef = database.collection("trip").document(ticket).collection("queue").document(uid);
+                                statusRef.get()
+                                        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                final String status = documentSnapshot.getString("status2");
+
+                                                DocumentReference tripRef = database.collection("trip").document(ticket);
+                                                tripRef.get()
+                                                        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                                            @Override
+                                                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                                if (documentSnapshot.exists()) {
+
+                                                                    String start = documentSnapshot.getString("start");
+                                                                    String stop = documentSnapshot.getString("stop");
+                                                                    if (status.equals("call1")) {
+                                                                        String statusText = "Van from " + start + " to " + stop + " is going to arrive soon";
+                                                                        statusDisplay.setText(statusText);
+                                                                    } else if (status.equals("call2")) {
+                                                                        String statusText = "Van from " + start + " to " + stop + " arrived";
+                                                                        statusDisplay.setText(statusText);
+                                                                    } else if (status.equals("")) {
+                                                                        String statusText = "You are waiting for the van from " + start + " to " + stop;
+                                                                        statusDisplay.setText(statusText);
+                                                                    }
+                                                                }
+                                                            }
+                                                        });
+                                            }
+                                        });
+                            } else {
+                                String statussText = "Where do you want to go?";
+                                statusDisplay.setText(statussText);
+                            }
+                        }
+                    }
+                });
     }
 
     private void getUser(){
